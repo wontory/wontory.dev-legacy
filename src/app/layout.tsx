@@ -1,9 +1,9 @@
 import { Metadata } from 'next'
 
+import ThemeProvider from '@/components/ui/theme-provider'
 import Header from '@/components/Header/Header'
-import Footer from '@/components/Footer'
+import Footer from '@/components/Footer/Footer'
 import '@/styles/globals.css'
-import { ThemeProvider } from '@/components/theme-provider'
 
 export const metadata: Metadata = {
   title: {
@@ -28,7 +28,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          {children}
+          <div className="container">{children}</div>
           <Footer />
         </ThemeProvider>
       </body>
