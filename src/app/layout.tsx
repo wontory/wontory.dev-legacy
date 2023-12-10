@@ -1,8 +1,9 @@
 import { Metadata } from 'next'
 
-import Header from '@/components/Header'
+import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer'
 import '@/styles/globals.css'
+import { ThemeProvider } from '@/components/theme-provider'
 
 export const metadata: Metadata = {
   title: {
@@ -20,9 +21,16 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className="antialiased">
-        <Header />
-        {children}
-        <Footer />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   )
