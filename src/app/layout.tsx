@@ -1,8 +1,8 @@
 import { Metadata } from 'next'
 
 import ThemeProvider from '@/components/ui/theme-provider'
-import Header from '@/components/Header/Header'
-import Footer from '@/components/Footer/Footer'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import '@/styles/globals.css'
 
 export const metadata: Metadata = {
