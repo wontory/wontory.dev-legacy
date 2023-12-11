@@ -1,3 +1,3 @@
 export default function Home() {
-  return 'Hello, World!'
+  return <div className="container relative">Hello, World!</div>
 }
