@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
+import { ThemeProvider } from '@/components/theme-provider'
 
 const wanted = localFont({
   src: '../public/fonts/WantedSansVariable.woff2',
@@ -24,7 +25,14 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={`${wanted.variable} font-wanted antialiased`}>
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )
