@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import localFont from 'next/font/local'
 
 import ThemeProvider from '@/components/ui/theme-provider'
 import Header from '@/components/Header'
@@ -13,6 +14,11 @@ export const metadata: Metadata = {
   description: '프론트엔드 개발자 Wontory의 기술 블로그',
 }
 
+const wanted = localFont({
+  src: '../styles/fonts/WantedSansVariable.woff2',
+  variable: '--font-wanted',
+})
+
 export default function RootLayout({
   children,
 }: {
@@ -20,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className="antialiased">
+      <body className={`${wanted.variable} font-wanted antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
