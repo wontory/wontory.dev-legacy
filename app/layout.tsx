@@ -42,7 +42,7 @@ export default function RootLayout({
         >
           <div className="relative flex min-h-screen flex-col">
             <SiteHeader />
-            <div className="flex-1">{children}</div>
+            <div className="flex-1 py-6 lg:py-8">{children}</div>
             <SiteFooter />
           </div>
         </ThemeProvider>
