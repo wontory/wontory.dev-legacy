@@ -12,7 +12,7 @@ export function MainNav() {
     <div className="mr-4 flex">
       <Link href="/" className="mr-6 flex items-center space-x-2">
         {/* <Icons.logo className="h-6 w-6" /> */}
-        <span className="inline-block">
+        <span className="font-square inline-block">
           <strong>won</strong>tech
         </span>
       </Link>

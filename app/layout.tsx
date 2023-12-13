@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Noto_Sans_KR } from 'next/font/google'
 import localFont from 'next/font/local'
 import './globals.css'
 
@@ -7,10 +8,16 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 
-const wanted = localFont({
-  src: '../public/fonts/WantedSansVariable.woff2',
+const notoSans = Noto_Sans_KR({
+  subsets: ['latin'],
   display: 'swap',
-  variable: '--font-wanted',
+  variable: '--font-noto',
+})
+
+const nanumSquare = localFont({
+  src: '../public/fonts/NanumSquareNeo-Variable.woff2',
+  display: 'swap',
+  variable: '--font-square',
 })
 
 export const metadata: Metadata = {
@@ -30,8 +37,9 @@ export default function RootLayout({
     <html lang="ko">
       <body
         className={cn(
-          'font-wanted min-h-screen bg-background antialiased',
-          wanted.variable,
+          'font-noto min-h-screen bg-background antialiased',
+          notoSans.variable,
+          nanumSquare.variable,
         )}
       >
         <ThemeProvider
