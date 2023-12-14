@@ -2,20 +2,9 @@ import { format, parseISO } from 'date-fns'
 import { allArticles } from 'contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 
-export const generateStaticParams = async () =>
-  allArticles.map((article) => ({ slug: article._raw.flattenedPath }))
-
-export const generateMetadata = ({ params }: { params: { slug: string } }) => {
-  const article = allArticles.find(
-    (article) => article._raw.flattenedPath === params.slug,
-  )
-  if (!article) throw new Error(`article not found for slug: ${params.slug}`)
-  return { title: article.title }
-}
-
 const ArticleLayout = ({ params }: { params: { slug: string } }) => {
   const article = allArticles.find(
-    (article) => article._raw.flattenedPath === params.slug,
+    (article) => article._raw.flattenedPath === `article/${params.slug}`,
   )
   if (!article) throw new Error(`article not found for slug: ${params.slug}`)
 

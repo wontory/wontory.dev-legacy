@@ -2,6 +2,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { format, parseISO } from 'date-fns'
 import { Article } from 'contentlayer/generated'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
+import { Badge } from '@/components/ui/badge'
 import {
   Card,
   CardContent,
@@ -10,8 +12,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { AspectRatio } from '@/components/ui/aspect-ratio'
-import { Badge } from '@/components/ui/badge'
 
 export function CardThumbnail({ src }: { src: string }) {
   return (

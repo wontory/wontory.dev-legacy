@@ -2,7 +2,7 @@ import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 
 export const Article = defineDocumentType(() => ({
   name: 'Article',
-  filePathPattern: `**/*.mdx`,
+  filePathPattern: `article/**/*.mdx`,
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
@@ -15,12 +15,12 @@ export const Article = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: 'string',
-      resolve: (article) => `/article/${article._raw.flattenedPath}`,
+      resolve: (article) => `/${article._raw.flattenedPath}`,
     },
   },
 }))
 
 export default makeSource({
-  contentDirPath: 'articles',
+  contentDirPath: 'content',
   documentTypes: [Article],
 })

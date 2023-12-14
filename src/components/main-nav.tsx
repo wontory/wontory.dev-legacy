@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/libs/utils'
 
 export function MainNav() {
   const pathname = usePathname()
@@ -20,7 +20,7 @@ export function MainNav() {
         <Link
           href="/article"
           className={cn(
-            'transition-colors hover:text-foreground/80',
+            'hover:text-foreground/80 transition-colors',
             pathname?.startsWith('/article')
               ? 'text-foreground'
               : 'text-foreground/60',
@@ -31,7 +31,7 @@ export function MainNav() {
         <Link
           href="/project"
           className={cn(
-            'transition-colors hover:text-foreground/80',
+            'hover:text-foreground/80 transition-colors',
             pathname?.startsWith('/project')
               ? 'text-foreground'
               : 'text-foreground/60',

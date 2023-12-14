@@ -3,7 +3,7 @@ import { Noto_Sans_KR } from 'next/font/google'
 import localFont from 'next/font/local'
 import './globals.css'
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/libs/utils'
 import { ThemeProvider } from '@/components/theme-provider'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
@@ -15,7 +15,7 @@ const notoSans = Noto_Sans_KR({
 })
 
 const nanumSquare = localFont({
-  src: '../public/fonts/NanumSquareNeo-Variable.woff2',
+  src: '../assets/fonts/NanumSquareNeo-Variable.woff2',
   display: 'swap',
   variable: '--font-square',
 })
@@ -37,7 +37,7 @@ export default function RootLayout({
     <html lang="ko">
       <body
         className={cn(
-          'font-noto min-h-screen bg-background antialiased',
+          'font-noto bg-background min-h-screen antialiased',
           notoSans.variable,
           nanumSquare.variable,
         )}
