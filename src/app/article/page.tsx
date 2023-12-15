@@ -1,6 +1,11 @@
+import { Metadata } from 'next'
 import { compareDesc } from 'date-fns'
 import { allArticles } from 'contentlayer/generated'
 import { ArticleCard } from '@/containers/article/ArticleCard'
+
+export const metadata: Metadata = {
+  title: '블로그',
+}
 
 export default function Home() {
   const articles = allArticles.sort((a, b) =>

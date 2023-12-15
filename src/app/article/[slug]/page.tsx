@@ -1,8 +1,24 @@
+import { Metadata } from 'next'
 import { format, parseISO } from 'date-fns'
 import { allArticles } from 'contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 
-const ArticleLayout = ({ params }: { params: { slug: string } }) => {
+type Props = {
+  params: { slug: string }
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const article = allArticles.find(
+    (article) => article._raw.flattenedPath === `article/${params.slug}`,
+  )
+  if (!article) throw new Error(`article not found for slug: ${params.slug}`)
+
+  return {
+    title: article?.title,
+  }
+}
+
+export default function Page({ params }: Props) {
   const article = allArticles.find(
     (article) => article._raw.flattenedPath === `article/${params.slug}`,
   )
@@ -24,5 +40,3 @@ const ArticleLayout = ({ params }: { params: { slug: string } }) => {
     </article>
   )
 }
-
-export default ArticleLayout
