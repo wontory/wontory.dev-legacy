@@ -16,6 +16,30 @@ module.exports = {
       },
     },
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            blockquote: {
+              quotes: 'none',
+              fontStyle: 'normal',
+              fontWeight: 'normal',
+            },
+            code: {
+              borderRadius: '0.375rem',
+              borderWidth: '1px',
+              padding: '0.125rem 0.25rem',
+              backgroundColor: 'var(--code-background)',
+              borderColor: 'var(--code-border)',
+            },
+            'code::before': {
+              content: 'none',
+            },
+            'code::after': {
+              content: 'none',
+            },
+          },
+        },
+      },
       fontFamily: {
         noto: ['var(--font-noto)'],
       },
