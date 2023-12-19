@@ -3,13 +3,14 @@ import Link from 'next/link'
 import { format, parseISO } from 'date-fns'
 import { allArticles } from 'contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
+import type { MDXComponents } from 'mdx/types'
 import '@/styles/prism.css'
 
 type Props = {
   params: { slug: string }
 }
 
-const mdxComponents = {
+const mdxComponents: MDXComponents = {
   a: ({ href, children }) => (
     <Link href={href as string} className="text-primary hover:text-primary/80">
       {children}
