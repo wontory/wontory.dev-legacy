@@ -1,4 +1,19 @@
-import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+import {
+  defineDocumentType,
+  makeSource,
+  ComputedFields,
+} from 'contentlayer/source-files'
+
+const computedFields: ComputedFields = {
+  slug: {
+    type: 'string',
+    resolve: (doc) => `/${doc._raw.flattenedPath}`,
+  },
+  slugAsParams: {
+    type: 'string',
+    resolve: (doc) => doc._raw.flattenedPath.split('/').slice(1).join('/'),
+  },
+}
 
 export const Article = defineDocumentType(() => ({
   name: 'Article',
@@ -10,14 +25,8 @@ export const Article = defineDocumentType(() => ({
     thumbnail: { type: 'string', required: false },
     date: { type: 'date', required: true },
     category: { type: 'string', required: true },
-    tags: { type: 'list', of: { type: 'string' }, required: false },
   },
-  computedFields: {
-    url: {
-      type: 'string',
-      resolve: (article) => `/${article._raw.flattenedPath}`,
-    },
-  },
+  computedFields,
 }))
 
 export default makeSource({

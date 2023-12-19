@@ -45,7 +45,7 @@ export function ArticleCard(article: Article) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <Link href={article.url}>
+    <Link href={article.slug}>
       <Card
         className="overflow-hidden duration-200 hover:shadow-xl"
         onMouseOver={() => setIsHovered(true)}
