@@ -7,11 +7,17 @@ type Props = {
   params: { slug: string }
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+function findArticleBySlug(slug: string) {
   const article = allArticles.find(
-    (article) => article._raw.flattenedPath === `article/${params.slug}`,
+    (article) => article._raw.flattenedPath === `article/${slug}`,
   )
-  if (!article) throw new Error(`article not found for slug: ${params.slug}`)
+  if (!article) throw new Error(`article not found for slug: ${slug}`)
+
+  return article
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const article = findArticleBySlug(params.slug)
 
   return {
     title: article?.title,
@@ -19,10 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default function Page({ params }: Props) {
-  const article = allArticles.find(
-    (article) => article._raw.flattenedPath === `article/${params.slug}`,
-  )
-  if (!article) throw new Error(`article not found for slug: ${params.slug}`)
+  const article = findArticleBySlug(params.slug)
 
   const MDXComponent = useMDXComponent(article.body.code)
 
