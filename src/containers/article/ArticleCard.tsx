@@ -15,8 +15,8 @@ import {
 
 export function CardThumbnail({ src }: { src: string }) {
   return (
-    <div className="hidden sm:block">
-      <AspectRatio ratio={16 / 9}>
+    <div className="hidden overflow-hidden sm:block">
+      <AspectRatio ratio={16 / 9} className="duration-200 hover:scale-110">
         <Image
           src={src}
           alt="thumbnail"
