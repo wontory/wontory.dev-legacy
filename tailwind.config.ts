@@ -18,7 +18,6 @@ module.exports = {
     extend: {
       fontFamily: {
         noto: ['var(--font-noto)'],
-        square: ['var(--font-square)'],
       },
       colors: {
         border: 'hsl(var(--border))',

@@ -14,12 +14,6 @@ const notoSans = Noto_Sans_KR({
   variable: '--font-noto',
 })
 
-const nanumSquare = localFont({
-  src: '../assets/fonts/NanumSquareNeo-Variable.woff2',
-  display: 'swap',
-  variable: '--font-square',
-})
-
 export const metadata: Metadata = {
   title: {
     template: '%s | WONTECH',
@@ -37,9 +31,8 @@ export default function RootLayout({
     <html lang="ko">
       <body
         className={cn(
-          'font-noto bg-background min-h-screen antialiased',
+          'min-h-screen bg-background font-noto antialiased',
           notoSans.variable,
-          nanumSquare.variable,
         )}
       >
         <ThemeProvider

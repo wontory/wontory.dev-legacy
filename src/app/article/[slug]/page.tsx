@@ -35,7 +35,7 @@ export default function Page({ params }: Props) {
         <time dateTime={article.date} className="mb-1 text-xs text-gray-600">
           {format(parseISO(article.date), 'LLLL d, yyyy')}
         </time>
-        <h1 className="font-square text-3xl font-bold">{article.title}</h1>
+        <h1 className="text-3xl font-bold">{article.title}</h1>
       </div>
       <div className="prose mx-auto">
         <MDXComponent />

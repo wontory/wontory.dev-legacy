@@ -38,9 +38,7 @@ export function ArticleCard(article: Article) {
           <Badge>{article.category}</Badge>
         </CardHeader>
         <CardContent className="flex flex-col gap-2 pb-2">
-          <CardTitle className="font-square font-bold">
-            {article.title}
-          </CardTitle>
+          <CardTitle className="font-bold">{article.title}</CardTitle>
           {article.description}
         </CardContent>
         <CardFooter>

@@ -12,7 +12,7 @@ export function MainNav() {
     <div className="mr-4 flex">
       <Link href="/" className="mr-6 flex items-center space-x-2">
         {/* <Icons.logo className="h-6 w-6" /> */}
-        <span className="font-square inline-block">
+        <span className="inline-block">
           <strong>won</strong>tech
         </span>
       </Link>
@@ -20,7 +20,7 @@ export function MainNav() {
         <Link
           href="/article"
           className={cn(
-            'hover:text-foreground/80 transition-colors',
+            'transition-colors hover:text-foreground/80',
             pathname?.startsWith('/article')
               ? 'text-foreground'
               : 'text-foreground/60',
@@ -31,7 +31,7 @@ export function MainNav() {
         <Link
           href="/project"
           className={cn(
-            'hover:text-foreground/80 transition-colors',
+            'transition-colors hover:text-foreground/80',
             pathname?.startsWith('/project')
               ? 'text-foreground'
               : 'text-foreground/60',
