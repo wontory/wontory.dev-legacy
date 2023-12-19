@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { format, parseISO } from 'date-fns'
@@ -13,10 +16,19 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 
-export function CardThumbnail({ src }: { src: string }) {
+export function CardThumbnail({
+  src,
+  isHovered,
+}: {
+  src: string
+  isHovered: boolean
+}) {
   return (
     <div className="hidden overflow-hidden sm:block">
-      <AspectRatio ratio={16 / 9} className="duration-200 hover:scale-110">
+      <AspectRatio
+        ratio={16 / 9}
+        className={`duration-200 ${isHovered && 'scale-110'}`}
+      >
         <Image
           src={src}
           alt="thumbnail"
@@ -30,10 +42,19 @@ export function CardThumbnail({ src }: { src: string }) {
 }
 
 export function ArticleCard(article: Article) {
+  const [isHovered, setIsHovered] = useState(false)
+
   return (
     <Link href={article.url}>
-      <Card className="overflow-hidden">
-        <CardThumbnail src="https://placehold.co/600x400/png" />
+      <Card
+        className="overflow-hidden duration-200 hover:shadow-xl"
+        onMouseOver={() => setIsHovered(true)}
+        onMouseOut={() => setIsHovered(false)}
+      >
+        <CardThumbnail
+          src="https://placehold.co/600x400/png"
+          isHovered={isHovered}
+        />
         <CardHeader className="items-start pb-2">
           <Badge>{article.category}</Badge>
         </CardHeader>
