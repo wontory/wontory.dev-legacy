@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { format, parseISO } from 'date-fns'
 import { allArticles } from 'contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
+import '@/styles/prism.css'
 
 type Props = {
   params: { slug: string }
@@ -37,7 +38,7 @@ export default function Page({ params }: Props) {
         </time>
         <h1 className="text-3xl font-bold">{article.title}</h1>
       </div>
-      <div className="prose mx-auto">
+      <div className="prose mx-auto max-w-screen-md">
         <MDXComponent />
       </div>
     </article>
