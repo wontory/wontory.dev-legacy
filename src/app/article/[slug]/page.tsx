@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import { format, parseISO } from 'date-fns'
 import { allArticles } from 'contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
@@ -6,6 +7,14 @@ import '@/styles/prism.css'
 
 type Props = {
   params: { slug: string }
+}
+
+const mdxComponents = {
+  a: ({ href, children }) => (
+    <Link href={href as string} className="text-primary hover:text-primary/80">
+      {children}
+    </Link>
+  ),
 }
 
 function findArticleBySlug(slug: string) {
@@ -38,8 +47,8 @@ export default function Page({ params }: Props) {
         </time>
         <h1 className="text-3xl font-bold">{article.title}</h1>
       </div>
-      <div className="prose mx-auto max-w-screen-md">
-        <MDXComponent />
+      <div className="prose mx-auto max-w-screen-md dark:prose-invert">
+        <MDXComponent components={mdxComponents} />
       </div>
     </article>
   )
