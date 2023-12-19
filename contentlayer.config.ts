@@ -3,6 +3,10 @@ import {
   makeSource,
   ComputedFields,
 } from 'contentlayer/source-files'
+import remarkGfm from 'remark-gfm'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypePrismPlus from 'rehype-prism-plus'
+import rehypeSlug from 'rehype-slug'
 
 const computedFields: ComputedFields = {
   slug: {
@@ -32,4 +36,8 @@ export const Article = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: 'content',
   documentTypes: [Article],
+  mdx: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings, rehypePrismPlus],
+  },
 })
