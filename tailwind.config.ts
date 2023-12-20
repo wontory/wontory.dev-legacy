@@ -20,9 +20,14 @@ module.exports = {
         DEFAULT: {
           css: {
             blockquote: {
-              quotes: 'none',
               fontStyle: 'normal',
               fontWeight: 'normal',
+            },
+            'p::before': {
+              content: 'none',
+            },
+            'p::after': {
+              content: 'none',
             },
             code: {
               borderRadius: '0.375rem',
