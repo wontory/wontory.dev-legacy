@@ -4,6 +4,7 @@ import { format, parseISO } from 'date-fns'
 import { allArticles } from 'contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import type { MDXComponents } from 'mdx/types'
+import { TableOfContents } from '@/containers/article/TableOfContents'
 import '@/styles/prism.css'
 
 type Props = {
@@ -48,25 +49,12 @@ export default function Page({ params }: Props) {
         </time>
         <h1 className="text-3xl font-bold">{article.title}</h1>
       </div>
-      <div className="flex xl:justify-between">
+      <div className="flex xl:justify-around">
         <div className="prose mx-auto w-full max-w-screen-md dark:prose-invert xl:mx-0">
           <MDXComponent components={mdxComponents} />
         </div>
-        {/* need to refactor */}
         <div className="hidden xl:block">
-          {article.headings.map(
-            (heading: { slug: string; level: number; text: string }) => (
-              <div key={`#${heading.slug}`}>
-                <Link
-                  data-level={heading.level}
-                  href={`${params.slug}#${heading.slug}`}
-                  style={{ paddingLeft: `${(heading.level - 1) * 1}rem` }}
-                >
-                  {heading.text}
-                </Link>
-              </div>
-            ),
-          )}
+          <TableOfContents article={article} slug={params.slug} />
         </div>
       </div>
     </article>
