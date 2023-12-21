@@ -42,14 +42,32 @@ export default function Page({ params }: Props) {
 
   return (
     <article className="container mx-auto">
-      <div className="mb-8 text-center">
+      <div className="mb-24 text-center">
         <time dateTime={article.date} className="mb-1 text-xs text-gray-600">
           {format(parseISO(article.date), 'LLLL d, yyyy')}
         </time>
         <h1 className="text-3xl font-bold">{article.title}</h1>
       </div>
-      <div className="prose mx-auto max-w-screen-md dark:prose-invert">
-        <MDXComponent components={mdxComponents} />
+      <div className="flex xl:justify-between">
+        <div className="prose mx-auto w-full max-w-screen-md dark:prose-invert xl:mx-0">
+          <MDXComponent components={mdxComponents} />
+        </div>
+        {/* need to refactor */}
+        <div className="hidden xl:block">
+          {article.headings.map(
+            (heading: { slug: string; level: number; text: string }) => (
+              <div key={`#${heading.slug}`}>
+                <Link
+                  data-level={heading.level}
+                  href={`${params.slug}#${heading.slug}`}
+                  style={{ paddingLeft: `${(heading.level - 1) * 1}rem` }}
+                >
+                  {heading.text}
+                </Link>
+              </div>
+            ),
+          )}
+        </div>
       </div>
     </article>
   )
