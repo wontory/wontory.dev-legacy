@@ -20,7 +20,7 @@ export function TableOfContents({
         (heading: { slug: string; level: number; text: string }) => (
           <div key={`#${heading.slug}`} className="w-64 truncate">
             <Link
-              className={cn('text-sm', `pl-${(heading.level - 1) * 4}`)}
+              className={cn('text-sm', heading.level - 1 && 'ml-4')}
               href={`${slug}#${heading.slug}`}
             >
               {heading.text}
