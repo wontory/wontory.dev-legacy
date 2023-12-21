@@ -4,8 +4,11 @@ import { format, parseISO } from 'date-fns'
 import { allArticles } from 'contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import type { MDXComponents } from 'mdx/types'
+
+import { Separator } from '@/components/ui/separator'
 import { TableOfContents } from '@/containers/article/TableOfContents'
 import '@/styles/prism.css'
+import { Badge } from '@/components/ui/badge'
 
 type Props = {
   params: { slug: string }
@@ -42,21 +45,21 @@ export default function Page({ params }: Props) {
   const MDXComponent = useMDXComponent(article.body.code)
 
   return (
-    <article className="container mx-auto">
-      <div className="mb-24 text-center">
-        <time
-          dateTime={article.date}
-          className="mb-1 text-xs text-gray-600 dark:text-gray-400"
-        >
-          {format(parseISO(article.date), 'LLLL d, yyyy')}
-        </time>
-        <h1 className="text-4xl font-bold">{article.title}</h1>
-      </div>
-      <div className="flex xl:justify-around">
-        <div className="prose mx-auto w-full max-w-screen-md dark:prose-invert xl:mx-0">
+    <article className="container max-w-max">
+      <Badge className="mb-4 text-sm">{article.category}</Badge>
+      <h1 className="mb-4 text-4xl font-bold">{article.title}</h1>
+      <time
+        dateTime={article.date}
+        className="mb-1 text-xs text-gray-600 dark:text-gray-400"
+      >
+        {format(parseISO(article.date), 'LLLL d, yyyy')}
+      </time>
+      <Separator className="my-10" />
+      <div className="flex gap-16">
+        <div className="prose min-w-0 max-w-full dark:prose-invert lg:max-w-screen-md">
           <MDXComponent components={mdxComponents} />
         </div>
-        <div className="hidden xl:block">
+        <div className="hidden lg:block">
           <TableOfContents article={article} slug={params.slug} />
         </div>
       </div>
