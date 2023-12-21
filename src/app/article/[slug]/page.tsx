@@ -44,10 +44,13 @@ export default function Page({ params }: Props) {
   return (
     <article className="container mx-auto">
       <div className="mb-24 text-center">
-        <time dateTime={article.date} className="mb-1 text-xs text-gray-600">
+        <time
+          dateTime={article.date}
+          className="mb-1 text-xs text-gray-600 dark:text-gray-400"
+        >
           {format(parseISO(article.date), 'LLLL d, yyyy')}
         </time>
-        <h1 className="text-3xl font-bold">{article.title}</h1>
+        <h1 className="text-4xl font-bold">{article.title}</h1>
       </div>
       <div className="flex xl:justify-around">
         <div className="prose mx-auto w-full max-w-screen-md dark:prose-invert xl:mx-0">

@@ -21,7 +21,7 @@ const computedFields: ComputedFields = {
   headings: {
     type: 'json',
     resolve: (doc) => {
-      const headingsRegex = /\n(?<flag>#{1,2})\s+(?<content>.+)/g
+      const headingsRegex = /\n(?<flag>#{1,3})\s+(?<content>.+)/g
       const headings = Array.from(doc.body.raw.matchAll(headingsRegex)).map(
         // need to refactor: any type
         ({ groups }: any) => {
