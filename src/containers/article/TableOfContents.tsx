@@ -11,7 +11,7 @@ export function TableOfContents({
   slug: string
 }) {
   return (
-    <div className="rounded-md border p-4">
+    <div className="sticky top-28 rounded-md border p-4">
       <h3 className="mb-4 text-sm font-medium leading-none">
         Table of Contents
       </h3>
