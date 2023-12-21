@@ -11,16 +11,17 @@ export function TableOfContents({
   slug: string
 }) {
   return (
-    <div className="sticky top-28 rounded-md border p-4">
-      <h3 className="mb-4 text-sm font-medium leading-none">
-        Table of Contents
-      </h3>
+    <div className="sticky top-24 rounded-md border p-4">
+      <h3 className="mb-4 text-sm font-extrabold leading-none">On this page</h3>
       <Separator className="my-2" />
       {article.headings.map(
         (heading: { slug: string; level: number; text: string }) => (
           <div key={`#${heading.slug}`} className="w-64 truncate">
             <Link
-              className={cn('text-sm', heading.level - 2 && 'ml-4')}
+              className={cn(
+                'text-sm hover:font-bold hover:text-primary',
+                heading.level - 2 && 'ml-4',
+              )}
               href={`${slug}#${heading.slug}`}
             >
               {heading.text}
