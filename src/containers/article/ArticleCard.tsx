@@ -47,7 +47,7 @@ export function ArticleCard(article: Article) {
   return (
     <Link href={article.slug}>
       <Card
-        className="overflow-hidden duration-200 hover:shadow-xl"
+        className="overflow-hidden duration-200 hover:shadow-xl dark:hover:shadow-slate-800"
         onMouseOver={() => setIsHovered(true)}
         onMouseOut={() => setIsHovered(false)}
       >
