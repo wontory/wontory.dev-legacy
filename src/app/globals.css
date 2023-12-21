@@ -74,7 +74,7 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply scroll-mt-20 scroll-smooth border-border;
   }
   body {
     @apply bg-background text-foreground;
