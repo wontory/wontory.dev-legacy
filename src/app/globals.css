@@ -74,9 +74,17 @@
 
 @layer base {
   * {
-    @apply scroll-mt-20 scroll-smooth border-border;
+    @apply scrollbar-hide scroll-mt-20 scroll-smooth border-border;
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }
