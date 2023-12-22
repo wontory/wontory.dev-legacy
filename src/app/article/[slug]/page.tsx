@@ -5,10 +5,11 @@ import { allArticles } from 'contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import type { MDXComponents } from 'mdx/types'
 
+import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
+import { Giscus } from '@/containers/article/Giscus'
 import { TableOfContents } from '@/containers/article/TableOfContents'
 import '@/styles/prism.css'
-import { Badge } from '@/components/ui/badge'
 
 type Props = {
   params: { slug: string }
@@ -63,6 +64,7 @@ export default function Page({ params }: Props) {
           <TableOfContents article={article} slug={params.slug} />
         </div>
       </div>
+      <Giscus />
     </article>
   )
 }
