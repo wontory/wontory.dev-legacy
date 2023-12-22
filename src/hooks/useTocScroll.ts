@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 
-type headingType = {
+export type headingType = {
   slug: string
   level: number
   text: string
