@@ -6,6 +6,7 @@ import { cn } from '@/libs/utils'
 import { ThemeProvider } from '@/components/theme-provider'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
+import { Progress } from '@/containers/article/Progress'
 
 const notoSans = Noto_Sans_KR({
   subsets: ['latin'],
@@ -44,6 +45,7 @@ export default function RootLayout({
             <SiteHeader />
             <div className="flex-1 py-6 lg:py-8">{children}</div>
             <SiteFooter />
+            <Progress />
           </div>
         </ThemeProvider>
       </body>
