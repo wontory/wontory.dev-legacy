@@ -7,7 +7,7 @@ export function Progress() {
 
   return (
     <motion.div
-      className="sticky bottom-0 h-1 w-full origin-left bg-primary"
+      className="sticky bottom-0 h-2 w-full origin-left bg-primary"
       style={{ scaleX: scrollYProgress }}
     />
   )

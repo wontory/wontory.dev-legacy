@@ -6,7 +6,7 @@ import { cn } from '@/libs/utils'
 import { ThemeProvider } from '@/components/theme-provider'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
-import { Progress } from '@/containers/article/Progress'
+import { Progress } from '@/components/progress'
 
 const notoSans = Noto_Sans_KR({
   subsets: ['latin'],
