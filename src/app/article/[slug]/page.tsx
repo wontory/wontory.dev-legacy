@@ -59,12 +59,12 @@ export default function Page({ params }: Props) {
       <div className="flex gap-16">
         <div className="prose min-w-0 max-w-full dark:prose-invert lg:max-w-screen-md">
           <MDXComponent components={mdxComponents} />
+          <Giscus />
         </div>
         <div className="hidden lg:block">
           <TableOfContents article={article} slug={params.slug} />
         </div>
       </div>
-      <Giscus />
     </article>
   )
 }
