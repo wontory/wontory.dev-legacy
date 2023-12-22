@@ -34,19 +34,15 @@ export default function Page({ params }: Props) {
 
   return (
     <article className="container max-w-max">
-      <ArticleTitle
-        date={article.date}
-        title={article.title}
-        category={article.category}
-      />
+      <ArticleTitle article={article} />
       <Separator className="my-10" />
       <div className="flex gap-16">
         <div className="prose min-w-0 max-w-full dark:prose-invert lg:max-w-screen-md">
-          <ArticleBody body={article.body} />
+          <ArticleBody article={article} />
           <Giscus />
         </div>
         <div className="hidden lg:block">
-          <TableOfContents headings={article.headings} slug={params.slug} />
+          <TableOfContents article={article} slug={params.slug} />
         </div>
       </div>
     </article>

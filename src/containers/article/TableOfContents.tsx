@@ -3,17 +3,17 @@
 import Link from 'next/link'
 import { cn } from '@/libs/utils'
 import { Separator } from '@/components/ui/separator'
-import { headingType, useTocScroll } from '@/hooks/useTocScroll'
+import { useTocScroll } from '@/hooks/useTocScroll'
+import { Article } from 'contentlayer/generated'
 
-// need to refactor: tailwind classes
 export function TableOfContents({
-  headings,
+  article,
   slug,
 }: {
-  headings: headingType[]
+  article: Article
   slug: string
 }) {
-  const { activeToc, headingTops } = useTocScroll(headings)
+  const { activeToc, headingTops } = useTocScroll(article)
 
   return (
     <div className="sticky top-24 rounded-md border p-4">

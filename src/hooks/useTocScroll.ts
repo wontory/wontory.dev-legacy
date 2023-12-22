@@ -1,10 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-
-export type headingType = {
-  slug: string
-  level: number
-  text: string
-}
+import { Article } from 'contentlayer/generated'
 
 interface IHeadingTops {
   slug: string
@@ -22,19 +17,19 @@ const getScrollTop = () => {
   }
 }
 
-export function useTocScroll(headings: headingType[]) {
+export function useTocScroll(article: Article) {
   const [activeToc, setActiveToc] = useState('')
   const [headingTops, setHeadingTops] = useState<null | IHeadingTops[]>([])
 
   const settingHeadingTops = useCallback(() => {
     const scrollTop = getScrollTop()
-    const headingTops = headings.map((heading: headingType) => {
+    const headingTops = article.headings.map((heading: { slug: string }) => {
       const el = document.getElementById(heading.slug)
       const top = el ? el.getBoundingClientRect().top + scrollTop : 0
       return { ...heading, top }
     })
     setHeadingTops(headingTops)
-  }, [headings])
+  }, [article.headings])
 
   useEffect(() => {
     settingHeadingTops()
