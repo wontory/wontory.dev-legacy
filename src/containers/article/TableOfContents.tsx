@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { cn } from '@/libs/utils'
 import { Separator } from '@/components/ui/separator'
-import { useTocScroll } from '@/libs/useTocScroll'
+import { useTocScroll } from '@/hooks/useTocScroll'
 
 // need to refactor: any type, tailwind classes
 export function TableOfContents({
