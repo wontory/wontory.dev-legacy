@@ -51,10 +51,7 @@ export function ArticleCard(article: Article) {
         onMouseOver={() => setIsHovered(true)}
         onMouseOut={() => setIsHovered(false)}
       >
-        <CardThumbnail
-          src="https://placehold.co/600x400/png"
-          isHovered={isHovered}
-        />
+        <CardThumbnail src={article.thumbnail} isHovered={isHovered} />
         <CardHeader className="items-start pb-2">
           <Badge>{article.category}</Badge>
         </CardHeader>

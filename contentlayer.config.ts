@@ -47,7 +47,7 @@ export const Article = defineDocumentType(() => ({
   fields: {
     title: { type: 'string', required: true },
     description: { type: 'string', required: true },
-    thumbnail: { type: 'string', required: false },
+    thumbnail: { type: 'string', required: true },
     date: { type: 'date', required: true },
     category: { type: 'string', required: true },
   },
