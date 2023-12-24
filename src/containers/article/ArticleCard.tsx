@@ -15,19 +15,22 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import { cn } from '@/libs/utils'
 
 export function CardThumbnail({
   src,
+  className,
   isHovered,
 }: {
   src: string
-  isHovered: boolean
+  className?: string
+  isHovered?: boolean
 }) {
   return (
     <div className="hidden overflow-hidden sm:block">
       <AspectRatio
         ratio={16 / 9}
-        className={`duration-200 ${isHovered && 'scale-110'}`}
+        className={cn(className, isHovered && 'scale-110')}
       >
         <Image
           src={src}
@@ -51,7 +54,11 @@ export function ArticleCard(article: Article) {
         onMouseOver={() => setIsHovered(true)}
         onMouseOut={() => setIsHovered(false)}
       >
-        <CardThumbnail src={article.thumbnail} isHovered={isHovered} />
+        <CardThumbnail
+          src={article.thumbnail}
+          className="duration-200"
+          isHovered={isHovered}
+        />
         <CardHeader className="items-start pb-2">
           <Badge>{article.category}</Badge>
         </CardHeader>
