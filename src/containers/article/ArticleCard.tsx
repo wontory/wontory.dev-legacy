@@ -21,13 +21,15 @@ export function CardThumbnail({
   src,
   className,
   isHovered,
+  responsive,
 }: {
   src: string
   className?: string
   isHovered?: boolean
+  responsive?: boolean
 }) {
   return (
-    <div className="hidden overflow-hidden sm:block">
+    <div className={cn(responsive && 'hidden overflow-hidden sm:block')}>
       <AspectRatio
         ratio={16 / 9}
         className={cn(className, isHovered && 'scale-110')}
@@ -58,6 +60,7 @@ export function ArticleCard(article: Article) {
           src={article.thumbnail}
           className="duration-200"
           isHovered={isHovered}
+          responsive
         />
         <CardHeader className="items-start pb-2">
           <Badge>{article.category}</Badge>
