@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Analytics } from '@vercel/analytics/react'
 import { Noto_Sans_KR } from 'next/font/google'
 import './globals.css'
 
@@ -48,6 +49,7 @@ export default function RootLayout({
             <Progress />
           </div>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
