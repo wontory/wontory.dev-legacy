@@ -18,7 +18,7 @@ export function ArticleTitle({ article }: { article: Article }) {
           <AvatarFallback>W</AvatarFallback>
         </Avatar>
         <div className="flex flex-col">
-          <h3 className="font-medium">@wontory</h3>
+          <h3 className="font-medium">Wontory</h3>
           <time
             dateTime={article.date}
             className="mb-1 text-xs text-gray-600 dark:text-gray-400"
