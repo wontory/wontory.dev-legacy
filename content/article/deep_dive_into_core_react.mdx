@@ -18,7 +18,7 @@ category: React
 
 ### 1. JSX의 정의
 
-#### `JSXElement`
+#### 1. `JSXElement`
 
 - JSX를 구성하는 가장 기본 요소 → HTML의 요소와 비슷한 역할
 
@@ -42,7 +42,7 @@ category: React
 > **요소명은 왜 대문자로 시작해야하나요?**  
 > 리액트에서 HTML 태그명과 사용자가 만든 컴포넌트 태그명을 구분 짓기 위해서다. 미래에 추가되는 HTML에 대한 가능성을 열어두고 사람이 확실하게 구별할 수 있는 차이점을 두기 위한 것으로 보인다.
 
-#### `JSXAttributes`
+#### 2. `JSXAttributes`
 
 - `JSXElement`에 부여할 수 있는 속성으로 모든 경우에서 필수값이 아니고, 존재하지 않아도 된다.
 - `JSXSpreadAttributes`: 전개 연산자와 동일한 역할
@@ -70,7 +70,7 @@ category: React
 > <Child attribute={<div>hello</div>} />
 > ```
 
-#### `JSXChildren`
+#### 3. `JSXChildren`
 
 - `JSXElement`의 자식 값
 - `JSXChild`: `JSXChildren`을 이루는 기본 단위, `JSXChildren`는 `JSXChild`를 0개 이상 가질 수 있다.
@@ -91,7 +91,7 @@ category: React
 
 > **참고:** [Legacy React APIs / Children / Transforming children](https://react-ko.dev/reference/react/Children#transforming-children)
 
-#### `JSXStrings`
+#### 4. `JSXStrings`
 
 - HTML에서 사용 가능한 문자열은 모두 `JSXStrings`에서도 가능하다.
   - 개발자가 HTML의 내용을 손쉽게 JSX로 가져올 수 있도록 의도적으로 설계
