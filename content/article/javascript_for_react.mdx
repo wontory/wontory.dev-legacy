@@ -14,6 +14,8 @@ category: React
 - 리액트의 가상 DOM과 실제 DOM의 비교
 - 변수나 함수의 메모이제이션
 
+&nbsp;
+
 ### 1. 자바스크립트의 데이터 타입
 
 #### 원시 타입
@@ -31,16 +33,22 @@ category: React
 | String    | 텍스트 타입의 데이터를 저장하기 위해 사용                   | [템플릿 리터럴](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Template_literals)<br/>원시 타입으로 변경이 불가능하다.        |
 | Symbol    | 중복되지 않는 고유한 값을 나타내기 위한 데이터 타입         |                                                                                                                                               |
 
+&nbsp;
+
 #### 객체 타입
 
 - 7가지 원시 타입 이외의 모든 것
 - 객체 타입(object type)은 참조를 전달해서 참조 타입(reference type)으로도 불린다.
   - 자바스크립트 동등 비교의 특징이 나타난다.
 
+&nbsp;
+
 ### 2. 값을 저장하는 방식의 차이
 
 - 원시 타입: 불변 형태의 값으로 저장, 변수 할당 시점에 메모리 영역을 차지하고 저장
 - 객체 타입: 변경 가능한 형태로 저장, 값을 복사할 때도 값이 아닌 참조를 전달
+
+&nbsp;
 
 ### 3. 자바스크립트의 또 다른 비교 공식, `Object.is`
 
@@ -53,6 +61,8 @@ category: React
   - 객체 간 비교에 있어서는 자바스크립트의 특징으로 인해 `===`와 동일하게 동작한다.
 
 > **참고:** [동등 비교 및 동일성](https://developer.mozilla.org/ko/docs/Web/JavaScript/Equality_comparisons_and_sameness)
+
+&nbsp;
 
 ### 4. 리액트에서의 동등 비교
 
@@ -77,6 +87,8 @@ shallowEqual({ hello: { hi: 'world' } }, { hello: { hi: 'world' } }) // false
 
 - 작업을 수행하거나 값을 계산하는 등의 과정을 표현하고 이를 하나의 블록으로 감싸서 실행 단위로 만들어 놓은 것
 
+&nbsp;
+
 ### 2. 함수를 정의하는 4가지 방법
 
 #### 함수 선언문
@@ -84,6 +96,8 @@ shallowEqual({ hello: { hi: 'world' } }, { hello: { hi: 'world' } }) // false
 - 가장 일반적으로 사용하는 방식
 - 함수 선언문은 표현식이 아닌 일반 문(statement)으로 분류된다.
 - 자바스크립트 엔진이 코드의 문맥에 따라 동일한 함수를 문이 아닌 표현식으로 해석하는 경우도 있다.
+
+&nbsp;
 
 #### 함수 표현식
 
@@ -96,6 +110,8 @@ shallowEqual({ hello: { hi: 'world' } }, { hello: { hi: 'world' } }) // false
 > 이 두 방식의 가장 큰 차이는 **호이스팅(hoisting)** 여부다. 함수 선언문은 호이스팅되어 미리 메모리에 등록되고, 코드의 순서에 상관없이 정상적으로 함수를 호출할 수 있게 된다. 함수 표현식은 함수를 변수에 할당하므로 변수 호이스팅의 영향을 받는다. 함수 호이스팅과는 다르게, (`var`의 경우) 런타임 이전에 `undefined`로 초기화되고, 런타임 시점에 함수가 할당되어 작동한다.  
 > **참고:** [변수 호이스팅](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Grammar_and_types#변수_호이스팅), [함수 호이스팅](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Grammar_and_types#함수_호이스팅)
 
+&nbsp;
+
 #### Function 생성자
 
 ```js
@@ -106,6 +122,8 @@ add(10, 24) // 34
 - 매개변수, 함수의 몸통을 모두 문자열로 작성해야 한다.
 - 함수의 클로저가 생성되지 않는다.
 - 권장되지 않는 방법
+
+&nbsp;
 
 #### 화살표 함수
 
@@ -149,6 +167,8 @@ const add = (a, b) => {
   - 함수가 일반 함수로서 호출된다면, 그 내부의 `this`는 전역 객체를 가리키게 된다.
   - 화살표 함수는 함수 자체의 바인딩을 갖지 않는다. → 상위 스코프의 `this`를 그대로 따르게 된다.
 
+&nbsp;
+
 ### 3. 다양한 함수 살펴보기
 
 #### 즉시 실행 함수
@@ -158,11 +178,15 @@ const add = (a, b) => {
 - 글로벌 스코프를 오염시키지 않는 독립적인 함수 스코프를 운용할 수 있다.
 - 리팩터링에도 도움이 된다.
 
+&nbsp;
+
 #### 고차 함수
 
 - 함수를 인수로 받거나 결과로 새로운 함수를 반환시킬 수 있는 함수
 - 고차 컴포넌트: 함수형 컴포넌트를 인수로 받아 새로운 함수형 컴포넌트를 반환하는 고차 함수
   - 컴포넌트 내부에서 공통으로 관리되는 로직을 분리해 관리할 수 있어 효율적인 리팩터링이 가능해진다.
+
+&nbsp;
 
 ### 4. 함수를 만들 때 주의해야 할 사항
 
@@ -175,10 +199,14 @@ const add = (a, b) => {
 > 부수 효과는 웹 애플리케이션 개발에 있어 피할 수 없는 요소 중 하나이지만 이러한 부수 효과를 최대한 억제할 수 있는 방향으로 함수를 설계해야 한다. (예시: `useEffect`의 작동 최소화)  
 > `useEffect`의 사용은 피할 수 없지만 최소한으로 줄임으로써 함수의 역할을 좁히고, 버그를 줄이며, 컴포넌트의 안정성을 높일 수 있다.
 
+&nbsp;
+
 #### 가능한 한 함수를 작게 만들어라
 
 - 하나의 함수에서 너무나 많은 일을 하지 않게 하는 것
 - 함수의 재사용성을 높일 수 있는 방법
+
+&nbsp;
 
 #### 누구나 이해할 수 있는 이름을 붙여라
 
@@ -199,10 +227,14 @@ const add = (a, b) => {
 - 특정한 객체를 반복적으로 만들기 위해 사용되는 것
 - 객체를 만드는 데 필요한 데이터나 이를 조작하는 코드를 추상화해 객체 생성을 편리하게 할 수 있다.
 
+&nbsp;
+
 #### constructor
 
 - 생성자: 객체를 생성하는 데 사용하는 특수한 메서드
 - 단 하나만 존재할 수 있으며 생략 가능하다.
+
+&nbsp;
 
 #### 프로퍼티
 
@@ -211,6 +243,8 @@ const add = (a, b) => {
   - `#`을 붙여서 `private`을 선언할 수 있다. (ES2019)
   - private이 없던 시절에는 `_`를 붙여 접근해서는 안된다는 코딩 컨벤션이 있었다.
   - 타입스크립트를 활용하면 `private`, `protected`, `public을` 사용할 수 있다.
+
+&nbsp;
 
 #### getter와 setter
 
@@ -232,6 +266,8 @@ class Car {
   }
 }
 ```
+
+&nbsp;
 
 #### 인스턴스 메서드
 
@@ -260,6 +296,8 @@ myCar.hello() // 안녕하세요, 자동차입니다.
 >
 > 결론적으로 프로토타입과 프로토타입 체이닝이라는 특성 덕분에 생성한 객체에서도 직접 선언하지 않은, 클래스에 선언한 `hello()` 메서드를 호출할 수 있고, 이 메서드 내부에서 `this도` 접근해 사용할 수 있게 된다.
 
+&nbsp;
+
 #### 정적 메서드
 
 - 클래스 인스턴스가 아닌 이름으로 호출할 수 있는 메서드
@@ -281,9 +319,13 @@ myCar.hello() // TypeError: myCar.hello is not a function
 Car.hello() // 안녕하세요!
 ```
 
+&nbsp;
+
 #### 상속
 
 - 기존 클래스를 상속받아서 자식 클래스에서 이 상속받은 클래스를 기반으로 확장하는 개념 (예시: `extends React.Component`)
+
+&nbsp;
 
 ### 2. 클래스와 함수의 관계
 
@@ -329,10 +371,14 @@ var Car = (function () {
 - 훅의 원리
 - 의존성 배열
 
+&nbsp;
+
 ### 1. 클로저의 정의
 
 - 함수와 함수가 선언된 어휘적 환경(Lexical Scope)의 조합
   - 어휘적 환경: 변수가 코드 내부에서 어디서 선언됐는지를 말하는 것으로, 호출되는 방식에 따라 동적으로 결정되는 `this`와는 다르게 코드가 작성된 순간에 정적으로 결정된다.
+
+&nbsp;
 
 ### 2. 변수의 유효 범위, 스코프
 
@@ -340,6 +386,8 @@ var Car = (function () {
 
 - 전역 레벨에 선언하는 것으로, 이 스코프에 선언하면 어디서든 호출할 수 있게 된다.
 - 브라우저 환경에서 전역 객체는 `window`, Node.js 환경에서는 `global`이 있다.
+
+&nbsp;
 
 #### 함수 스코프
 
@@ -366,6 +414,8 @@ console.log(x) // 10
 foo()
 ```
 
+&nbsp;
+
 ### 3. 클로저의 활용
 
 - 선언된 함수 레벨 스코프를 활용하는 작업
@@ -385,6 +435,8 @@ innerFunction() // hello
 ```
 
 > `outerFunction`은 `innerFunction`을 반환하며 실행이 종료됐다. 여기에서 반환한 함수에는 `x`라는 변수가 존재하지 않지만, 해당 함수가 선언된 어휘적 환경인 `outerFunction`에는 `x`라는 변수가 존재하며 접근할 수도 있다. 같은 환경에서 선언되고 반환된 `innerFunction`에서는 `x`라는 변수가 존재하던 환경을 기억하기 때문에 정상적으로 "hello"를 출력할 수 있는 것이다.
+
+&nbsp;
 
 #### 클로저의 활용
 
@@ -421,6 +473,8 @@ console.log(c.counter()) // 1
 > - `counter` 변수를 직접적으로 노출하지 않음으로써 사용자가 직접 수정하는 것을 막았다.
 > - `counter` 변수의 업데이트를 `increase`와 `decrease`로 제한해 무분별하게 변경되는 것을 막았다.
 
+&nbsp;
+
 #### 리액트에서의 클로저
 
 - useState
@@ -439,6 +493,8 @@ function Component() {
 ```
 
 > - 외부 함수(`useState`)가 반환한 내부 함수(`setState`)는 자신이 선언된 외부 함수가 선언된 환경(state가 저장돼 있는 어딘가)을 기억하기 때문에 계속해서 state 값을 사용할 수 있다.
+
+&nbsp;
 
 ### 4. 주의할 점
 
@@ -459,6 +515,8 @@ function Component() {
 - 자바스크립트는 **싱글 스레드**에서 작동한다. → 한 번에 단 **하나의 작업**만, 그리고 **동기 방식**으로만 처리할 수 있다.
   - 하지만 실제로는 싱글 스레드 기반의 자바스크립트에서도 많은 양의 비동기 작업이 이루어지고 있다.
 
+&nbsp;
+
 ### 1. 싱글 스레드 자바스크립트
 
 - 프로세스(process): 프로그램을 구동해 프로그램의 상태가 메모리상에서 실행되는 작업 단위
@@ -473,6 +531,8 @@ function Component() {
 >   - 메모리 공유로 인해 동시에 같은 자원에 접근하면 타이밍 이슈가 발생할 수 있고, DOM 표시에 큰 문제를 야기할 수 있다.
 > - 하나의 스레드가 문제가 생기면 같은 자원을 공유하는 다른 스레드에도 동시에 문제가 일어날 수 있다.
 > - 최초의 자바스크립트는 브라우저에서 HTML을 그리는데 한정적인 도움을 주는 보조적인 역할로 만들어졌다.
+
+&nbsp;
 
 ### 2. 이벤트 루프란?
 
@@ -493,6 +553,8 @@ console.log(4)
 > 자바스크립트는 싱글 스레드로 작동하므로 1, 2, (0.1초 후에) 3, 4로 출력되어야 할 것 같다.  
 > 하지만 실제로는 1, 4, 2, 3으로 나타난다. 이는 setTimeout이 비동기 방식으로 작동하기 때문이다.  
 > 동기식으로 작동하는 자바스크립트에서 비동기 처리를 이해하려면 '이벤트 루프'를 알아야 한다.
+
+&nbsp;
 
 #### 호출 스택과 이벤트 루프
 
@@ -542,6 +604,8 @@ console.log(4)
 > 14. 13의 실행이 끝나고, 다음 코드로 넘어간다. (아직 bar()는 존재)
 > 15. 더 이상 bar()에 남은 것이 없으므로 호출 스택에서 제거된다.
 
+&nbsp;
+
 ### 3. 태스크 큐와 마이크로 태스크 큐
 
 - 이벤트 루프는 하나의 마이크로 태스크 큐를 갖는다. (예시: Promise)
@@ -560,9 +624,13 @@ console.log(4)
 - 사용자의 다양한 브라우저 환경, 최신 문법을 작성하고 싶은 개발자의 요구를 해결하기 위해 등장한 트랜스파일러
   - 바벨(Babel)
 
+&nbsp;
+
 ### 1. 구조 분해 할당
 
 - 배열 또는 객체의 값을 분해해 개별 변수에 즉시 할당
+
+&nbsp;
 
 #### 배열 구조 분해 할당
 
@@ -620,6 +688,8 @@ const [first, second, third, ...arrayRest] = array
     third = array[2],
     arrayRest = array.slice(3)
   ```
+
+&nbsp;
 
 #### 객체 구조 분해 할당
 
@@ -739,9 +809,13 @@ const { a, b, c, ...objectRest } = object
     rest = _objectWithoutProperties(object, ['a', 'b'])
   ```
 
+&nbsp;
+
 ### 2. 전개 구문
 
 - 배열이나 객체, 문자열과 같이 순회할 수 있는 값에 대해 전개해 간결하게 사용할 수 있는 구문
+
+&nbsp;
 
 #### 배열 전개 구문
 
@@ -776,6 +850,8 @@ const arr2 = [...arr1, 'c', 'd', 'e'] // ['a', 'b', 'c', 'd', 'e']
   var arr2 = [].concat(arr1, ['c', 'd', 'e'])
   ```
 
+&nbsp;
+
 #### 객체 전개 구문
 
 ```js
@@ -794,6 +870,8 @@ const newObj = { ...obj1, ...obj2 }
 ```
 
 - 객체의 속성값 및 설명자 확인, 심벌 체크 등 때문에 번들링이 커지기 때문에 사용할 때 주의해야 한다.
+
+&nbsp;
 
 ### 3. 객체 초기자
 
@@ -831,22 +909,32 @@ const obj = {
   }
   ```
 
+&nbsp;
+
 ### 4. Array 프로토타입의 메서드: map, filter, reduce, forEach
 
 - 기존 배열의 값을 건드리지 않고 새로운 값을 만들어 낸다.
 - ES5에서부터 사용한 문법이기 때문에 트랜스파일이나 폴리필이 없어도 된다.
 
+&nbsp;
+
 #### Array.prototype.map
 
 - [MDN Web Docs](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+
+&nbsp;
 
 #### Array.prototype.filter
 
 - [MDN Web Docs](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
 
+&nbsp;
+
 #### Array.prototype.reduce
 
 - [MDN Web Docs](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
+
+&nbsp;
 
 #### Array.prototype.forEach
 
@@ -855,6 +943,8 @@ const obj = {
 - 에러를 던지거나 프로세스를 종료하지 않는 이상 멈출 수 없다. (break, return 등 사용 불가)
   - return이 함수의 return이 아닌 콜백 함수의 return으로 간주된다.
   - [`every()`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/every), [`some()`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/some) 등을 이용하면 중간에 순회를 중단할 수 있다.
+
+&nbsp;
 
 ### 5. 삼항 조건 연산자
 
@@ -875,6 +965,8 @@ const obj = {
   - 타입스크립트는 런타임이 아닌 빌드(트랜스파일) 타임에 정적으로 타입 체크를 수행할 수 있게 해준다.
 - 자바스크립트의 **슈퍼셋**으로서 함수의 반환 타입, 배열, enum 등을 손쉽게 처리할 수 있다.
 - 리액트는 [Flow](https://flow.org/)로 작성되었지만, [@types/react](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/index.d.ts) 라이브러리가 등장하면서 타입스크립트에서도 매끄럽게 리액트 코드를 작성할 수 있다.
+
+&nbsp;
 
 ### 2. 리액트 코드를 효과적으로 작성하기 위한 타입스크립트 활용법
 
@@ -900,6 +992,8 @@ const obj = {
 - 어떠한 타입도 들어올 수 없는 `never` 타입도 있다.
   - 클래스형 컴포넌트에서 state는 존재하지만 props가 없는 상황에 사용할 수 있다.
 
+&nbsp;
+
 #### 타입 가드를 적극 활용하자
 
 - **`instanceof`와 `typeof`**
@@ -910,6 +1004,8 @@ const obj = {
 - **`in`**
 
   - `[property] in [object]`: 어떤 객체에 키가 존재하는지 확인하는 용도로 사용
+
+&nbsp;
 
 #### 제네릭
 
@@ -941,6 +1037,8 @@ const [first, last] = getFirstAndLast(['a', 'b', 'c', 'd', 'e'])
 // first string
 // last string
 ```
+
+&nbsp;
 
 #### 인덱스 시그니처
 
@@ -1046,6 +1144,8 @@ hello['안녕하세요'] // undefined
 >   horn(truck)
 >   ```
 
+&nbsp;
+
 ### 3. 타입스크립트 전환 가이드
 
 #### tsconfig.json 먼저 작성하기
@@ -1065,14 +1165,20 @@ hello['안녕하세요'] // undefined
   }
   ```
 
+&nbsp;
+
 #### JSDoc과 @ts-check를 활용해 점진적으로 전환하기
 
 1. 파일의 최상단에 `//@ts-check` 선언
 2. [JSDoc](https://jsdoc.app/)을 활용해 변수나 함수에 타입 제공
 
+&nbsp;
+
 #### 타입 기반 라이브러리 사용을 위해 @types 모듈 설치하기
 
 - `@types`(`DefinitelyTyped`)
+
+&nbsp;
 
 #### 파일 단위로 조금씩 전환하기
 
