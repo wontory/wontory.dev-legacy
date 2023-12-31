@@ -31,5 +31,8 @@ _**Minimalism**_
 │   └── ui
 ├── content
 │   └── posts
-└── public
+├── lib
+├── public
+│   └── fonts
+└── styles
 ```
