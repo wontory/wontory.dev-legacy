@@ -24,7 +24,7 @@ const spoqa = localFont({
     },
   ],
   display: 'swap',
-  variable: '--font-spoqa-sans',
+  variable: '--font-spoqa',
 })
 
 export { spoqa }

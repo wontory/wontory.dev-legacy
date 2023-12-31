@@ -19,7 +19,7 @@ const config = {
     },
     extend: {
       fontFamily: {
-        spoqa: ['var(--font-spoqa-sans)'],
+        spoqa: ['var(--font-spoqa)'],
       },
       colors: {
         border: 'hsl(var(--border))',
