@@ -22,8 +22,14 @@ _**Minimalism**_
 - docs: 문서 작업
 - chore: 패키지 매니저, 빌드 등
 
-## 디렉터리 구조
+## 디렉토리 구조
 
 ```
-
+.
+├── app
+├── components
+│   └── ui
+├── content
+│   └── posts
+└── public
 ```
