@@ -43,8 +43,8 @@ const DUMMY_DATA = [
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center gap-4 p-4">
-      <div className="grid w-full max-w-screen-xl grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <div className="container relative">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
         {DUMMY_DATA.map((article) => (
           <Article
             key={article.id}
@@ -55,6 +55,6 @@ export default function Home() {
           />
         ))}
       </div>
-    </main>
+    </div>
   )
 }

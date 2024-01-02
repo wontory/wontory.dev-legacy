@@ -14,7 +14,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className={`${spoqa.variable} font-spoqa`}>{children}</body>
+      <body className={`${spoqa.variable} font-spoqa`}>
+        <div className="relative flex min-h-screen flex-col bg-background">
+          <main className="flex-1">{children}</main>
+        </div>
+      </body>
     </html>
   )
 }
