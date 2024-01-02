@@ -16,6 +16,7 @@ _**Minimalism**_
 
 - feat: 새로운 기능 추가
 - fix: 오류 수정
+- test: 테스트 코드 작성
 - design: UI 디자인 변경
 - style: 코드 포맷 변경
 - refactor: 코드 리팩터링
@@ -27,11 +28,11 @@ _**Minimalism**_
 ```
 .
 ├── app
+│   └── articles
 ├── components
 │   └── ui
-├── content
-│   └── posts
 ├── lib
+├── node_modules
 ├── public
 │   └── fonts
 └── styles
