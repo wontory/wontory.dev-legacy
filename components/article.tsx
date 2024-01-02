@@ -11,7 +11,7 @@ const badgeVariants: { [category: string]: string } = {
   aws: 'border-transparent bg-[#232F3E] text-white hover:bg-[#232F3E]/80',
 }
 
-export const Article = ({
+export function Article({
   date,
   category,
   title,
@@ -21,7 +21,7 @@ export const Article = ({
   category: string
   title: string
   description: string
-}) => {
+}) {
   return (
     <button className="flex flex-col items-start gap-2 rounded-lg border p-3 text-left text-sm transition-all hover:bg-accent">
       <div className="flex w-full items-center gap-2">
