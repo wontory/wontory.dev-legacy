@@ -2,6 +2,8 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { GitHubLogoIcon } from '@radix-ui/react-icons'
+
 import { ModeToggle } from '@/components/mode-toggle'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/libs/utils'
@@ -25,7 +27,7 @@ export function SiteHeader() {
           </Link>
           <nav className="flex items-center gap-6 text-sm"></nav>
         </div>
-        <div className="flex flex-1 items-center justify-end space-x-2">
+        <div className="flex flex-1 items-center justify-end">
           <Link
             href="https://github.com/wontory"
             target="_blank"
@@ -34,12 +36,13 @@ export function SiteHeader() {
             <div
               className={cn(
                 buttonVariants({
-                  variant: 'outline',
+                  variant: 'ghost',
                 }),
                 'w-9 px-0',
               )}
             >
-              G<span className="sr-only">GitHub</span>
+              <GitHubLogoIcon className="h-[1.2rem] w-[1.2rem]" />
+              <span className="sr-only">GitHub</span>
             </div>
           </Link>
           <ModeToggle />
