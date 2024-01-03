@@ -1,15 +1,6 @@
-import remarkGfm from 'remark-gfm'
-import createMDX from '@next/mdx'
+import { withContentlayer } from 'next-contentlayer'
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
-}
+const nextConfig = {}
 
-const withMDX = createMDX({
-  options: {
-    remarkPlugins: [remarkGfm],
-  },
-})
-
-export default withMDX(nextConfig)
+export default withContentlayer(nextConfig)
