@@ -29,9 +29,12 @@ _**Minimalism**_
 .
 ├── app
 │   └── articles
+│       └── [...slug]
 ├── components
 │   └── ui
-├── lib
+├── contents
+│   └── articles
+├── libs
 ├── node_modules
 ├── public
 │   └── fonts
