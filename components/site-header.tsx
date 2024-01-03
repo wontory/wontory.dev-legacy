@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ModeToggle } from '@/components/mode-toggle'
 import { buttonVariants } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
+import { cn } from '@/libs/utils'
 
 export function SiteHeader() {
   const pathname = usePathname()
