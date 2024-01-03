@@ -14,7 +14,7 @@ const badgeVariants: { [category: string]: string } = {
   aws: 'border-transparent bg-[#232F3E] text-white hover:bg-[#232F3E]/80',
 }
 
-export function Article(article: Article) {
+export function ArticleCard(article: Article) {
   return (
     <Link
       href={article.slug}
@@ -39,7 +39,7 @@ export function Article(article: Article) {
         </div>
       </div>
       <div className="line-clamp-2 text-sm text-muted-foreground">
-        {article.description.substring(0, 300)}
+        {(article.description || article.body.raw).substring(0, 300)}
       </div>
     </Link>
   )

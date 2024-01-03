@@ -1,5 +1,5 @@
 import { allArticles } from '@/.contentlayer/generated'
-import { Article } from '@/components/article'
+import { ArticleCard } from '@/components/article-card'
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
       <div className="container relative max-w-screen-xl">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
           {allArticles.map((article) => (
-            <Article key={article._id} {...article} />
+            <ArticleCard key={article._id} {...article} />
           ))}
         </div>
       </div>
