@@ -1,5 +1,8 @@
+import Link from 'next/link'
+import { format, parseISO } from 'date-fns'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/libs/utils'
+import { Article } from '@/.contentlayer/generated'
 
 const badgeVariants: { [category: string]: string } = {
   javascript:
@@ -11,43 +14,33 @@ const badgeVariants: { [category: string]: string } = {
   aws: 'border-transparent bg-[#232F3E] text-white hover:bg-[#232F3E]/80',
 }
 
-export function Article({
-  date,
-  category,
-  title,
-  description,
-}: {
-  date: string
-  category: string
-  title: string
-  description: string
-}) {
+export function Article(article: Article) {
   return (
-    <button className="flex flex-col items-start gap-2 rounded-lg border p-3 text-left text-sm transition-all hover:bg-accent">
+    <Link
+      href={article.slug}
+      className="flex flex-col items-start gap-2 rounded-lg border p-3 text-left text-sm transition-all hover:bg-accent"
+    >
       <div className="flex w-full items-center gap-2">
         <div className="text-xs text-muted-foreground">
-          {/* {formatDistanceToNow(new Date(date), {
-              addSuffix: true,
-            })} */}
-          {date}
+          {format(parseISO(article.date), 'LLL d, yyyy')}
         </div>
         <Badge
           className={cn(
             'ml-auto rounded-full font-medium',
-            badgeVariants[category.toLowerCase()],
+            badgeVariants[article.category.toLowerCase()],
           )}
         >
-          {category}
+          {article.category}
         </Badge>
       </div>
       <div className="flex w-full flex-col gap-1">
         <div className="flex items-center">
-          <div className="text-lg font-medium">{title}</div>
+          <div className="text-lg font-medium">{article.title}</div>
         </div>
       </div>
       <div className="line-clamp-2 text-sm text-muted-foreground">
-        {description.substring(0, 300)}
+        {article.description.substring(0, 300)}
       </div>
-    </button>
+    </Link>
   )
 }
