@@ -15,7 +15,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div
         className={cn(
-          'container flex h-14 items-center duration-200',
+          'container flex h-14 items-center transition-all',
           pathname.startsWith('/articles') && pathname !== '/articles'
             ? 'max-w-screen-md'
             : 'max-w-screen-xl',

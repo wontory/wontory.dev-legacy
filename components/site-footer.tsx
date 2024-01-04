@@ -8,7 +8,7 @@ export function SiteFooter() {
           © 2024{' '}
           <Link
             href="https://github.com/wontory"
-            className="font-medium underline underline-offset-4 duration-200 hover:text-primary"
+            className="font-medium underline underline-offset-4 transition-colors hover:text-primary"
           >
             wontory
           </Link>
