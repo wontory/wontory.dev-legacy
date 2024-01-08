@@ -1,9 +1,27 @@
+'use client'
+
+import { useCallback } from 'react'
+import Link from 'next/link'
+import { usePathname, useSearchParams } from 'next/navigation'
+
 import { allArticles } from '@/.contentlayer/generated'
-import { Badge } from './ui/badge'
-import { badgeVariants } from '@/styles/badgeVariants'
+import { BadgeProps, badgeVariants } from '@/styles/badgeVariants'
 import { cn } from '@/libs/utils'
 
 export function CategoryFilter() {
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams.toString())
+      params.set(name, value)
+
+      return params.toString()
+    },
+    [searchParams],
+  )
+
   const allCategories = Array.from(
     new Set(allArticles.map((article) => article.category)),
   ).sort((a, b) => a.localeCompare(b))
@@ -11,15 +29,18 @@ export function CategoryFilter() {
   return (
     <div className="mb-8 flex flex-wrap justify-center gap-2">
       {allCategories.map((category) => (
-        <Badge
-          className={cn(
-            'text-md rounded-full font-medium',
-            badgeVariants[category.toLowerCase()],
-          )}
+        <Link
+          href={pathname + '?' + createQueryString('category', category)}
           key={category}
+          className={cn(
+            badgeVariants({
+              variant: category.toLowerCase() as BadgeProps['variant'],
+            }),
+            'text-md rounded-full font-medium',
+          )}
         >
           {category}
-        </Badge>
+        </Link>
       ))}
     </div>
   )

@@ -1,8 +1,33 @@
+'use client'
+
+import { notFound, useSearchParams } from 'next/navigation'
 import { allArticles } from '@/.contentlayer/generated'
 import { ArticleCard } from '@/components/article-card'
 import { CategoryFilter } from '@/components/category-filter'
 
+function getArticleListFromParams(category: string | null) {
+  const articleList = allArticles.filter(
+    (article) => article.category.toLowerCase() === category?.toLowerCase(),
+  )
+
+  if (articleList.length === 0) {
+    null
+  }
+
+  return articleList
+}
+
 export default function Home() {
+  const searchParams = useSearchParams()
+
+  const articleList = searchParams.get('category')
+    ? getArticleListFromParams(searchParams.get('category'))
+    : allArticles
+
+  if (articleList.length === 0) {
+    notFound()
+  }
+
   return (
     <>
       <div className="mb-8 flex h-52 items-center justify-center bg-primary text-center text-primary-foreground">
@@ -12,7 +37,7 @@ export default function Home() {
       <div className="container relative max-w-screen-xl">
         <CategoryFilter />
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {allArticles.map((article) => (
+          {articleList.map((article) => (
             <ArticleCard key={article._id} {...article} />
           ))}
         </div>
