@@ -3,7 +3,7 @@ import { format, parseISO } from 'date-fns'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/libs/utils'
 import { Article } from '@/.contentlayer/generated'
-import { badgeVariants } from '@/styles/badgeVariants'
+import { BadgeProps, badgeVariants } from '@/styles/badgeVariants'
 
 export function ArticleCard(article: Article) {
   return (
@@ -17,8 +17,10 @@ export function ArticleCard(article: Article) {
         </div>
         <Badge
           className={cn(
+            badgeVariants({
+              variant: article.category.toLowerCase() as BadgeProps['variant'],
+            }),
             'ml-auto rounded-full font-medium',
-            badgeVariants[article.category.toLowerCase()],
           )}
         >
           {article.category}
