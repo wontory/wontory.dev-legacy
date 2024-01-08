@@ -28,6 +28,17 @@ export function CategoryFilter() {
 
   return (
     <div className="mb-8 flex flex-wrap justify-center gap-2">
+      <Link
+        href={pathname}
+        className={cn(
+          badgeVariants({
+            variant: 'default',
+          }),
+          'text-md rounded-full font-medium',
+        )}
+      >
+        전체
+      </Link>
       {allCategories.map((category) => (
         <Link
           href={pathname + '?' + createQueryString('category', category)}
