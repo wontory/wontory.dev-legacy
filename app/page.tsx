@@ -1,5 +1,6 @@
 import { allArticles } from '@/.contentlayer/generated'
 import { ArticleCard } from '@/components/article-card'
+import { CategoryFilter } from '@/components/category-filter'
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
         <br /> 안녕하세요. 프론트엔드 개발자 wontory입니다.
       </div>
       <div className="container relative max-w-screen-xl">
+        <CategoryFilter />
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
           {allArticles.map((article) => (
             <ArticleCard key={article._id} {...article} />
