@@ -2,8 +2,10 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { allArticles } from '@/.contentlayer/generated'
+import { Separator } from '@/components/ui/separator'
 import { Mdx } from '@/components/mdx-components'
 import { ArticleHeader } from '@/components/article-header'
+import { GiscusSection } from '@/components/giscus'
 
 interface ArticleProps {
   params: {
@@ -60,6 +62,8 @@ export default async function ArticlePage({ params }: ArticleProps) {
         category={article.category}
       />
       <Mdx code={article.body.code} />
+      <Separator className="my-16" />
+      <GiscusSection />
     </article>
   )
 }
