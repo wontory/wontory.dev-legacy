@@ -8,7 +8,7 @@ import { allArticles } from '@/.contentlayer/generated'
 import { BadgeProps, badgeVariants } from '@/styles/badgeVariants'
 import { cn } from '@/libs/utils'
 
-export function CategoryFilter() {
+export function CategoryFilter({ selected }: { selected: string | null }) {
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
@@ -34,6 +34,7 @@ export function CategoryFilter() {
           badgeVariants({
             variant: 'default',
           }),
+          selected ?? 'outline outline-2 outline-offset-2 outline-primary',
           'text-md rounded-full font-medium',
         )}
       >
@@ -47,6 +48,8 @@ export function CategoryFilter() {
             badgeVariants({
               variant: category.toLowerCase() as BadgeProps['variant'],
             }),
+            selected === category &&
+              'outline outline-2 outline-offset-2 outline-primary',
             'text-md rounded-full font-medium',
           )}
         >

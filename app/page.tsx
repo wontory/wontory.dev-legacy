@@ -20,8 +20,9 @@ function getArticleListFromParams(category: string | null) {
 export default function Home() {
   const searchParams = useSearchParams()
 
-  const articleList = searchParams.get('category')
-    ? getArticleListFromParams(searchParams.get('category'))
+  const category = searchParams.get('category')
+  const articleList = category
+    ? getArticleListFromParams(category)
     : allArticles
 
   if (articleList.length === 0) {
@@ -35,7 +36,7 @@ export default function Home() {
         <br /> 안녕하세요. 프론트엔드 개발자 wontory입니다.
       </div>
       <div className="container relative max-w-screen-xl">
-        <CategoryFilter />
+        <CategoryFilter selected={category} />
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
           {articleList.map((article) => (
             <ArticleCard key={article._id} {...article} />
