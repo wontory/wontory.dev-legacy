@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { formatRelative, differenceInDays, subDays } from 'date-fns'
+import { formatRelative, differenceInDays, subDays, parseISO } from 'date-fns'
 import { ko } from 'date-fns/locale'
 
 import { cn } from '@/libs/utils'
@@ -16,7 +16,7 @@ export function ArticleHeader({
   category: string
   date: string
 }) {
-  const formatDate = (today: Date, date: string) =>
+  const formatDate = (today: Date, date: Date) =>
     formatRelative(subDays(today, differenceInDays(today, date)), today, {
       locale: ko,
     })
@@ -52,7 +52,7 @@ export function ArticleHeader({
             dateTime={date}
             className="text-xs text-gray-500 dark:text-gray-400"
           >
-            {formatDate(new Date(), date)}
+            {formatDate(new Date(), parseISO(date))}
           </time>
         </div>
       </div>
