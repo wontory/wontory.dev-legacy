@@ -20,7 +20,7 @@ const components: MDXComponents = {
     </h3>
   ),
   h4: ({ children }) => (
-    <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
+    <h4 className="mt-6 scroll-m-20 text-xl font-semibold tracking-tight">
       {children}
     </h4>
   ),
