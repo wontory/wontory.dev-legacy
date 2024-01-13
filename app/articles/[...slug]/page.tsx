@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 
 import { allArticles } from '@/.contentlayer/generated'
 import { Mdx } from '@/components/mdx-components'
+import { ArticleHeader } from '@/components/article-header'
 
 interface ArticleProps {
   params: {
@@ -52,7 +53,12 @@ export default async function ArticlePage({ params }: ArticleProps) {
   }
 
   return (
-    <article className="container relative max-w-screen-md py-10">
+    <article className="container relative max-w-screen-md">
+      <ArticleHeader
+        title={article.title}
+        date={article.date}
+        category={article.category}
+      />
       <Mdx code={article.body.code} />
     </article>
   )
