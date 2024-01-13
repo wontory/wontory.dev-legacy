@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ko">
+    <html lang="ko" suppressHydrationWarning>
       <body className={`${spoqa.variable} font-spoqa`}>
         <ThemeProvider attribute="class" defaultTheme="system">
           <div className="relative flex min-h-screen flex-col bg-background">
