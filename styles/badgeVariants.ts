@@ -8,14 +8,14 @@ const badgeVariants = cva(
         default:
           'border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80',
         javascript:
-          'border-transparent bg-[#F7DF1E] text-black hover:bg-[#F7DF1E]/80',
+          'border-transparent bg-[#F7DF1E] text-black hover:bg-[#F7DF1E]/80 shadow',
         typescript:
-          'border-transparent bg-[#3178C6] text-white hover:bg-[#3178C6]/80',
+          'border-transparent bg-[#3178C6] text-white hover:bg-[#3178C6]/80 shadow',
         react:
-          'border-transparent bg-[#61DAFB] text-black hover:bg-[#61DAFB]/80',
+          'border-transparent bg-[#61DAFB] text-black hover:bg-[#61DAFB]/80 shadow',
         'next.js':
-          'border-transparent bg-[#000000] text-white hover:bg-[#000000]/80',
-        aws: 'border-transparent bg-[#232F3E] text-white hover:bg-[#232F3E]/80',
+          'border-transparent bg-[#000000] text-white hover:bg-[#000000]/80 shadow',
+        aws: 'border-transparent bg-[#232F3E] text-white hover:bg-[#232F3E]/80 shadow',
       },
     },
     defaultVariants: {
