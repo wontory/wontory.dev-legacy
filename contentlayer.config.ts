@@ -4,6 +4,8 @@ import {
   makeSource,
 } from 'contentlayer/source-files'
 import remarkGfm from 'remark-gfm'
+import rehypeSlug from 'rehype-slug'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 
 const computedFields: ComputedFields = {
   slug: {
@@ -34,6 +36,6 @@ export default makeSource({
   documentTypes: [Article],
   mdx: {
     remarkPlugins: [remarkGfm],
-    rehypePlugins: [],
+    rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
   },
 })
