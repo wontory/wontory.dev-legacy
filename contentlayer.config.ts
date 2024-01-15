@@ -6,6 +6,7 @@ import {
 import remarkGfm from 'remark-gfm'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import GithubSlugger from 'github-slugger'
 
 const computedFields: ComputedFields = {
   slug: {
@@ -15,6 +16,19 @@ const computedFields: ComputedFields = {
   slugAsParams: {
     type: 'string',
     resolve: (doc) => doc._raw.flattenedPath.split('/').slice(1).join('/'),
+  },
+  headings: {
+    type: 'json',
+    resolve: (doc) =>
+      (
+        Array.from(
+          doc.body.raw.matchAll(/\n(?<flag>#{1,3})\s+(?<content>.+)/g),
+        ) as { groups: Record<string, string> }[]
+      ).map(({ groups }) => ({
+        level: groups?.flag.length,
+        text: groups?.content,
+        slug: groups?.content ? new GithubSlugger().slug(groups?.content) : '',
+      })),
   },
 }
 
