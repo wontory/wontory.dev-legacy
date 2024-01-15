@@ -4,23 +4,35 @@ import { useMDXComponent } from 'next-contentlayer/hooks'
 import { MDXComponents } from 'mdx/types'
 
 const components: MDXComponents = {
-  h1: ({ children }) => (
-    <h1 className="mt-12 scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+  h1: ({ children, id }) => (
+    <h1
+      className="mt-12 scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl"
+      id={id}
+    >
       {children}
     </h1>
   ),
-  h2: ({ children }) => (
-    <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+  h2: ({ children, id }) => (
+    <h2
+      className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0"
+      id={id}
+    >
       {children}
     </h2>
   ),
-  h3: ({ children }) => (
-    <h3 className="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
+  h3: ({ children, id }) => (
+    <h3
+      className="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight"
+      id={id}
+    >
       {children}
     </h3>
   ),
-  h4: ({ children }) => (
-    <h4 className="mt-6 scroll-m-20 text-xl font-semibold tracking-tight">
+  h4: ({ children, id }) => (
+    <h4
+      className="mt-6 scroll-m-20 text-xl font-semibold tracking-tight"
+      id={id}
+    >
       {children}
     </h4>
   ),
