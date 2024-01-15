@@ -3,8 +3,9 @@ import { notFound } from 'next/navigation'
 
 import { allArticles } from '@/.contentlayer/generated'
 import { Separator } from '@/components/ui/separator'
-import { Mdx } from '@/components/mdx-components'
 import { ArticleHeader } from '@/components/article-header'
+import { TableOfContents } from '@/components/table-of-contents'
+import { Mdx } from '@/components/mdx-components'
 import { GiscusSection } from '@/components/giscus'
 
 interface ArticleProps {
@@ -61,6 +62,7 @@ export default async function ArticlePage({ params }: ArticleProps) {
         date={article.date}
         category={article.category}
       />
+      <TableOfContents headings={article.headings} />
       <Mdx code={article.body.code} />
       <Separator className="my-16" />
       <GiscusSection />
