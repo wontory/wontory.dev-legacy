@@ -62,9 +62,10 @@ export default async function ArticlePage({ params }: ArticleProps) {
         date={article.date}
         category={article.category}
       />
+      <Separator className="my-12" />
       <TableOfContents headings={article.headings} />
       <Mdx code={article.body.code} />
-      <Separator className="my-16" />
+      <Separator className="my-12" />
       <GiscusSection />
     </article>
   )

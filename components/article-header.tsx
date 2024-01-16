@@ -5,7 +5,6 @@ import { ko } from 'date-fns/locale'
 import { cn } from '@/libs/utils'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { BadgeProps, badgeVariants } from '@/styles/badgeVariants'
-import { Separator } from '@/components/ui/separator'
 
 export function ArticleHeader({
   title,
@@ -56,7 +55,6 @@ export function ArticleHeader({
           </time>
         </div>
       </div>
-      <Separator className="my-8" />
     </>
   )
 }
