@@ -12,7 +12,7 @@ export function TableOfContents({
           (heading: { slug: string; level: number; text: string }) => (
             <div
               key={`#${heading.slug}`}
-              className="transition hover:text-foreground/60"
+              className="transition hover:text-foreground/70"
             >
               <a data-level={heading.level} href={`#${heading.slug}`}>
                 {heading.text}
