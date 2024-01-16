@@ -1,4 +1,5 @@
 import localFont from 'next/font/local'
+import { Poppins } from 'next/font/google'
 
 const spoqa = localFont({
   src: [
@@ -27,4 +28,11 @@ const spoqa = localFont({
   variable: '--font-spoqa',
 })
 
-export { spoqa }
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['300', '500'],
+  display: 'swap',
+  variable: '--font-poppins',
+})
+
+export { spoqa, poppins }

@@ -21,6 +21,7 @@ const config = {
     extend: {
       fontFamily: {
         spoqa: ['var(--font-spoqa)'],
+        poppins: ['var(--font-poppins)'],
       },
       colors: {
         border: 'hsl(var(--border))',
