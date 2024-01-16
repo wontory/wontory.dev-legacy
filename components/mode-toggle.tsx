@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import { MoonIcon, SunIcon } from '@radix-ui/react-icons'
+import { MoonIcon, SunIcon, DotFilledIcon } from '@radix-ui/react-icons'
 import { useTheme } from 'next-themes'
 
 import { Button } from '@/components/ui/button'
@@ -13,7 +13,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 
 export function ModeToggle() {
-  const { setTheme } = useTheme()
+  const { theme, setTheme } = useTheme()
 
   return (
     <DropdownMenu>
@@ -25,14 +25,26 @@ export function ModeToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme('light')}>
+        <DropdownMenuItem
+          className="justify-between"
+          onClick={() => setTheme('light')}
+        >
           Light
+          {theme === 'light' && <DotFilledIcon />}
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('dark')}>
+        <DropdownMenuItem
+          className="justify-between"
+          onClick={() => setTheme('dark')}
+        >
           Dark
+          {theme === 'dark' && <DotFilledIcon />}
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('system')}>
+        <DropdownMenuItem
+          className="justify-between"
+          onClick={() => setTheme('system')}
+        >
           System
+          {theme === 'system' && <DotFilledIcon />}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
