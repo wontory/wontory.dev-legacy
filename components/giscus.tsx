@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import { useTheme } from 'next-themes'
 
 const giscusThemes = {
   light: 'https://giscus.app/themes/noborder_light.css',
@@ -8,6 +9,8 @@ const giscusThemes = {
 } as const
 
 export const GiscusSection = (props: React.HTMLAttributes<HTMLElement>) => {
+  const { resolvedTheme } = useTheme()
+
   useEffect(() => {
     const theme: keyof typeof giscusThemes =
       document.documentElement.classList.contains('dark') ? 'dark' : 'light'
@@ -34,6 +37,25 @@ export const GiscusSection = (props: React.HTMLAttributes<HTMLElement>) => {
     )
     document.querySelector('#giscus')?.appendChild(giscusScript)
   }, [])
+
+  useEffect(() => {
+    const theme = resolvedTheme as keyof typeof giscusThemes
+
+    const iframe = document.querySelector<HTMLIFrameElement>(
+      'iframe.giscus-frame',
+    )
+
+    iframe?.contentWindow?.postMessage(
+      {
+        giscus: {
+          setConfig: {
+            theme: giscusThemes[theme],
+          },
+        },
+      },
+      'https://giscus.app',
+    )
+  }, [resolvedTheme])
 
   return <section {...props} id="giscus"></section>
 }
