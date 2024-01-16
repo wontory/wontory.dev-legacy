@@ -25,9 +25,9 @@ const computedFields: ComputedFields = {
           doc.body.raw.matchAll(/\n(?<flag>#{1,3})\s+(?<content>.+)/g),
         ) as { groups: Record<string, string> }[]
       ).map(({ groups }) => ({
-        level: groups?.flag.length,
-        text: groups?.content,
-        slug: groups?.content ? new GithubSlugger().slug(groups?.content) : '',
+        level: groups.flag.length,
+        text: groups.content,
+        slug: new GithubSlugger().slug(groups.content),
       })),
   },
 }
