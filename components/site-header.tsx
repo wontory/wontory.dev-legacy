@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { GitHubLogoIcon } from '@radix-ui/react-icons'
 
+import { poppins } from '@/styles/fonts'
 import { ModeToggle } from '@/components/mode-toggle'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/libs/utils'
@@ -23,7 +24,14 @@ export function SiteHeader() {
       >
         <div className="mr-4 flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <span className="font-bold sm:inline-block">블로그</span>
+            <span
+              className={cn(
+                'font-poppins text-lg font-light',
+                poppins.variable,
+              )}
+            >
+              <span className="mr-0.5 font-medium">wontory</span>dev
+            </span>
           </Link>
           <nav className="flex items-center gap-6 text-sm"></nav>
         </div>
