@@ -2,60 +2,33 @@
 
 import { useEffect } from 'react'
 import { useTheme } from 'next-themes'
+import Giscus from '@giscus/react'
 
 const giscusThemes = {
   light: 'https://giscus.app/themes/noborder_light.css',
   dark: 'https://giscus.app/themes/noborder_dark.css',
 } as const
 
-export const GiscusSection = (props: React.HTMLAttributes<HTMLElement>) => {
+export function GiscusSection(props: React.HTMLAttributes<HTMLElement>) {
   const { resolvedTheme } = useTheme()
 
-  useEffect(() => {
-    const theme: keyof typeof giscusThemes =
-      document.documentElement.classList.contains('dark') ? 'dark' : 'light'
-
-    const giscusAttributes = {
-      src: 'https://giscus.app/client.js',
-      'data-repo': 'wontory/wontory.dev-comments',
-      'data-repo-id': 'R_kgDOK8hnMw',
-      'data-category': 'General',
-      'data-category-id': 'DIC_kwDOK8hnM84Cb64A',
-      'data-mapping': 'pathname',
-      'data-strict': '0',
-      'data-reactions-enabled': '1',
-      'data-emit-metadata': '0',
-      'data-input-position': 'bottom',
-      'data-theme': giscusThemes[theme],
-      'data-lang': 'ko',
-      crossorigin: 'anonymous',
-    }
-
-    const giscusScript = document.createElement('script')
-    Object.entries(giscusAttributes).forEach(([key, value]) =>
-      giscusScript.setAttribute(key, value),
-    )
-    document.querySelector('#giscus')?.appendChild(giscusScript)
-  }, [])
-
-  useEffect(() => {
-    const theme = resolvedTheme as keyof typeof giscusThemes
-
-    const iframe = document.querySelector<HTMLIFrameElement>(
-      'iframe.giscus-frame',
-    )
-
-    iframe?.contentWindow?.postMessage(
-      {
-        giscus: {
-          setConfig: {
-            theme: giscusThemes[theme],
-          },
-        },
-      },
-      'https://giscus.app',
-    )
-  }, [resolvedTheme])
-
-  return <section {...props} id="giscus"></section>
+  return (
+    <section {...props}>
+      <Giscus
+        id="comments"
+        repo="wontory/wontory.dev-comments"
+        repoId="R_kgDOK8hnMw"
+        category="General"
+        categoryId="DIC_kwDOK8hnM84Cb64A"
+        mapping="pathname"
+        term="Welcome to @giscus/react component!"
+        reactionsEnabled="1"
+        emitMetadata="0"
+        inputPosition="bottom"
+        theme={giscusThemes[resolvedTheme as keyof typeof giscusThemes]}
+        lang="ko"
+        loading="lazy"
+      />
+    </section>
+  )
 }
