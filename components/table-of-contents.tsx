@@ -22,6 +22,7 @@ export function TableOfContents({
               className={cn(
                 'transition hover:text-foreground/70',
                 heading.slug === curSection && 'font-medium text-foreground',
+                heading.level === 3 && 'pl-4',
               )}
             >
               <a data-level={heading.level} href={`#${heading.slug}`}>
