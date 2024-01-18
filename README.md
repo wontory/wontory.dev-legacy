@@ -1,6 +1,6 @@
 ## 블로그
 
-_**Minimalism**_
+_**Minimal, but delicate**_
 
 ## 기술 스택
 
