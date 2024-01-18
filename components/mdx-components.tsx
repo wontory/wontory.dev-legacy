@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import { MDXComponents } from 'mdx/types'
 
+import { cn } from '@/libs/utils'
+
 const components: MDXComponents = {
   h1: ({ children, id }) => (
     <h1
@@ -63,10 +65,23 @@ const components: MDXComponents = {
   ul: ({ children }) => (
     <ul className="my-6 ml-6 list-disc [&>li]:mt-2">{children}</ul>
   ),
-  code: ({ children }) => (
-    <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
-      {children}
-    </code>
+  pre: ({ className, ...props }) => (
+    <pre
+      className={cn(
+        'mb-4 mt-6 overflow-x-auto rounded-lg border bg-black py-4',
+        className,
+      )}
+      {...props}
+    />
+  ),
+  code: ({ className, ...props }) => (
+    <code
+      className={cn(
+        'relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold',
+        className,
+      )}
+      {...props}
+    />
   ),
   img: (props) => (
     <Image
