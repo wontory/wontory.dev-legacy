@@ -1,50 +1,61 @@
+import {
+  motion,
+  useTransform,
+  useMotionValue,
+  useAnimationFrame,
+} from 'framer-motion'
+
 import { cn } from '@/libs/utils'
 import { poppins } from '@/styles/fonts'
 
-const WONTORY = ['wontory', 'frontend', 'coffee', 'music', 'game']
-const SKILLS = [
-  'javascript',
-  'typescript',
-  'react',
-  'nextjs',
-  'tailwindcss',
-  'aws',
-]
-
 export function MainBanner() {
   return (
-    <section className="mb-8 flex h-52 flex-col items-center justify-center bg-primary text-center text-primary-foreground">
+    <section className="mb-8 bg-primary py-3 text-primary-foreground">
       <div
         className={cn(
-          'container flex max-w-screen-xl flex-col overflow-hidden whitespace-nowrap font-poppins text-8xl font-black [mask-image:_linear-gradient(to_right,transparent_2%,_black_200px,_black_calc(100%-200px),transparent_98%)]',
+          'container flex max-w-screen-xl flex-col font-poppins text-8xl font-black uppercase',
           poppins.variable,
         )}
       >
-        <div className="flex gap-16">
-          <ul className="animate-infinite-text flex gap-16">
-            {WONTORY.map((text, index) => (
-              <li key={index}>{text.toUpperCase()}</li>
-            ))}
-          </ul>
-          <ul className="animate-infinite-text flex gap-16" aria-hidden>
-            {WONTORY.map((text, index) => (
-              <li key={index}>{text.toUpperCase()}</li>
-            ))}
-          </ul>
-        </div>
-        <div className="flex gap-16">
-          <ul className="animate-infinite-text-reverse flex gap-16" aria-hidden>
-            {SKILLS.map((text, index) => (
-              <li key={index}>{text.toUpperCase()}</li>
-            ))}
-          </ul>
-          <ul className="animate-infinite-text-reverse flex gap-16">
-            {SKILLS.map((text, index) => (
-              <li key={index}>{text.toUpperCase()}</li>
-            ))}
-          </ul>
-        </div>
+        <Marquee baseVelocity={-1}>
+          coffee frontend wontory music game&nbsp;
+        </Marquee>
+        <Marquee baseVelocity={0.7}>
+          react nextjs javascript typescript tailwindcss aws&nbsp;
+        </Marquee>
       </div>
     </section>
+  )
+}
+
+export const wrap = (min: number, max: number, v: number) => {
+  const rangeSize = max - min
+  return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min
+}
+
+export function Marquee({
+  children,
+  baseVelocity = 100,
+}: {
+  children: string
+  baseVelocity: number
+}) {
+  const baseX = useMotionValue(0)
+
+  const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`)
+
+  useAnimationFrame((_, delta) =>
+    baseX.set(baseX.get() + baseVelocity * (delta / 1000)),
+  )
+
+  return (
+    <div className="flex flex-nowrap overflow-hidden">
+      <motion.div className="flex flex-nowrap whitespace-nowrap" style={{ x }}>
+        <span>{children}</span>
+        <span>{children}</span>
+        <span>{children}</span>
+        <span>{children}</span>
+      </motion.div>
+    </div>
   )
 }
