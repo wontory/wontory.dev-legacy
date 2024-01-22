@@ -7,7 +7,7 @@ export function MainBanner() {
     <section className="mb-8 bg-primary py-3 text-primary-foreground">
       <div
         className={cn(
-          'container flex max-w-screen-xl flex-col p-0 font-poppins text-8xl font-black uppercase [mask-image:_linear-gradient(to_right,transparent_0,_black_200px,_black_calc(100%-200px),transparent_100%)]',
+          'container flex max-w-screen-xl flex-col p-0 font-poppins text-6xl font-black uppercase [mask-image:_linear-gradient(to_right,transparent_0,_black_80px,_black_calc(100%-80px),transparent_100%)] md:text-7xl lg:text-8xl xl:[mask-image:_linear-gradient(to_right,transparent_0,_black_200px,_black_calc(100%-200px),transparent_100%)]',
           poppins.variable,
         )}
       >
