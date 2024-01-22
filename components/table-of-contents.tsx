@@ -1,9 +1,23 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import {
+  ArrowUpIcon,
+  ChatBubbleIcon,
+  HomeIcon,
+  Share2Icon,
+} from '@radix-ui/react-icons'
 
 import { cn } from '@/libs/utils'
 import type { Article } from '@/.contentlayer/generated'
+import { Button } from '@/components/ui/button'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from './ui/tooltip'
+import Link from 'next/link'
 
 export function TableOfContents({
   headings,
@@ -14,23 +28,93 @@ export function TableOfContents({
 
   return (
     <div className="sticky top-32 hidden xl:block">
-      <div className="absolute left-full ml-10 w-60 text-foreground/40 2xl:ml-20">
-        {headings.map(
-          (heading: { slug: string; level: number; text: string }) => (
-            <div
-              key={`#${heading.slug}`}
-              className={cn(
-                'transition hover:text-foreground/70',
-                heading.slug === curSection && 'font-medium text-foreground',
-                heading.level === 3 && 'pl-4',
-              )}
-            >
-              <a data-level={heading.level} href={`#${heading.slug}`}>
-                {heading.text}
-              </a>
-            </div>
-          ),
-        )}
+      <div className="absolute left-full ml-10 max-w-60 2xl:ml-20">
+        <div className="text-nowrap text-foreground/40">
+          {headings.map(
+            (heading: { slug: string; level: number; text: string }) => (
+              <div
+                key={`#${heading.slug}`}
+                className={cn(
+                  'transition hover:text-foreground/70',
+                  heading.slug === curSection && 'font-medium text-foreground',
+                  heading.level === 3 && 'pl-4',
+                )}
+              >
+                <a data-level={heading.level} href={`#${heading.slug}`}>
+                  {heading.text}
+                </a>
+              </div>
+            ),
+          )}
+        </div>
+        <div className="mt-4 flex justify-between">
+          <TooltipProvider delayDuration={0}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button variant="outline" size="icon" asChild>
+                  <Link href="/">
+                    <HomeIcon />
+                  </Link>
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent side="bottom">
+                <p>Home</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+          <TooltipProvider delayDuration={0}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => window.scrollTo(0, 0)}
+                >
+                  <ArrowUpIcon />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent side="bottom">
+                <p>Scroll to top</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+          <TooltipProvider delayDuration={0}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() =>
+                    document.getElementById('comments')?.scrollIntoView(true)
+                  }
+                >
+                  <ChatBubbleIcon />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent side="bottom">
+                <p>Comments</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+          <TooltipProvider delayDuration={0}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() =>
+                    navigator.clipboard.writeText(window.location.href)
+                  }
+                >
+                  <Share2Icon />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent side="bottom">
+                <p>Copy link</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </div>
       </div>
     </div>
   )
