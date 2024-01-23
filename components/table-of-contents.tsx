@@ -32,15 +32,15 @@ export function TableOfContents({
       <div className="absolute left-full ml-10 max-w-60 2xl:ml-20">
         <h1 className="font-semibold">Table of Contents</h1>
         <Separator className="my-2" />
-        <div className="text-nowrap text-foreground/60">
+        <div className="text-nowrap px-2 text-foreground/60">
           {headings.map(
             (heading: { slug: string; level: number; text: string }) => (
               <div
                 key={`#${heading.slug}`}
                 className={cn(
-                  'pl-2 transition hover:text-foreground',
+                  'transition hover:text-foreground',
                   heading.slug === curSection && 'font-medium text-foreground',
-                  heading.level === 3 && 'pl-6',
+                  heading.level === 3 && 'pl-4',
                 )}
               >
                 <a data-level={heading.level} href={`#${heading.slug}`}>
