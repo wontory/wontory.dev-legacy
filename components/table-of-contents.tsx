@@ -50,7 +50,7 @@ export function TableOfContents({
             ),
           )}
         </div>
-        <div className="mt-4 flex">
+        <div className="mt-6 flex">
           <TooltipProvider delayDuration={0}>
             <Tooltip>
               <TooltipTrigger asChild>
