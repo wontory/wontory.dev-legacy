@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import {
   ArrowUpIcon,
   ChatBubbleIcon,
@@ -16,8 +17,8 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from './ui/tooltip'
-import Link from 'next/link'
+} from '@/components/ui/tooltip'
+import { Separator } from '@/components/ui/separator'
 
 export function TableOfContents({
   headings,
@@ -29,15 +30,17 @@ export function TableOfContents({
   return (
     <div className="sticky top-32 hidden xl:block">
       <div className="absolute left-full ml-10 max-w-60 2xl:ml-20">
-        <div className="text-nowrap text-foreground/40">
+        <h1 className="font-semibold">Table of Contents</h1>
+        <Separator className="my-2" />
+        <div className="text-nowrap text-foreground/60">
           {headings.map(
             (heading: { slug: string; level: number; text: string }) => (
               <div
                 key={`#${heading.slug}`}
                 className={cn(
-                  'transition hover:text-foreground/70',
+                  'pl-2 transition hover:text-foreground',
                   heading.slug === curSection && 'font-medium text-foreground',
-                  heading.level === 3 && 'pl-4',
+                  heading.level === 3 && 'pl-6',
                 )}
               >
                 <a data-level={heading.level} href={`#${heading.slug}`}>
@@ -47,11 +50,17 @@ export function TableOfContents({
             ),
           )}
         </div>
-        <div className="mt-4 flex justify-between">
+        <div className="mt-4 flex">
           <TooltipProvider delayDuration={0}>
             <Tooltip>
               <TooltipTrigger asChild>
-                <Button variant="outline" size="icon" asChild>
+                <Button
+                  variant="outline"
+                  className="w-full rounded-r-none"
+                  size="icon"
+                  aria-label="Home"
+                  asChild
+                >
                   <Link href="/">
                     <HomeIcon />
                   </Link>
@@ -68,6 +77,8 @@ export function TableOfContents({
                 <Button
                   variant="outline"
                   size="icon"
+                  className="w-full rounded-none border-l-0"
+                  aria-label="Scroll to top"
                   onClick={() => window.scrollTo(0, 0)}
                 >
                   <ArrowUpIcon />
@@ -84,6 +95,8 @@ export function TableOfContents({
                 <Button
                   variant="outline"
                   size="icon"
+                  className="w-full rounded-none border-l-0"
+                  aria-label="Comments"
                   onClick={() =>
                     document.getElementById('comments')?.scrollIntoView(true)
                   }
@@ -102,6 +115,8 @@ export function TableOfContents({
                 <Button
                   variant="outline"
                   size="icon"
+                  className="w-full rounded-l-none border-l-0"
+                  aria-label="Copy link"
                   onClick={() =>
                     navigator.clipboard.writeText(window.location.href)
                   }
