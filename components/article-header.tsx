@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import { formatRelative, differenceInDays, subDays, parseISO } from 'date-fns'
 import { ko } from 'date-fns/locale'
+import { CalendarIcon, StopwatchIcon } from '@radix-ui/react-icons'
 
 import { cn } from '@/libs/utils'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { BadgeProps, badgeVariants } from '@/styles/badgeVariants'
-import { CalendarIcon, StopwatchIcon } from '@radix-ui/react-icons'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 export function ArticleHeader({
   title,

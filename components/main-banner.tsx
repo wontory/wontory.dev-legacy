@@ -1,6 +1,6 @@
 import { cn } from '@/libs/utils'
-import { Marquee } from '@/components/marquee'
 import { poppins } from '@/styles/fonts'
+import { Marquee } from '@/components/marquee'
 
 export function MainBanner() {
   return (

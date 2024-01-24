@@ -4,9 +4,9 @@ import { useCallback } from 'react'
 import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
 
-import { allArticles } from '@/.contentlayer/generated'
-import { BadgeProps, badgeVariants } from '@/styles/badgeVariants'
 import { cn } from '@/libs/utils'
+import { BadgeProps, badgeVariants } from '@/styles/badgeVariants'
+import { allArticles } from '@/.contentlayer/generated'
 
 export function CategoryFilter({ selected }: { selected: string | null }) {
   const pathname = usePathname()

@@ -4,10 +4,10 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { GitHubLogoIcon } from '@radix-ui/react-icons'
 
-import { poppins } from '@/styles/fonts'
-import { ModeToggle } from '@/components/mode-toggle'
-import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/libs/utils'
+import { poppins } from '@/styles/fonts'
+import { buttonVariants } from '@/components/ui/button'
+import { ModeToggle } from '@/components/mode-toggle'
 
 export function SiteHeader() {
   const pathname = usePathname()

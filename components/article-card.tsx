@@ -1,11 +1,12 @@
 import Link from 'next/link'
 import { differenceInDays, formatRelative, parseISO, subDays } from 'date-fns'
-import { Badge } from '@/components/ui/badge'
-import { cn } from '@/libs/utils'
-import { Article } from '@/.contentlayer/generated'
-import { BadgeProps, badgeVariants } from '@/styles/badgeVariants'
-import { CalendarIcon, StopwatchIcon } from '@radix-ui/react-icons'
 import { ko } from 'date-fns/locale'
+import { CalendarIcon, StopwatchIcon } from '@radix-ui/react-icons'
+
+import { cn } from '@/libs/utils'
+import { BadgeProps, badgeVariants } from '@/styles/badgeVariants'
+import { Article } from '@/.contentlayer/generated'
+import { Badge } from '@/components/ui/badge'
 
 export function ArticleCard(article: Article) {
   const formatDate = (today: Date, date: Date) =>
