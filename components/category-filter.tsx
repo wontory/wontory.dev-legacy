@@ -35,7 +35,7 @@ export function CategoryFilter({ selected }: { selected: string | null }) {
             variant: 'default',
           }),
           selected ?? 'outline outline-2 outline-offset-2 outline-primary',
-          'text-md rounded-full font-medium',
+          'rounded-full text-base font-medium',
         )}
       >
         전체
@@ -50,7 +50,7 @@ export function CategoryFilter({ selected }: { selected: string | null }) {
             }),
             selected === category &&
               'outline outline-2 outline-offset-2 outline-primary',
-            'text-md rounded-full font-medium',
+            'rounded-full text-base font-medium',
           )}
         >
           {category}
