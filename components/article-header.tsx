@@ -5,15 +5,18 @@ import { ko } from 'date-fns/locale'
 import { cn } from '@/libs/utils'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { BadgeProps, badgeVariants } from '@/styles/badgeVariants'
+import { CalendarIcon, StopwatchIcon } from '@radix-ui/react-icons'
 
 export function ArticleHeader({
   title,
   category,
   date,
+  readingTime,
 }: {
   title: string
   category: string
   date: string
+  readingTime: string
 }) {
   const formatDate = (today: Date, date: Date) =>
     formatRelative(subDays(today, differenceInDays(today, date)), today, {
@@ -47,12 +50,15 @@ export function ArticleHeader({
         </Avatar>
         <div className="flex flex-col gap-1">
           <span className="text-md font-medium">wontory</span>
-          <time
-            dateTime={date}
-            className="text-xs text-gray-500 dark:text-gray-400"
-          >
-            {formatDate(new Date(), parseISO(date))}
-          </time>
+          <div className="flex gap-2 text-xs text-gray-500 dark:text-gray-400">
+            <CalendarIcon />
+            <time dateTime={date}>
+              {formatDate(new Date(), parseISO(date))}
+            </time>
+            ·
+            <StopwatchIcon />
+            <span>{readingTime}분</span>
+          </div>
         </div>
       </div>
     </>

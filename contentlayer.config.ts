@@ -8,6 +8,7 @@ import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypePrettyCode from 'rehype-pretty-code'
 import GithubSlugger from 'github-slugger'
+import readingTime from 'reading-time'
 
 const computedFields: ComputedFields = {
   slug: {
@@ -30,6 +31,10 @@ const computedFields: ComputedFields = {
         text: groups.content,
         slug: new GithubSlugger().slug(groups.content),
       })),
+  },
+  readingTime: {
+    type: 'string',
+    resolve: (doc) => Math.ceil(readingTime(doc.body.raw).minutes),
   },
 }
 

@@ -62,6 +62,7 @@ export default async function ArticlePage({ params }: ArticleProps) {
       <ArticleHeader
         title={article.title}
         date={article.date}
+        readingTime={article.readingTime}
         category={article.category}
       />
       <Separator className="my-12" />
