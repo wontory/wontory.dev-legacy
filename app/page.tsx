@@ -1,6 +1,8 @@
 'use client'
 
 import { notFound, useSearchParams } from 'next/navigation'
+import { compareDesc } from 'date-fns'
+
 import { allArticles } from '@/.contentlayer/generated'
 import { ArticleCard } from '@/components/article-card'
 import { CategoryFilter } from '@/components/category-filter'
@@ -11,10 +13,6 @@ function getArticleListFromParams(category: string | null) {
     (article) => article.category.toLowerCase() === category?.toLowerCase(),
   )
 
-  if (articleList.length === 0) {
-    null
-  }
-
   return articleList
 }
 
@@ -22,11 +20,11 @@ export default function Home() {
   const searchParams = useSearchParams()
 
   const category = searchParams.get('category')
-  const articleList = category
-    ? getArticleListFromParams(category)
-    : allArticles
+  const articleList = (
+    category ? getArticleListFromParams(category) : allArticles
+  ).sort((a, b) => compareDesc(a.date, b.date))
 
-  if (articleList.length === 0) {
+  if (category && articleList.length === 0) {
     notFound()
   }
 
