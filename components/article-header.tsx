@@ -49,7 +49,16 @@ export function ArticleHeader({
           <AvatarFallback>WT</AvatarFallback>
         </Avatar>
         <div className="flex flex-col gap-1">
-          <span className="text-md font-medium">wontory</span>
+          <div className="flex items-center gap-2 text-xs">
+            <span className="text-base font-medium">wontory</span>·
+            <a
+              href="https://github.com/wontory"
+              target="_blank"
+              className="text-sm text-green-600 transition hover:text-green-800"
+            >
+              Follow
+            </a>
+          </div>
           <div className="flex gap-2 text-xs text-gray-500 dark:text-gray-400">
             <CalendarIcon />
             <time dateTime={date}>
