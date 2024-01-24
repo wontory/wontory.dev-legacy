@@ -54,7 +54,7 @@ export function ArticleHeader({
             <a
               href="https://github.com/wontory"
               target="_blank"
-              className="text-sm text-green-600 transition hover:text-green-800"
+              className="text-sm text-blue-600 transition hover:text-blue-800 dark:text-blue-500"
             >
               Follow
             </a>
