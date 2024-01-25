@@ -1,4 +1,6 @@
 import '@/styles/globals.css'
+
+import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import { GoogleAnalytics } from '@next/third-parties/google'
 
@@ -23,7 +25,9 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system">
           <div className="relative flex min-h-screen flex-col bg-background">
             <SiteHeader />
-            <main className="flex-1">{children}</main>
+            <main className="flex-1">
+              <Suspense>{children}</Suspense>
+            </main>
             <SiteFooter />
           </div>
         </ThemeProvider>
