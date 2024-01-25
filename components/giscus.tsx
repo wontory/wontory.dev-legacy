@@ -23,7 +23,7 @@ export function GiscusSection(props: React.HTMLAttributes<HTMLElement>) {
         term="Welcome to @giscus/react component!"
         reactionsEnabled="1"
         emitMetadata="0"
-        inputPosition="bottom"
+        inputPosition="top"
         theme={giscusThemes[resolvedTheme as keyof typeof giscusThemes]}
         lang="ko"
         loading="lazy"
