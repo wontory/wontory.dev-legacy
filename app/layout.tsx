@@ -1,5 +1,6 @@
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 import { spoqa } from '@/styles/fonts'
 import { ThemeProvider } from '@/components/theme-provider'
@@ -27,6 +28,7 @@ export default function RootLayout({
           </div>
         </ThemeProvider>
       </body>
+      <GoogleAnalytics gaId="G-LTWVKM0YWV" />
     </html>
   )
 }
