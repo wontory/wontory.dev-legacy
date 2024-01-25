@@ -2,6 +2,7 @@ import '@/styles/globals.css'
 
 import type { Metadata } from 'next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Analytics } from '@vercel/analytics/react'
 import { GoogleAnalytics } from '@next/third-parties/google'
 
 import { spoqa } from '@/styles/fonts'
@@ -30,6 +31,7 @@ export default function RootLayout({
           </div>
         </ThemeProvider>
         <SpeedInsights />
+        <Analytics />
       </body>
       <GoogleAnalytics gaId="G-LTWVKM0YWV" />
     </html>
