@@ -1,34 +1,19 @@
 import Link from 'next/link'
-import { differenceInDays, formatRelative, parseISO, subDays } from 'date-fns'
-import { ko } from 'date-fns/locale'
-import { CalendarIcon, StopwatchIcon } from '@radix-ui/react-icons'
 
 import { cn } from '@/libs/utils'
 import { BadgeProps, badgeVariants } from '@/styles/badgeVariants'
 import { Article } from '@/.contentlayer/generated'
 import { Badge } from '@/components/ui/badge'
+import { ArticleInfo } from '@/components/article-info'
 
 export function ArticleCard(article: Article) {
-  const formatDate = (today: Date, date: Date) =>
-    formatRelative(subDays(today, differenceInDays(today, date)), today, {
-      locale: ko,
-    })
-
   return (
     <Link
       href={article.slug}
       className="flex flex-col items-start gap-2 rounded-lg border p-3 text-left text-sm transition-all hover:bg-accent"
     >
       <div className="flex w-full items-center gap-2">
-        <div className="flex gap-2 text-xs text-muted-foreground">
-          <CalendarIcon />
-          <time dateTime={article.date}>
-            {formatDate(new Date(), parseISO(article.date))}
-          </time>
-          &nbsp;
-          <StopwatchIcon />
-          <span>{article.readingTime}분</span>
-        </div>
+        <ArticleInfo date={article.date} readingTime={article.readingTime} />
         <Badge
           className={cn(
             badgeVariants({
