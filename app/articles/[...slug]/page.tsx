@@ -6,7 +6,7 @@ import { notFound } from 'next/navigation'
 import { allArticles } from '@/.contentlayer/generated'
 import { Separator } from '@/components/ui/separator'
 import { ArticleHeader } from '@/components/article-header'
-import { TableOfContents } from '@/components/table-of-contents'
+import { TableOfContents } from '@/components/toc'
 import { Mdx } from '@/components/mdx-components'
 import { GiscusSection } from '@/components/giscus'
 
