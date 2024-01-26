@@ -1,9 +1,10 @@
 import Image, { ImageProps } from 'next/image'
 import Link from 'next/link'
 import { useMDXComponent } from 'next-contentlayer/hooks'
-import { MDXComponents } from 'mdx/types'
 
 import { cn } from '@/libs/utils'
+
+import type { MDXComponents } from 'mdx/types'
 
 const components: MDXComponents = {
   h1: ({ children, id }) => (

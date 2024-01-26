@@ -2,13 +2,11 @@ import { formatRelative, differenceInDays, subDays, parseISO } from 'date-fns'
 import { ko } from 'date-fns/locale'
 import { CalendarIcon, StopwatchIcon } from '@radix-ui/react-icons'
 
-export function ArticleInfo({
-  date,
-  readingTime,
-}: {
-  date: string
-  readingTime: string
-}) {
+import type { Article } from '@/.contentlayer/generated'
+
+type ArticleInfoProps = Pick<Article, 'date' | 'readingTime'>
+
+export function ArticleInfo({ date, readingTime }: ArticleInfoProps) {
   const formatDate = (today: Date, date: Date) =>
     formatRelative(subDays(today, differenceInDays(today, date)), today, {
       locale: ko,

@@ -4,7 +4,13 @@ import { cn } from '@/libs/utils'
 import { BadgeProps, badgeVariants } from '@/styles/badgeVariants'
 import { allArticles } from '@/.contentlayer/generated'
 
-export function CategoryFilter({ selected }: { selected: string | null }) {
+import type { Article } from '@/.contentlayer/generated'
+
+export function CategoryFilter({
+  selected,
+}: {
+  selected: Article['category']
+}) {
   const allCategories = Array.from(
     new Set(allArticles.map((article) => article.category)),
   ).sort((a, b) => a.localeCompare(b))

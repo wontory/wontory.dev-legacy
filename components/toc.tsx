@@ -3,9 +3,10 @@
 import { useState, useEffect } from 'react'
 
 import { cn } from '@/libs/utils'
-import type { Article } from '@/.contentlayer/generated'
 import { Separator } from '@/components/ui/separator'
 import { TocController } from './toc-controller'
+
+import type { Article } from '@/.contentlayer/generated'
 
 export function TableOfContents({
   headings,

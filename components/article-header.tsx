@@ -5,17 +5,19 @@ import { BadgeProps, badgeVariants } from '@/styles/badgeVariants'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { ArticleInfo } from '@/components/article-info'
 
+import type { Article } from '@/.contentlayer/generated'
+
+type ArticleHeaderProps = Pick<
+  Article,
+  'title' | 'category' | 'date' | 'readingTime'
+>
+
 export function ArticleHeader({
   title,
   category,
   date,
   readingTime,
-}: {
-  title: string
-  category: string
-  date: string
-  readingTime: string
-}) {
+}: ArticleHeaderProps) {
   return (
     <>
       <Link

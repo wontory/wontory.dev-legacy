@@ -7,9 +7,9 @@ import { allArticles } from '@/.contentlayer/generated'
 import { ArticleCard } from '@/components/article-card'
 import { CategoryFilter } from '@/components/category-filter'
 
-function getArticleListFromParams(category: string | null) {
+function getArticleListFromParams(params: string) {
   const articleList = allArticles.filter(
-    (article) => article.category.toLowerCase() === category?.toLowerCase(),
+    (article) => article.category.toLowerCase() === params?.toLowerCase(),
   )
 
   return articleList
@@ -18,7 +18,7 @@ function getArticleListFromParams(category: string | null) {
 export function MainArticles() {
   const searchParams = useSearchParams()
 
-  const category = searchParams.get('category')
+  const category = searchParams.get('category') as string
   const articleList = (
     category ? getArticleListFromParams(category) : allArticles
   ).sort((a, b) => compareDesc(a.date, b.date))

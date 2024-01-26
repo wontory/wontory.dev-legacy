@@ -2,9 +2,10 @@ import Link from 'next/link'
 
 import { cn } from '@/libs/utils'
 import { BadgeProps, badgeVariants } from '@/styles/badgeVariants'
-import { Article } from '@/.contentlayer/generated'
 import { Badge } from '@/components/ui/badge'
 import { ArticleInfo } from '@/components/article-info'
+
+import type { Article } from '@/.contentlayer/generated'
 
 export function ArticleCard(article: Article) {
   return (
@@ -31,7 +32,7 @@ export function ArticleCard(article: Article) {
         </div>
       </div>
       <div className="line-clamp-2 text-sm text-muted-foreground">
-        {(article.description || article.body.raw).substring(0, 300)}
+        {article.description.substring(0, 300)}
       </div>
     </Link>
   )
