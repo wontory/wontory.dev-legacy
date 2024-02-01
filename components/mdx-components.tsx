@@ -63,6 +63,9 @@ const components: MDXComponents = {
       {children}
     </td>
   ),
+  ol: ({ children }) => (
+    <ul className="my-6 ml-6 list-decimal [&>li]:mt-2">{children}</ul>
+  ),
   ul: ({ children }) => (
     <ul className="my-6 ml-6 list-disc [&>li]:mt-2">{children}</ul>
   ),
