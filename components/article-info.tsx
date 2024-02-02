@@ -8,9 +8,7 @@ type ArticleInfoProps = Pick<Article, 'date' | 'readingTime'>
 
 export function ArticleInfo({ date, readingTime }: ArticleInfoProps) {
   const formatDate = (today: Date, date: Date) =>
-    formatRelative(subDays(today, differenceInDays(today, date)), today, {
-      locale: ko,
-    })
+    formatRelative(date, today, { locale: ko })
 
   return (
     <div className="flex gap-2 text-xs text-muted-foreground">
