@@ -15,7 +15,12 @@ export function ArticleCard(article: Article) {
       <div className="overflow-hidden rounded-lg border transition-all hover:bg-accent">
         {article.thumbnail && (
           <AspectRatio ratio={16 / 9}>
-            <Image src={article.thumbnail} alt={article.title} fill />
+            <Image
+              src={article.thumbnail}
+              alt={article.title}
+              className="object-cover"
+              fill
+            />
           </AspectRatio>
         )}
         <div className="flex flex-col items-start gap-2 p-3 text-left text-sm">
