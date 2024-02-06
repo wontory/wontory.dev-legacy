@@ -12,13 +12,13 @@ import type { Article } from '@/.contentlayer/generated'
 export function ArticleCard(article: Article) {
   return (
     <Link href={article.slug}>
-      <div className="overflow-hidden rounded-lg border transition-all hover:bg-accent">
+      <div className="group overflow-hidden rounded-lg border transition-all hover:bg-accent">
         {article.thumbnail && (
-          <AspectRatio ratio={16 / 9}>
+          <AspectRatio ratio={16 / 9} className="overflow-hidden">
             <Image
               src={article.thumbnail}
               alt={article.title}
-              className="object-cover"
+              className="object-cover transition group-hover:scale-110"
               fill
             />
           </AspectRatio>
