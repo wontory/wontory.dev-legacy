@@ -1,0 +1,87 @@
+---
+title: 변수 다루기
+category: JavaScript
+description: content
+date: 2023-02-02T17:19+0900
+---
+
+## 1. var를 지양하자
+
+`let`과 `const`는 **ES2015**에서 등장했어요. 그 이전에는 `var` 키워드를 사용는 것이 변수를 생성할 수 있는 유일한 방법이었습니다. 그렇다면 `let`, `const`는 `var`와 어떻게 다르고 또 왜 도입되었을까요?
+
+`var`는 **함수 스코프**를 가지고, `let`과 `const`는 **블록 스코프**와 함께 **Temporal Dead Zone**을 가집니다. 그래서 `var` 대신 `let`과 `const`를 사용하면 더 안전하게 코드를 작성할 수 있어요.
+
+스코프는 잠시 미뤄두고 지금은 코드를 통해 `var`, `let`, `const`의 특징을 살펴볼게요!
+
+### var의 특징
+
+```js
+var name = '이름'
+var name = '이름2'
+var name = '이름3'
+var name = '이름3'
+
+console.log(name) // 이름3
+```
+
+위 코드에서는 `var` 키워드로 동일한 이름의 변수를 여러번 선언 및 할당하고 있습니다. 그럼에도 오류가 발생하지 않고 있어요.
+
+`var`는 **중복선언**과 **재할당**이 가능해요. 이후에 `var`로 선언된 변수를 호출하면, **마지막으로 할당된 값이 반환**됩니다.
+
+다음 코드도 살펴볼까요?
+
+```js
+console.log(name) // undefined
+
+var name = '이름'
+```
+
+이번에는 변수를 선언하기도 전에 `console.log`로 `name`을 호출하고 있지만, 마찬가지로 오류없이 `undefined`를 반환하고 있는 모습이에요.
+
+여기에서 `var`를 `let`으로 변경하면 어떻게 될까요?
+
+### let의 특징
+
+```js
+let name = '이름'
+let name = '이름2' // SyntaxError: Identifier 'name' has already been declared
+let name = '이름3'
+let name = '이름3'
+
+console.log(name)
+```
+
+`var`와는 다르게 바로 오류를 띄워주고 있어요. 이미 `name`이라는 변수를 선언했기 때문에 다시 쓸 수 없는 것이죠.
+
+이처럼 `let` 키워드로 변수를 선언하면, 동일한 이름으로 변수가 **중복선언되는 것을 방지**할 수 있어요.
+`var`에 비해 안전하게 코드를 작성할 수 있답니다.
+
+### const의 특징
+
+`const`도 `let`과 마찬가지로 중복선언에 대한 오류를 반환해줘요. 그렇다면 `const`는 `let`과 어떤 차이점이 있는지 코드를 통해 살펴봅시다.
+
+```js
+let name
+name = '이름'
+console.log(name) // 이름
+name = '이름2'
+console.log(name) // 이름2
+
+const fruit // SyntaxError: Missing initializer in const
+fruit = '사과'
+
+const color = 'red'
+color = 'yellow'  // TypeError: Assignment to constant variable.
+```
+
+`const`는 **선언과 동시에 값을 할당**해줘야 해요. 그리고 `let`과는 다르게 **재할당이 불가능하다**는 특징이 있어요.
+
+지금까지 `var`, `let`, `const`의 특징을 살펴봤습니다. 다음은 이 셋의 스코프에 대해 알아볼게요!
+
+## Function Scope & Block Scope
+
+## 전역 공간 사용 최소화
+
+## 임시변수 제거하기
+
+## 호이스팅 주의하기
