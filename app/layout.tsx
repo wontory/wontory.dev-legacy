@@ -5,6 +5,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Analytics } from '@vercel/analytics/react'
 import { GoogleAnalytics } from '@next/third-parties/google'
 
+import { cn } from '@/libs/utils'
 import { spoqa } from '@/styles/fonts'
 import { ThemeProvider } from '@/components/theme-provider'
 import { SiteHeader } from '@/components/site-header'
@@ -22,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`${spoqa.variable} font-spoqa`}>
+      <body className={cn(spoqa.variable, 'font-spoqa')}>
         <ThemeProvider attribute="class" defaultTheme="system">
           <div className="relative flex min-h-screen flex-col bg-background">
             <SiteHeader />
