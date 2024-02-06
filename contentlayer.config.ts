@@ -44,8 +44,9 @@ export const Article = defineDocumentType(() => ({
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
-    description: { type: 'string', required: true },
+    description: { type: 'string', required: false },
     category: { type: 'string', required: true },
+    thumbnail: { type: 'string', required: false },
     date: { type: 'date', required: true },
   },
   computedFields,
