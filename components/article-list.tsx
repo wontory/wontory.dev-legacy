@@ -30,7 +30,7 @@ export function ArticleList({ category }: { category: Article['category'] }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3"
+      className="grid grid-cols-1 items-start gap-4 md:grid-cols-2 xl:grid-cols-3"
     >
       {articleList.map((article) => (
         <ArticleCard key={article._id} {...article} />
