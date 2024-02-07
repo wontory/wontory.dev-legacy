@@ -16,7 +16,7 @@ export function TableOfContents({
 
   return (
     <div className="sticky top-32 hidden xl:block">
-      <div className="absolute left-full ml-10 max-w-60 2xl:ml-20">
+      <div className="absolute left-full ml-10 w-full max-w-60 2xl:ml-20">
         <h1 className="font-semibold">Table of Contents</h1>
         <Separator className="my-2" />
         <div className="text-nowrap px-2 text-foreground/60">
