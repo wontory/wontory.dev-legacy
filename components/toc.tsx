@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 
 import { cn } from '@/libs/utils'
 import { Separator } from '@/components/ui/separator'
-import { TocController } from './toc-controller'
 
 import type { Article } from '@/.contentlayer/generated'
 
@@ -38,13 +37,12 @@ export function TableOfContents({
             ),
           )}
         </div>
-        <TocController />
       </div>
     </div>
   )
 }
 
-function useTocScroll(headings: Article['headings']) {
+const useTocScroll = (headings: Article['headings']) => {
   const [curSection, setCurSection] = useState<string>('')
   const [heights, setHeights] = useState<Article['headings']>(null)
 
