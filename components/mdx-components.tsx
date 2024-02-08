@@ -88,9 +88,12 @@ const components: MDXComponents = {
     />
   ),
   img: (props) => (
+    // eslint-disable-next-line jsx-a11y/alt-text
     <Image
+      width={0}
+      height={0}
       sizes="100vw"
-      style={{ width: '100%', height: 'auto' }}
+      className="h-auto w-full rounded-lg"
       {...(props as ImageProps)}
     />
   ),
