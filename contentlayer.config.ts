@@ -48,6 +48,7 @@ export const Article = defineDocumentType(() => ({
     category: { type: 'string', required: true },
     image: { type: 'string', required: false },
     date: { type: 'date', required: true },
+    toc: { type: 'boolean', required: false },
   },
   computedFields,
 }))

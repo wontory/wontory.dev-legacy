@@ -66,7 +66,7 @@ export default async function ArticlePage({ params }: ArticleProps) {
         category={article.category}
       />
       <Separator className="my-12" />
-      <TableOfContents headings={article.headings} />
+      {article.toc && <TableOfContents headings={article.headings} />}
       <Mdx code={article.body.code} />
       <Separator className="my-12" />
       <GiscusSection />
