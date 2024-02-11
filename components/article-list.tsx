@@ -7,13 +7,10 @@ import { ArticleCard } from '@/components/article-card'
 
 import type { Article } from '@/.contentlayer/generated'
 
-function getArticleListFromParams(params: string) {
-  const articleList = allArticles.filter(
+const getArticleListFromParams = (params: string) =>
+  allArticles.filter(
     (article) => article.category.toLowerCase() === params?.toLowerCase(),
   )
-
-  return articleList
-}
 
 export function ArticleList({ category }: { category: Article['category'] }) {
   const articleList = (

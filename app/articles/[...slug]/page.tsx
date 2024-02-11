@@ -16,7 +16,7 @@ interface ArticleProps {
   }
 }
 
-async function getArticleFromParams(params: ArticleProps['params']) {
+const getArticleFromParams = async (params: ArticleProps['params']) => {
   const slug = params?.slug?.join('/')
   const article = allArticles.find((article) => article.slugAsParams === slug)
 
@@ -27,9 +27,9 @@ async function getArticleFromParams(params: ArticleProps['params']) {
   return article
 }
 
-export async function generateMetadata({
+export const generateMetadata = async ({
   params,
-}: ArticleProps): Promise<Metadata> {
+}: ArticleProps): Promise<Metadata> => {
   const article = await getArticleFromParams(params)
 
   if (!article) {
@@ -42,13 +42,12 @@ export async function generateMetadata({
   }
 }
 
-export async function generateStaticParams(): Promise<
+export const generateStaticParams = async (): Promise<
   ArticleProps['params'][]
-> {
-  return allArticles.map((article) => ({
+> =>
+  allArticles.map((article) => ({
     slug: article.slugAsParams.split('/'),
   }))
-}
 
 export default async function ArticlePage({ params }: ArticleProps) {
   const article = await getArticleFromParams(params)
