@@ -12,7 +12,7 @@ import { ArticleList } from '@/components/article-list'
 export default function Home() {
   const searchParams = useSearchParams()
 
-  const category = searchParams.get('category') as string
+  const category = searchParams?.get('category') as string
 
   return (
     <>

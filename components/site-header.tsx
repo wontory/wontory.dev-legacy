@@ -17,7 +17,7 @@ export function SiteHeader() {
       <div
         className={cn(
           'container flex h-14 items-center transition-all',
-          pathname.startsWith('/articles') && pathname !== '/articles'
+          pathname?.startsWith('/articles') && pathname !== '/articles'
             ? 'max-w-screen-md'
             : 'max-w-screen-xl',
         )}
