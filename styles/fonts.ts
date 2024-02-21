@@ -25,6 +25,7 @@ const spoqa = localFont({
     },
   ],
   display: 'swap',
+  preload: true,
   variable: '--font-spoqa',
 })
 
@@ -32,6 +33,7 @@ const poppins = Poppins({
   subsets: ['latin'],
   weight: ['300', '500'],
   display: 'swap',
+  preload: true,
   variable: '--font-poppins',
 })
 
