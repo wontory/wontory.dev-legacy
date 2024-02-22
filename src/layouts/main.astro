@@ -1,0 +1,33 @@
+---
+import '@/styles/globals.css'
+import MainFonts from '@/layouts/main-fonts.astro'
+import MainHead from '@/layouts/main-head.astro'
+import MainTheme from '@/layouts/main-theme.astro'
+import SiteFooter from '@/components/site-footer.astro'
+import SiteHeader from '@/components/site-header.astro'
+
+interface Props {
+  title?: string
+  description?: string
+}
+
+const {
+  title = 'wontory.dev',
+  description = 'Frontend Developer based in Suwon, South Korea',
+} = Astro.props as Props
+---
+
+<html lang="ko">
+  <head>
+    <MainHead {title} {description} />
+    <MainFonts />
+    <MainTheme />
+  </head>
+  <body>
+    <div class="relative flex min-h-screen flex-col bg-background">
+      <SiteHeader />
+      <main class="container max-w-screen-xl flex-1"><slot /></main>
+      <SiteFooter />
+    </div>
+  </body>
+</html>
