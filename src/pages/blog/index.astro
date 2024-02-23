@@ -1,7 +1,17 @@
 ---
 import Main from '@/layouts/main.astro'
+import PostCard from '@/components/post-card.astro'
+import { getCollection } from 'astro:content'
+
+const allPosts = await getCollection('post')
 ---
 
 <Main>
-  <span>블로그</span>
+  <section>
+    <div
+      class="grid grid-cols-1 items-start gap-4 py-4 md:grid-cols-2 xl:grid-cols-3"
+    >
+      {allPosts.map((post) => <PostCard slug={post.slug} {...post.data} />)}
+    </div>
+  </section>
 </Main>
