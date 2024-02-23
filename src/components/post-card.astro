@@ -1,0 +1,45 @@
+---
+import { CalendarIcon } from '@radix-ui/react-icons'
+import { differenceInDays, format, formatDistanceToNow } from 'date-fns'
+import { ko } from 'date-fns/locale'
+
+import { Badge } from '@/components/ui/badge'
+
+const { slug, image, date, category, title, description } = Astro.props
+
+const formatDate = (date: Date) =>
+  differenceInDays(new Date(), date) > 2
+    ? format(date, 'yyyy.MM.dd')
+    : formatDistanceToNow(date, { addSuffix: true, locale: ko })
+---
+
+<a href=`/blog/post/${slug}`>
+  <div
+    class="group overflow-hidden rounded-lg border transition-all hover:bg-accent"
+  >
+    {
+      image && (
+        <div class="aspect-video overflow-hidden">
+          <img
+            src={image}
+            alt={title}
+            class="w-full object-cover grayscale transition group-hover:scale-110 group-hover:grayscale-0"
+          />
+        </div>
+      )
+    }
+    <div class="flex flex-col items-start gap-2 p-3 text-left text-sm">
+      <div class="flex w-full items-center justify-between gap-2">
+        <div class="flex gap-2 text-xs text-muted-foreground">
+          <CalendarIcon />
+          <time date-time={date}>{formatDate(date)}</time>
+        </div>
+        <Badge className="rounded-full font-medium">{category}</Badge>
+      </div>
+      <div class="text-lg font-medium">{title}</div>
+      <div class="line-clamp-2 text-sm text-muted-foreground">
+        {description ?? ''}
+      </div>
+    </div>
+  </div>
+</a>
