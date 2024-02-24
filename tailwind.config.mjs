@@ -16,6 +16,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Pretendard Variable', ...defaultTheme.fontFamily.sans],
+        serif: ['Pale Blue Eyes', ...defaultTheme.fontFamily.serif],
       },
       colors: {
         border: 'hsl(var(--border))',

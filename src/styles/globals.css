@@ -10,6 +10,14 @@
   src: url('/fonts/pretendard-variable.woff2') format('woff2-variations');
 }
 
+@font-face {
+  font-family: 'Pale Blue Eyes';
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/pale-blue-eyes.woff2') format('woff2');
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
