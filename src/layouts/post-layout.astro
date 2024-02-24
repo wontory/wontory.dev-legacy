@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content'
 import FormattedDate from '@/components/formatted-date.astro'
 import { Separator } from '@/components/ui/separator'
 import BaseLayout from '@/layouts/base-layout.astro'
+import '@/styles/mdx.css'
 
 type Props = CollectionEntry<'blog'>['data']
 
@@ -16,7 +17,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
         <img
           src={heroImage}
           alt={title}
-          class="aspect-video rounded-xl shadow-lg"
+          class="mx-auto aspect-video rounded-xl shadow-lg"
         />
       )
     }
@@ -35,7 +36,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
         </div>
       </div>
       <Separator className="mb-8" />
-      <slot />
+      <div class="prose">
+        <slot />
+      </div>
     </div>
   </article>
 </BaseLayout>
