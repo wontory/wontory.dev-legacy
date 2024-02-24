@@ -3,10 +3,11 @@ import { ArrowLeft } from 'lucide-react'
 import HeaderLink from '@/components/header-link.astro'
 ---
 
-<header class="fixed inset-x-0 top-0">
-  <nav class="container mx-auto flex items-center justify-between p-6">
+<header class="fixed inset-x-0 top-0 backdrop-blur lg:backdrop-blur-none">
+  <nav class="container flex items-center justify-between py-6">
     <a href="../"><ArrowLeft /></a>
     <div class="flex gap-8">
+      <HeaderLink href="/about">About</HeaderLink>
       <HeaderLink href="/blog">Blog</HeaderLink>
     </div>
   </nav>

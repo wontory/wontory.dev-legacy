@@ -1,5 +1,6 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
+import { cn } from '@/libs/utils'
 
 type Props = HTMLAttributes<'a'>
 
@@ -11,6 +12,14 @@ const subpath = pathname.match(/[^\/]+/g)
 const isActive = href === pathname || href === '/' + subpath?.[0]
 ---
 
-<a href={href} class:list={[className, { active: isActive }]} {...props}>
+<a
+  href={href}
+  class={cn(
+    'transition-colors hover:text-foreground/80',
+    isActive ? 'text-foreground' : 'text-foreground/60',
+    className,
+  )}
+  {...props}
+>
   <slot />
 </a>
