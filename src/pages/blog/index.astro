@@ -18,7 +18,7 @@ const posts = (await getCollection('blog')).sort(
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <section>
-    <div class="grid justify-items-center gap-8">
+    <div class="grid justify-items-center gap-8 md:grid-cols-2">
       {
         posts.map((post) => (
           <a href={`/blog/${post.slug}/`}>
