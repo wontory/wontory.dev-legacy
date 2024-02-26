@@ -13,12 +13,19 @@ Features:
 
 ```text
 ├── public/
+│   └── fonts/
 ├── src/
 │   ├── components/
+│   │   └── ui/
 │   ├── content/
+│   │   └── blog/
 │   ├── layouts/
-│   └── pages/
+│   ├── libs/
+│   ├── pages/
+│   │   └── blog/
+│   └── styles/
 ├── astro.config.mjs
+├── tailwind.config.mjs
 ├── README.md
 ├── package.json
 └── tsconfig.json
