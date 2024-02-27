@@ -1,6 +1,7 @@
 ---
 import { ArrowLeftIcon } from 'lucide-react'
 import { MenuToggle } from '@/components/client/menu-toggle'
+import { ModeToggle } from '@/components/client/mode-toggle'
 import { buttonVariants } from '@/components/ui/button'
 
 const { pathname } = Astro.url
@@ -10,10 +11,15 @@ const subpath = pathname.split('/').filter(Boolean)[0]
 
 <header class="inset-x-0 xl:fixed xl:top-0">
   <nav class="container flex items-center justify-between py-6">
-    <a href="../" class={buttonVariants({ variant: 'ghost', size: 'icon' })}>
-      <ArrowLeftIcon />
-      <span class="sr-only">Back</span>
-    </a>
-    <MenuToggle {subpath} client:load />
+    <div class="flex">
+      <a href="../" class={buttonVariants({ variant: 'ghost', size: 'icon' })}>
+        <ArrowLeftIcon />
+        <span class="sr-only">Back</span>
+      </a>
+    </div>
+    <div class="flex">
+      <ModeToggle client:load />
+      <MenuToggle {subpath} client:load />
+    </div>
   </nav>
 </header>
