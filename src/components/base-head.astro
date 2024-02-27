@@ -59,3 +59,15 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props
 
 <!-- View Transitions -->
 <ViewTransitions />
+
+<!-- Eruda (Mobile Dev Tools) -->
+<script>
+  (function () {
+    const script = document.createElement('script')
+    script.src = 'https://cdn.jsdelivr.net/npm/eruda'
+    document.body.append(script)
+    script.onload = function () {
+      eruda.init()
+    }
+  })()
+</script>
