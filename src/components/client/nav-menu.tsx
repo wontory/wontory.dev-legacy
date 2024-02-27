@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -8,7 +8,6 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { ChevronDown } from 'lucide-react'
 
 export function NavMenu({ path }: { path: string | undefined }) {
   return (
