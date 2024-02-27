@@ -1,14 +1,18 @@
 ---
 import { ArrowLeft } from 'lucide-react'
-import HeaderLink from '@/components/header-link.astro'
+import { NavMenu } from '@/components/client/nav-menu'
+import { buttonVariants } from '@/components/ui/button'
+
+const { pathname } = Astro.url
+const subpath = pathname.split('/').filter(Boolean)
 ---
 
 <header class="inset-x-0 xl:fixed xl:top-0">
   <nav class="container flex items-center justify-between py-6">
-    <a href="../"><ArrowLeft /></a>
-    <div class="flex gap-8">
-      <HeaderLink href="/about">About</HeaderLink>
-      <HeaderLink href="/blog">Blog</HeaderLink>
-    </div>
+    <a href="../" class={buttonVariants({ variant: 'ghost', size: 'icon' })}>
+      <ArrowLeft />
+      <span class="sr-only">Back</span>
+    </a>
+    <NavMenu path={subpath?.[0]} client:load />
   </nav>
 </header>
