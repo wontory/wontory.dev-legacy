@@ -3,8 +3,7 @@ import { ArrowLeft } from 'lucide-react'
 import { NavMenu } from '@/components/client/nav-menu'
 import { buttonVariants } from '@/components/ui/button'
 
-const { pathname } = Astro.url
-const subpath = pathname.split('/').filter(Boolean)
+const { url } = Astro
 ---
 
 <header class="inset-x-0 xl:fixed xl:top-0">
@@ -13,6 +12,6 @@ const subpath = pathname.split('/').filter(Boolean)
       <ArrowLeft />
       <span class="sr-only">Back</span>
     </a>
-    <NavMenu path={subpath[0]} client:load />
+    <NavMenu client:load {url} />
   </nav>
 </header>
