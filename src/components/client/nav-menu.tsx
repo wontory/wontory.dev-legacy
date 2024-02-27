@@ -1,11 +1,9 @@
-import React from 'react'
 import { ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
+  DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
@@ -19,27 +17,13 @@ export function NavMenu({ path }: { path: string | undefined }) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuRadioGroup value={path}>
-          <RadioItem value="about" href="/about">
-            About
-          </RadioItem>
-          <RadioItem value="blog" href="/blog">
-            Blog
-          </RadioItem>
-        </DropdownMenuRadioGroup>
+        <DropdownMenuItem asChild>
+          <a href="/about">About</a>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <a href="/blog">Blog</a>
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )
 }
-
-const RadioItem = React.forwardRef<
-  React.ElementRef<'a'>,
-  React.ComponentPropsWithoutRef<'a'> & { value: string }
->(({ value, children, ...props }, ref) => {
-  return (
-    <a ref={ref} {...props}>
-      <DropdownMenuRadioItem value={value}>{children}</DropdownMenuRadioItem>
-    </a>
-  )
-})
-RadioItem.displayName = 'RadioItem'

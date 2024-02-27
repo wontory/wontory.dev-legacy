@@ -13,6 +13,6 @@ const subpath = pathname.split('/').filter(Boolean)
       <ArrowLeft />
       <span class="sr-only">Back</span>
     </a>
-    <NavMenu path={subpath?.[0]} client:only="react" />
+    <NavMenu path={subpath[0]} client:load />
   </nav>
 </header>
