@@ -1,28 +1,22 @@
 ---
-import BaseHead from '@/components/base-head.astro'
 import Link from '@/components/link.astro'
+import BaseLayout from '@/layouts/base-layout.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '@/consts'
 ---
 
-<!doctype html>
-<html lang="ko">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <main class="flex h-screen w-screen flex-col items-center justify-center">
-      <nav class="flex gap-4 py-16">
-        <Link href="/about" class="font-medium">About</Link>
-        <Link href="/blog" class="font-medium">Blog</Link>
-      </nav>
-      <h1
-        class="scroll-m-20 font-serif text-6xl font-extrabold tracking-tight lg:text-9xl"
-      >
-        wontory
-      </h1>
-      <span class="px-4 py-16 text-center font-medium text-foreground/40">
-        Frontend developer who loves to create beautiful and functional websites</span
-      >
-    </main>
-  </body>
-</html>
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <main class="flex h-screen w-screen flex-col items-center justify-center">
+    <nav class="flex gap-4 py-16">
+      <Link href="/about" class="font-medium">About</Link>
+      <Link href="/blog" class="font-medium">Blog</Link>
+    </nav>
+    <h1
+      class="scroll-m-20 font-serif text-6xl font-extrabold tracking-tight lg:text-9xl"
+    >
+      wontory
+    </h1>
+    <span class="px-4 py-16 text-center font-medium text-foreground/40">
+      Frontend developer who loves to create beautiful and functional websites</span
+    >
+  </main>
+</BaseLayout>

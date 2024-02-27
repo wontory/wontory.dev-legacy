@@ -3,13 +3,13 @@ import { Image } from 'astro:assets'
 import FormattedDate from '@/components/formatted-date.astro'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Separator } from '@/components/ui/separator'
-import BaseLayout from '@/layouts/base-layout.astro'
+import MainLayout from '@/layouts/main-layout.astro'
 import '@/styles/mdx.css'
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props
 ---
 
-<BaseLayout {title} {description}>
+<MainLayout {title} {description}>
   <article>
     <div class="m-auto max-w-screen-md">
       {
@@ -50,4 +50,4 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
       </div>
     </div>
   </article>
-</BaseLayout>
+</MainLayout>
