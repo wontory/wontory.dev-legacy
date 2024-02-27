@@ -13,8 +13,8 @@ export function MenuToggle({ subpath }: { subpath: string }) {
     <DropdownMenu>
       <DropdownMenuTrigger className="group" asChild>
         <Button variant="ghost" size="icon">
-          <MenuIcon className="rotate-90 scale-0 transition-all group-data-[state=closed]:rotate-0 group-data-[state=closed]:scale-100" />
-          <XIcon className="absolute rotate-90 scale-0 transition-all group-data-[state=open]:rotate-0 group-data-[state=open]:scale-100" />
+          <MenuIcon className="h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all group-data-[state=closed]:rotate-0 group-data-[state=closed]:scale-100" />
+          <XIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all group-data-[state=open]:rotate-0 group-data-[state=open]:scale-100" />
           <span className="sr-only">Toggle menu</span>
         </Button>
       </DropdownMenuTrigger>
