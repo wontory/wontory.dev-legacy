@@ -1,17 +1,19 @@
 ---
-import { ArrowLeft } from 'lucide-react'
-import { NavMenu } from '@/components/client/nav-menu'
+import { ArrowLeftIcon } from 'lucide-react'
+import { MenuToggle } from '@/components/client/menu-toggle'
 import { buttonVariants } from '@/components/ui/button'
 
-const { url } = Astro
+const { pathname } = Astro.url
+
+const subpath = pathname.split('/').filter(Boolean)[0]
 ---
 
 <header class="inset-x-0 xl:fixed xl:top-0">
   <nav class="container flex items-center justify-between py-6">
     <a href="../" class={buttonVariants({ variant: 'ghost', size: 'icon' })}>
-      <ArrowLeft />
+      <ArrowLeftIcon />
       <span class="sr-only">Back</span>
     </a>
-    <NavMenu client:load {url} />
+    <MenuToggle {subpath} client:load />
   </nav>
 </header>
