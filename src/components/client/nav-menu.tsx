@@ -1,54 +1,46 @@
 import React from 'react'
 
-import { cn } from '@/libs/utils'
+import { Button } from '@/components/ui/button'
 import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from '@/components/ui/navigation-menu'
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
+import { ChevronDown } from 'lucide-react'
 
 export function NavMenu({ path }: { path: string | undefined }) {
   return (
-    <NavigationMenu>
-      <NavigationMenuList>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger className="capitalize">
-            {path}
-          </NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4">
-              <ListItem href="/about">About</ListItem>
-              <ListItem href="/blog">Blog</ListItem>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" className="text-md group capitalize">
+          {path}
+          <ChevronDown className="ml-2 h-4 w-4 transition-transform group-data-[state=open]:rotate-180" />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        <DropdownMenuRadioGroup value={path}>
+          <RadioItem value="about" href="/about">
+            About
+          </RadioItem>
+          <RadioItem value="blog" href="/blog">
+            Blog
+          </RadioItem>
+        </DropdownMenuRadioGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
   )
 }
 
-const ListItem = React.forwardRef<
+const RadioItem = React.forwardRef<
   React.ElementRef<'a'>,
-  React.ComponentPropsWithoutRef<'a'>
->(({ className, children, ...props }, ref) => {
+  React.ComponentPropsWithoutRef<'a'> & { value: string }
+>(({ value, children, ...props }, ref) => {
   return (
-    <li>
-      <NavigationMenuLink asChild>
-        <a
-          ref={ref}
-          className={cn(
-            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
-            className,
-          )}
-          {...props}
-        >
-          <div className="text-sm font-medium leading-none">{children}</div>
-        </a>
-      </NavigationMenuLink>
-    </li>
+    <a ref={ref} {...props}>
+      <DropdownMenuRadioItem value={value}>{children}</DropdownMenuRadioItem>
+    </a>
   )
 })
-ListItem.displayName = 'ListItem'
+RadioItem.displayName = 'RadioItem'
