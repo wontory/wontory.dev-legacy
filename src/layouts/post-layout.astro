@@ -12,17 +12,21 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
 <BaseLayout {title} {description}>
   <article>
     <div class="m-auto max-w-screen-md">
-      <AspectRatio
-        ratio={16 / 9}
-        className="overflow-hidden rounded-lg bg-muted"
-      >
-        <Image
-          src={heroImage}
-          alt={title}
-          draggable="false"
-          class="h-full w-full object-cover shadow-lg"
-        />
-      </AspectRatio>
+      {
+        heroImage && (
+          <AspectRatio
+            ratio={16 / 9}
+            className="overflow-hidden rounded-lg bg-muted"
+          >
+            <Image
+              src={heroImage}
+              alt={title}
+              draggable="false"
+              class="h-full w-full object-cover shadow-lg"
+            />
+          </AspectRatio>
+        )
+      }
       <div class="flex flex-col items-center gap-4 py-8">
         <h1
           class="scroll-m-20 text-center text-4xl font-extrabold tracking-tight lg:text-5xl"
