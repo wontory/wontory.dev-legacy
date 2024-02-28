@@ -16,6 +16,7 @@ Features:
 │   └── fonts/
 ├── src/
 │   ├── components/
+│   │   ├── client/
 │   │   └── ui/
 │   ├── content/
 │   │   └── blog/
