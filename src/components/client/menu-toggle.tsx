@@ -1,3 +1,5 @@
+import { navigate } from 'astro:transitions/client'
+import { MenuIcon, XIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -6,7 +8,6 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { MenuIcon, XIcon } from 'lucide-react'
 
 export function MenuToggle({ subpath }: { subpath: string }) {
   return (
@@ -20,12 +21,21 @@ export function MenuToggle({ subpath }: { subpath: string }) {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuRadioGroup value={subpath}>
-          <a href="/about">
-            <DropdownMenuRadioItem value="about">About</DropdownMenuRadioItem>
-          </a>
-          <a href="/blog">
-            <DropdownMenuRadioItem value="blog">Blog</DropdownMenuRadioItem>
-          </a>
+          <DropdownMenuRadioItem
+            value="about"
+            onClick={() => navigate('/about')}
+          >
+            About
+          </DropdownMenuRadioItem>
+          <DropdownMenuRadioItem
+            value="project"
+            onClick={() => navigate('/project')}
+          >
+            Project
+          </DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="blog" onClick={() => navigate('/blog')}>
+            Blog
+          </DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>
