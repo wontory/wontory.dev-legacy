@@ -1,12 +1,13 @@
 ---
 import Link from '@/components/link.astro'
+import { SparklesCore } from '@/components/client/sparkles'
 import BaseLayout from '@/layouts/base-layout.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '@/consts'
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <main class="flex h-screen w-screen flex-col items-center justify-center">
-    <nav class="flex gap-4 py-16">
+    <nav class="z-50 flex gap-4 py-16">
       <Link href="/about" class="font-medium">About</Link>
       <Link href="/blog" class="font-medium">Blog</Link>
     </nav>
@@ -15,8 +16,23 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '@/consts'
     >
       wontory
     </h1>
-    <span class="px-4 py-16 text-center font-medium text-foreground/40">
+    <span class="z-50 px-4 py-16 text-center font-medium text-foreground/40">
       Frontend developer who loves to create beautiful and functional websites</span
     >
+    <div class="absolute h-full w-full">
+      <SparklesCore
+        background="transparent"
+        minSize={0.4}
+        maxSize={2}
+        particleDensity={10}
+        className="h-full w-full"
+        particleColor="#ffffff"
+        client:load
+      />
+      <div
+        class="absolute inset-0 h-full w-full bg-background [mask-image:radial-gradient(500px_500px,transparent_20%,white)]"
+      >
+      </div>
+    </div>
   </main>
 </BaseLayout>
