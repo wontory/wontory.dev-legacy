@@ -4,8 +4,6 @@ import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 
-import vercel from '@astrojs/vercel/serverless'
-
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.wontory.dev',
@@ -13,12 +11,6 @@ export default defineConfig({
     mdx(),
     react(),
     sitemap(),
-    tailwind({
-      applyBaseStyles: false,
-    }),
+    tailwind({ applyBaseStyles: false }),
   ],
-  output: 'server',
-  adapter: vercel({
-    webAnalytics: true,
-  }),
 })
