@@ -13,9 +13,9 @@ import {
 import MainLayout from '@/layouts/main-layout.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '@/consts'
 
-const posts = (await getCollection('blog')).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
-)
+const posts = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
 ---
 
 <MainLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
@@ -43,6 +43,7 @@ const posts = (await getCollection('blog')).sort(
                 <CardDescription>
                   <FormattedDate date={post.data.pubDate} />
                 </CardDescription>
+                <CardDescription>{post.data.description}</CardDescription>
               </CardContent>
             </Card>
           </a>
