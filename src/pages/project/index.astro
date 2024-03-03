@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets'
 import { getCollection } from 'astro:content'
-import FormattedDate from '@/components/formatted-date.astro'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import {
   Card,
@@ -22,7 +21,7 @@ const posts = (await getCollection('project')).sort(
   <section>
     <div class="grid justify-items-center gap-8 md:grid-cols-2">
       {
-        posts.map((post) => (
+        posts?.map((post) => (
           <a href={`/project/${post.slug}/`} class="w-full">
             <Card>
               <CardHeader>
@@ -40,9 +39,7 @@ const posts = (await getCollection('project')).sort(
               </CardHeader>
               <CardContent>
                 <CardTitle>{post.data.title}</CardTitle>
-                <CardDescription>
-                  <FormattedDate date={post.data.pubDate} />
-                </CardDescription>
+                <CardDescription>{post.data.description}</CardDescription>
               </CardContent>
             </Card>
           </a>
