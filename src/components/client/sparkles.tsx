@@ -15,7 +15,6 @@ type ParticlesProps = {
   minSize?: number
   maxSize?: number
   speed?: number
-  particleColor?: string
   particleDensity?: number
 }
 export const SparklesCore = (props: ParticlesProps) => {
@@ -26,10 +25,11 @@ export const SparklesCore = (props: ParticlesProps) => {
     minSize,
     maxSize,
     speed,
-    particleColor,
     particleDensity,
   } = props
   const [init, setInit] = useState(false)
+  const [theme, setTheme] = useState('light')
+
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadSlim(engine)
@@ -37,11 +37,18 @@ export const SparklesCore = (props: ParticlesProps) => {
       setInit(true)
     })
   }, [])
+
+  useEffect(() => {
+    const theme = window.localStorage.getItem('theme')
+    if (theme) {
+      setTheme(theme)
+    }
+  }, [])
+
   const controls = useAnimation()
 
   const particlesLoaded = async (container?: Container) => {
     if (container) {
-      console.log(container)
       controls.start({
         opacity: 1,
         transition: {
@@ -122,7 +129,7 @@ export const SparklesCore = (props: ParticlesProps) => {
                 },
               },
               color: {
-                value: particleColor || '#ffffff',
+                value: theme === 'dark' ? '#ffffff' : '#000000',
                 animation: {
                   h: {
                     count: 0,
