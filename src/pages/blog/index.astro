@@ -10,7 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import MainLayout from '@/layouts/main-layout.astro'
+import BaseLayout from '@/layouts/base-layout.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '@/consts'
 
 const posts = (await getCollection('blog'))
@@ -18,7 +18,7 @@ const posts = (await getCollection('blog'))
   .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
 ---
 
-<MainLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <section>
     <div class="grid justify-items-center gap-8 md:grid-cols-2">
       {
@@ -51,4 +51,4 @@ const posts = (await getCollection('blog'))
       }
     </div>
   </section>
-</MainLayout>
+</BaseLayout>

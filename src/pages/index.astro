@@ -1,11 +1,11 @@
 ---
 import Link from '@/components/link.astro'
 import { SparklesCore } from '@/components/client/sparkles'
-import BaseLayout from '@/layouts/base-layout.astro'
+import RootLayout from '@/layouts/root-layout.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '@/consts'
 ---
 
-<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+<RootLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <main class="flex h-screen w-screen flex-col items-center justify-center">
     <nav class="z-50 flex gap-4 py-16">
       <Link href="/about" class="font-medium">About</Link>
@@ -35,4 +35,4 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '@/consts'
       </div>
     </div>
   </main>
-</BaseLayout>
+</RootLayout>
