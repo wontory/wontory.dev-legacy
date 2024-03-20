@@ -1,11 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { useEffect, useState } from 'react'
+import { useStore } from '@nanostores/react'
 import Particles, { initParticlesEngine } from '@tsparticles/react'
 import type { Container } from '@tsparticles/engine'
 import { loadSlim } from '@tsparticles/slim'
-import { cn } from '@/libs/utils'
 import { motion, useAnimation } from 'framer-motion'
+
+import { cn } from '@/libs/utils'
+import { themeAtom } from '@/stores/theme'
 
 type ParticlesProps = {
   id?: string
@@ -28,7 +31,7 @@ export const SparklesCore = (props: ParticlesProps) => {
     particleDensity,
   } = props
   const [init, setInit] = useState(false)
-  const [theme, setTheme] = useState('light')
+  const theme = useStore(themeAtom)
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -36,13 +39,6 @@ export const SparklesCore = (props: ParticlesProps) => {
     }).then(() => {
       setInit(true)
     })
-  }, [])
-
-  useEffect(() => {
-    const theme = window.localStorage.getItem('theme')
-    if (theme) {
-      setTheme(theme)
-    }
   }, [])
 
   const controls = useAnimation()

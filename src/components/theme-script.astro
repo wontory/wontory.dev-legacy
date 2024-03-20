@@ -3,24 +3,6 @@ import '@/styles/globals.css'
 ---
 
 <script>
-  document.addEventListener('astro:page-load', () => {
-    const getThemePreference = () => {
-      if (
-        typeof localStorage !== 'undefined' &&
-        localStorage.getItem('theme')
-      ) {
-        return localStorage.getItem('theme')
-      }
-      return window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'dark'
-        : 'light'
-    }
-    const isDark = getThemePreference() === 'dark'
-    document.documentElement.classList[isDark ? 'add' : 'remove']('dark')
-  })
-</script>
-
-<script>
   document.addEventListener('astro:after-swap', () => {
     document.documentElement.classList.add(
       localStorage.theme === 'dark' ? 'dark' : 'light',
