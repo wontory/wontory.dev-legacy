@@ -1,4 +1,5 @@
 ---
+import SpeedInsights from '@vercel/speed-insights/astro'
 import BaseHead from '@/components/base-head.astro'
 import ThemeScript from '@/components/theme-script.astro'
 
@@ -12,5 +13,6 @@ const { title, description } = Astro.props
   </head>
   <body>
     <slot />
+    <SpeedInsights />
   </body>
 </html>
