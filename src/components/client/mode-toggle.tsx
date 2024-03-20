@@ -1,7 +1,7 @@
 import { useStore } from '@nanostores/react'
 import { Moon, Sun } from 'lucide-react'
 
-import { THEME_MAP, themeAtom } from '@/stores/theme'
+import { themeAtom } from '@/stores/theme'
 import { Button } from '@/components/ui/button'
 
 export function ModeToggle({ className, ...props }: { className?: string }) {
@@ -11,11 +11,7 @@ export function ModeToggle({ className, ...props }: { className?: string }) {
     <Button
       variant="ghost"
       size="icon"
-      onClick={() =>
-        themeAtom.set(
-          theme === THEME_MAP.dark ? THEME_MAP.light : THEME_MAP.dark,
-        )
-      }
+      onClick={() => themeAtom.set(theme === 'dark' ? 'light' : 'dark')}
       className={className}
       {...props}
     >
