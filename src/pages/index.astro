@@ -1,12 +1,14 @@
 ---
 import Link from '@/components/link.astro'
 import { SparklesCore } from '@/components/client/sparkles'
+import { ModeToggle } from '@/components/client/mode-toggle'
 import BaseLayout from '@/layouts/base-layout.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '@/consts'
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <main class="flex h-screen w-screen flex-col items-center justify-center">
+    <ModeToggle className="z-50" client:load />
     <nav class="z-50 flex gap-4 py-16">
       <Link href="/about" class="font-medium">About</Link>
       <Link href="/project" class="font-medium">Project</Link>

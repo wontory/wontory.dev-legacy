@@ -1,25 +1,23 @@
-import { useEffect, useState } from 'react'
+import { useStore } from '@nanostores/react'
 import { Moon, Sun } from 'lucide-react'
 
+import { THEME_MAP, themeAtom } from '@/stores/theme'
 import { Button } from '@/components/ui/button'
 
-export function ModeToggle() {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>()
-
-  useEffect(() => {
-    setIsDarkMode(document.documentElement.classList.contains('dark'))
-  }, [])
-
-  useEffect(() => {
-    document.documentElement.classList[isDarkMode ? 'add' : 'remove']('dark')
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light')
-  }, [isDarkMode])
+export function ModeToggle({ className, ...props }: { className?: string }) {
+  const theme = useStore(themeAtom)
 
   return (
     <Button
       variant="ghost"
       size="icon"
-      onClick={() => setIsDarkMode((prev) => !prev)}
+      onClick={() =>
+        themeAtom.set(
+          theme === THEME_MAP.dark ? THEME_MAP.light : THEME_MAP.dark,
+        )
+      }
+      className={className}
+      {...props}
     >
       <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
       <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
