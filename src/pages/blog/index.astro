@@ -24,7 +24,7 @@ const posts = (await getCollection('blog'))
       {
         posts?.map((post) => (
           <a href={`/blog/${post.slug}/`} class="w-full">
-            <Card>
+            <Card className="hover:bg-foreground/5 transition">
               <CardHeader>
                 <AspectRatio
                   ratio={16 / 9}
@@ -38,12 +38,14 @@ const posts = (await getCollection('blog'))
                   />
                 </AspectRatio>
               </CardHeader>
-              <CardContent>
-                <CardTitle>{post.data.title}</CardTitle>
+              <CardContent className="flex flex-col gap-2">
                 <CardDescription>
                   <FormattedDate date={post.data.pubDate} />
                 </CardDescription>
-                <CardDescription>{post.data.description}</CardDescription>
+                <CardTitle>{post.data.title}</CardTitle>
+                <CardDescription className="line-clamp-2">
+                  {post.data.description}
+                </CardDescription>
               </CardContent>
             </Card>
           </a>
