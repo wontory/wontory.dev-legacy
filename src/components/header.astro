@@ -19,7 +19,7 @@ const subpath = pathname.split('/').filter(Boolean)[0]
     </div>
     <div class="flex">
       <ModeToggle client:load />
-      <MenuToggle {subpath} client:load />
+      <MenuToggle {subpath} client:idle />
     </div>
   </nav>
 </header>
