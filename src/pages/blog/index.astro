@@ -15,7 +15,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '@/consts'
 
 const posts = (await getCollection('blog'))
   .filter((post) => !post.data.draft)
-  .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
