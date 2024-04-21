@@ -2,7 +2,7 @@
 title: '와글와글'
 description: 'DDD 10기 웹 2팀'
 pubDate: '2024/03/03'
-heroImage: './index.png'
+heroImage: './images/index.png'
 ---
 
 **나를 소개하고 서로를 알아가는 서비스 와글와글**
