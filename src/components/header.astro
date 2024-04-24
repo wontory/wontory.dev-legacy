@@ -9,7 +9,7 @@ const { pathname } = Astro.url
 const subpath = pathname.split('/').filter(Boolean)[0]
 ---
 
-<header class="inset-x-0 xl:fixed xl:top-0">
+<header class="inset-x-0 z-50 xl:fixed xl:top-0">
   <nav class="container flex items-center justify-between py-6">
     <div class="flex">
       <a href="../" class={buttonVariants({ variant: 'ghost', size: 'icon' })}>
