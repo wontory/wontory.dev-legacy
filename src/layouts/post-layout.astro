@@ -10,44 +10,42 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
 ---
 
 <BaseLayout {title} {description}>
-  <article>
-    <div class="m-auto max-w-screen-md">
-      {
-        heroImage && (
-          <AspectRatio
-            ratio={16 / 9}
-            className="overflow-hidden rounded-lg bg-muted border"
-          >
-            <Image
-              src={heroImage}
-              alt={title}
-              draggable="false"
-              class="h-full w-full object-cover shadow-lg"
-            />
-          </AspectRatio>
-        )
-      }
-      <div class="flex flex-col items-center gap-4 py-8">
-        <h1
-          class="scroll-m-20 text-center text-4xl font-bold tracking-tight lg:text-5xl"
+  <article class="flex flex-col items-center gap-8 md:gap-16">
+    {
+      heroImage && (
+        <AspectRatio
+          ratio={9 / 4}
+          className="overflow-hidden rounded-lg border bg-muted"
         >
-          {title}
-        </h1>
-        <div class="">
-          <FormattedDate date={pubDate} />
-          {
-            updatedDate && (
-              <div class="last-updated-on">
-                Last updated on <FormattedDate date={updatedDate} />
-              </div>
-            )
-          }
-        </div>
+          <Image
+            src={heroImage}
+            alt={title}
+            draggable="false"
+            class="h-full w-full object-cover"
+          />
+        </AspectRatio>
+      )
+    }
+    <div class="flex flex-col items-center gap-4">
+      <h1
+        class="scroll-m-20 text-center text-4xl font-bold tracking-tight lg:text-5xl"
+      >
+        {title}
+      </h1>
+      <div>
+        <FormattedDate date={pubDate} />
+        {
+          updatedDate && (
+            <div class="last-updated-on">
+              Last updated on <FormattedDate date={updatedDate} />
+            </div>
+          )
+        }
       </div>
-      <Separator className="mb-8" />
-      <div class="prose">
-        <slot />
-      </div>
+    </div>
+    <Separator />
+    <div class="prose m-auto max-w-screen-md">
+      <slot />
     </div>
   </article>
 </BaseLayout>
