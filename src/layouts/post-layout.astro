@@ -3,7 +3,6 @@ import { Image } from 'astro:assets'
 import FormattedDate from '@/components/formatted-date.astro'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Separator } from '@/components/ui/separator'
-import { Comments } from '@/components/client/comments'
 import BaseLayout from '@/layouts/base-layout.astro'
 import '@/styles/mdx.css'
 
@@ -11,12 +10,12 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
 ---
 
 <BaseLayout {title} {description}>
-  <article class="flex w-full flex-col items-center gap-8 md:gap-16">
+  <article class="flex flex-col items-center gap-8 md:gap-16">
     {
       heroImage && (
         <AspectRatio
           ratio={9 / 4}
-          className="overflow-hidden rounded-lg border bg-muted"
+          className="overflow-hidden rounded-lg border bg-muted w-full"
         >
           <Image
             src={heroImage}
@@ -47,9 +46,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
     <Separator />
     <div class="prose m-auto max-w-screen-md">
       <slot />
-    </div>
-    <div class="w-full max-w-screen-md">
-      <Comments client:load />
     </div>
   </article>
 </BaseLayout>
