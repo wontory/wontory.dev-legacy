@@ -10,7 +10,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
 ---
 
 <BaseLayout {title} {description}>
-  <article class="flex flex-col items-center gap-8 md:gap-16">
+  <article class="flex w-full flex-col items-center gap-8 md:gap-16">
     {
       heroImage && (
         <AspectRatio
