@@ -1,7 +1,6 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content'
 import PostLayout from '@/layouts/post-layout.astro'
-import { Comments } from '@/components/client/comments'
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog')
@@ -18,5 +17,4 @@ const { Content } = await post.render()
 
 <PostLayout {...post.data}>
   <Content />
-  <Comments className="mt-20" />
 </PostLayout>
