@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^2.3.1",
-    "@astrojs/react": "^3.3.1",
+    "@astrojs/react": "^3.3.2",
     "@astrojs/rss": "^4.0.5",
     "@astrojs/sitemap": "^3.1.4",
     "@astrojs/tailwind": "^5.1.0",
@@ -30,7 +30,7 @@
     "@types/react": "^18.2.79",
     "@types/react-dom": "^18.2.25",
     "@vercel/speed-insights": "^1.0.10",
-    "astro": "^4.6.4",
+    "astro": "^4.7.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.1.7",
