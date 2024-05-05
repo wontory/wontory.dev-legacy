@@ -6,6 +6,7 @@ const blog = defineCollection({
     z.object({
       title: z.string(),
       description: z.string(),
+      category: z.enum(['CS', 'React', 'JavaScript', 'Review']),
       pubDate: z.coerce.date(),
       updatedDate: z.coerce.date().optional(),
       heroImage: image(),
