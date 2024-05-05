@@ -23,7 +23,7 @@ const posts = (await getCollection('project')).sort(
       {
         posts?.map((post) => (
           <a href={`/project/${post.slug}/`} class="w-full">
-            <Card>
+            <Card className="hover:bg-foreground/5 transition group">
               <CardHeader>
                 <AspectRatio
                   ratio={16 / 9}
@@ -33,7 +33,7 @@ const posts = (await getCollection('project')).sort(
                     src={post.data.heroImage}
                     alt={post.data.title}
                     draggable="false"
-                    class="h-full w-full object-cover shadow-lg"
+                    class="h-full w-full object-cover shadow-lg transition-transform group-hover:scale-110"
                   />
                 </AspectRatio>
               </CardHeader>
