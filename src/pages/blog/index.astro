@@ -10,6 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import { HoverEffect } from '@/components/client/card-hover-effect'
 import BaseLayout from '@/layouts/base-layout.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '@/consts'
 
@@ -20,11 +21,11 @@ const posts = (await getCollection('blog'))
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <section>
-    <div class="grid justify-items-center gap-8 md:grid-cols-2">
+    <div class="grid justify-items-center md:grid-cols-2">
       {
-        posts?.map((post) => (
-          <a href={`/blog/${post.slug}/`} class="w-full">
-            <Card className="hover:bg-foreground/5 transition group">
+        posts?.map((post, index) => (
+          <HoverEffect index={index} href={`/blog/${post.slug}/`} client:load>
+            <Card className="relative z-20">
               <CardHeader>
                 <AspectRatio
                   ratio={16 / 9}
@@ -34,7 +35,7 @@ const posts = (await getCollection('blog'))
                     src={post.data.heroImage}
                     alt={post.data.title}
                     draggable="false"
-                    class="h-full w-full object-cover shadow-lg transition-transform group-hover:scale-110"
+                    class="h-full w-full object-cover shadow-lg"
                   />
                 </AspectRatio>
               </CardHeader>
@@ -48,7 +49,7 @@ const posts = (await getCollection('blog'))
                 </CardDescription>
               </CardContent>
             </Card>
-          </a>
+          </HoverEffect>
         ))
       }
     </div>
