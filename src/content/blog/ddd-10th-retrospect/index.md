@@ -1,8 +1,9 @@
 ---
 title: 'DDD 10기 활동 후기'
 description: 'Dynamic하게 성장하기'
+category: 'Review'
 pubDate: '2024/03/03'
-heroImage: './index.png'
+heroImage: './images/index.png'
 draft: true
 ---
 
