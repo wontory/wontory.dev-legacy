@@ -1,12 +1,15 @@
 ---
 import { Image } from 'astro:assets'
 import FormattedDate from '@/components/formatted-date.astro'
+import TocScript from '@/components/toc-script.astro'
+import { Comments } from '@/components/client/comments'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Separator } from '@/components/ui/separator'
 import BaseLayout from '@/layouts/base-layout.astro'
 import '@/styles/mdx.css'
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props
+const { title, description, pubDate, updatedDate, heroImage, toc, comment } =
+  Astro.props
 ---
 
 <BaseLayout {title} {description}>
@@ -44,8 +47,26 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
       </div>
     </div>
     <Separator />
-    <div class="prose m-auto max-w-screen-md">
-      <slot />
+    <div class="relative">
+      {
+        toc && (
+          <aside class="sticky top-36 hidden 2xl:block">
+            <div class="toc absolute -right-64 max-w-60 text-ellipsis px-6">
+              <TocScript />
+            </div>
+          </aside>
+        )
+      }
+      <div class="prose m-auto max-w-screen-md px-8">
+        <slot />
+      </div>
+      {
+        comment && (
+          <div class="m-auto max-w-screen-md px-8">
+            <Comments className="mt-16" client:load />
+          </div>
+        )
+      }
     </div>
   </article>
 </BaseLayout>
