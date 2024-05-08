@@ -20,7 +20,7 @@ const posts = (await getCollection('blog'))
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <section>
+  <section class="mx-auto max-w-screen-lg">
     <div class="grid justify-items-center md:grid-cols-2">
       {
         posts?.map((post, index) => (
