@@ -72,6 +72,6 @@ heroImage: './images/index.png'
 ### Team Member
 
 - Designer : 한나리, 조서현
-- 매니저 : 김도경, 김율아
+- Manager : 김도경, 김율아
 - Web : 신승준, 조성원
 - Server : 신민수, 박경서, 최사라
