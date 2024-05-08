@@ -1,0 +1,12 @@
+<script>
+  import tocbot from 'tocbot'
+
+  document.addEventListener('astro:page-load', () => {
+    tocbot.init({
+      tocSelector: '.toc',
+      contentSelector: '.prose',
+      headingSelector: 'h1, h2, h3, h4',
+      hasInnerContainers: true,
+    })
+  })
+</script>
