@@ -1,0 +1,23 @@
+@tailwind components;
+
+@layer components {
+  .toc {
+    @apply text-primary/60;
+
+    .toc-list {
+      @apply pl-2.5;
+    }
+
+    .is-collapsible {
+      @apply overflow-hidden;
+    }
+
+    .is-collapsed {
+      @apply hidden;
+    }
+
+    .is-active-link {
+      @apply font-medium text-primary;
+    }
+  }
+}

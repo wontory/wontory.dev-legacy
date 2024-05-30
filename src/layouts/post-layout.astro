@@ -7,6 +7,7 @@ import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Separator } from '@/components/ui/separator'
 import BaseLayout from '@/layouts/base-layout.astro'
 import '@/styles/mdx.css'
+import '@/styles/toc.css'
 
 const { title, description, pubDate, updatedDate, heroImage, toc, comment } =
   Astro.props
@@ -50,8 +51,8 @@ const { title, description, pubDate, updatedDate, heroImage, toc, comment } =
     <div class="relative">
       {
         toc && (
-          <aside class="sticky top-36 hidden 2xl:block">
-            <div class="toc absolute -right-64 max-w-60 text-ellipsis px-6">
+          <aside class="sticky top-36 hidden xl:block">
+            <div class="toc absolute -right-56 w-52 text-ellipsis">
               <TocScript />
             </div>
           </aside>
