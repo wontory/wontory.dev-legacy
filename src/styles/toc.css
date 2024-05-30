@@ -2,22 +2,32 @@
 
 @layer components {
   .toc {
-    @apply text-primary/60;
+    @apply text-primary/50;
 
-    .toc-list {
+    > .list {
+      @apply relative overflow-hidden;
+    }
+    .list {
       @apply pl-2.5;
     }
-
-    .is-collapsible {
-      @apply overflow-hidden;
-    }
-
-    .is-collapsed {
+    .collapsed {
       @apply hidden;
     }
 
-    .is-active-link {
-      @apply font-medium text-primary;
+    .link {
+      @apply h-full;
+    }
+    .link::before {
+      @apply absolute left-0 -mt-px inline-block h-full w-0.5 bg-muted;
+
+      content: ' ';
+    }
+
+    .activated {
+      @apply font-semibold text-primary;
+    }
+    .activated::before {
+      @apply bg-primary;
     }
   }
 }

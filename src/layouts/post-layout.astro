@@ -48,11 +48,11 @@ const { title, description, pubDate, updatedDate, heroImage, toc, comment } =
       </div>
     </div>
     <Separator />
-    <div class="relative">
+    <div class="relative w-full">
       {
         toc && (
           <aside class="sticky top-36 hidden xl:block">
-            <div class="toc absolute -right-56 w-52 text-ellipsis">
+            <div class="toc absolute max-w-52 text-ellipsis">
               <TocScript />
             </div>
           </aside>
