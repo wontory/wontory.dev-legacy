@@ -18,9 +18,7 @@
       @apply h-full;
     }
     .link::before {
-      @apply absolute left-0 -mt-px inline-block h-full w-0.5 bg-muted;
-
-      content: ' ';
+      @apply absolute left-0 -mt-px inline-block h-full w-0.5 bg-muted content-['_'];
     }
 
     .activated {
