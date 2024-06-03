@@ -3,6 +3,7 @@ import { Image } from 'astro:assets'
 import { getCollection } from 'astro:content'
 import FormattedDate from '@/components/formatted-date.astro'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
+import { Badge } from '@/components/ui/badge'
 import {
   Card,
   CardContent,
@@ -26,11 +27,14 @@ const posts = (await getCollection('blog'))
         posts?.map((post, index) => (
           <HoverEffect index={index} href={`/blog/${post.slug}/`} client:load>
             <Card className="relative z-20">
-              <CardHeader>
+              <CardHeader className="relative">
                 <AspectRatio
                   ratio={16 / 9}
                   className="bg-muted overflow-hidden rounded-lg border"
                 >
+                  <Badge className="absolute bottom-3 left-3 text-md rounded-md">
+                    {post.data.category}
+                  </Badge>
                   <Image
                     src={post.data.heroImage}
                     alt={post.data.title}
