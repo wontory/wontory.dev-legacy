@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://tech-orbit.wontory.dev/api?tech=TypeScript,MDX,Astro,React,Tailwind%20CSS,shadcn/ui&title=wontory.dev" alt="wontory.dev" />
+</div>
+
 # wontory.dev
 
 Features:
