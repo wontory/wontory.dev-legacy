@@ -8,13 +8,11 @@
     "./code": "./src/code.tsx"
   },
   "scripts": {
-    "lint": "eslint . --max-warnings 0",
-    "generate:component": "turbo gen react-component"
+    "lint": "eslint . --max-warnings 0"
   },
   "devDependencies": {
     "@wontory/eslint-config": "*",
     "@wontory/typescript-config": "*",
-    "@turbo/gen": "^1.12.4",
     "@types/node": "^20.11.24",
     "@types/eslint": "^8.56.5",
     "@types/react": "^18.2.61",
