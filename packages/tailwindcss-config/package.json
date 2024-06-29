@@ -4,6 +4,7 @@
   "private": true,
   "files": [
     "postcss.config.js",
-    "tailwind.config.js"
+    "tailwind.config.js",
+    "globals.css"
   ]
 }
