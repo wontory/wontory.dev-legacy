@@ -4,9 +4,8 @@
   "private": true,
   "exports": {
     "./tailwind.config.ts": "./tailwind.config.ts",
-    "./button": "./src/button.tsx",
-    "./card": "./src/card.tsx",
-    "./code": "./src/code.tsx"
+    "./globals.css": "./src/styles/globals.css",
+    "./*": "./src/components/*/*.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0"
@@ -19,12 +18,14 @@
     "@wontory/eslint-config": "*",
     "@wontory/tailwindcss-config": "*",
     "@wontory/typescript-config": "*",
+    "@wontory/utils": "*",
     "eslint": "^8.57.0",
     "postcss": "^8.4.39",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "class-variance-authority": "^0.7.0",
     "react": "^18.2.0"
   }
 }
