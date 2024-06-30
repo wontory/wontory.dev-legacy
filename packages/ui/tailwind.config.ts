@@ -8,6 +8,7 @@ const config = {
       fontFamily: { sans: ['var(--font-suit)'] },
       colors: {
         background: 'var(--background)',
+        foreground: 'var(--foreground)',
       },
     },
   },

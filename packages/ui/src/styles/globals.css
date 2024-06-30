@@ -5,11 +5,12 @@
 @layer base {
   :root {
     --background: #07080a;
+    --foreground: #ffffff;
   }
 }
 
 @layer base {
   body {
-    @apply bg-background;
+    @apply bg-background text-foreground;
   }
 }
