@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "files": [
-    "postcss.config.js",
-    "tailwind.config.js",
+    "postcss.config.mjs",
+    "tailwind.config.ts",
     "globals.css"
   ]
 }
