@@ -1,1 +1,1 @@
-export * from '@wontory/ui/tailwindcss'
+export { default } from '@wontory/ui/tailwindcss'
