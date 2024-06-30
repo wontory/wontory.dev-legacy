@@ -1,1 +1,1 @@
-module.exports = require('@wontory/tailwindcss-config/tailwind.config')
+export * from '@wontory/ui/tailwindcss'
