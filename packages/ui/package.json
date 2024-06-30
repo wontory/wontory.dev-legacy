@@ -5,6 +5,7 @@
   "exports": {
     "./tailwind.config.ts": "./tailwind.config.ts",
     "./globals.css": "./src/styles/globals.css",
+    "./font/*": "./src/fonts/*.ts",
     "./*": "./src/components/*/*.tsx"
   },
   "scripts": {
