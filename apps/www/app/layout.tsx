@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { cn } from '@wontory/utils/cn'
+import { SUIT } from '@wontory/ui/font/suit'
 import '@wontory/ui/globals.css'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'www.wontory.dev',
@@ -16,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={inter.className}>{children}</body>
+      <body className={cn(SUIT.variable, 'font-sans')}>{children}</body>
     </html>
   )
 }
