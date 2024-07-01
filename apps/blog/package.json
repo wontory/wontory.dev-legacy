@@ -18,6 +18,7 @@
     "@wontory/eslint-config": "*",
     "@wontory/tailwindcss-config": "*",
     "@wontory/typescript-config": "*",
+    "@wontory/util": "*",
     "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",

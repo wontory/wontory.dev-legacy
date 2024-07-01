@@ -19,7 +19,7 @@
     "@wontory/eslint-config": "*",
     "@wontory/tailwindcss-config": "*",
     "@wontory/typescript-config": "*",
-    "@wontory/utils": "*",
+    "@wontory/util": "*",
     "eslint": "^8.57.0",
     "postcss": "^8.4.39",
     "tailwindcss": "^3.4.4",

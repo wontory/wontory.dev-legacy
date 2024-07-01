@@ -12,7 +12,7 @@ This Turborepo includes the following packages/apps:
 - `@wontory/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `@wontory/typescript-config`: `tsconfig.json`s used throughout the monorepo
 - `@wontory/tailwindcss-config`: `tailwind-css` configurations
-- `@wontory/utils`: utility functions collection used throughout the monorepo (includes `cn`)
+- `@wontory/util`: utility functions collection used throughout the monorepo (includes `cn`)
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 

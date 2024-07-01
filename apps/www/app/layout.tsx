@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { cn } from '@wontory/utils/cn'
+import { cn } from '@wontory/util/cn'
 import { SiteHeader } from '@wontory/ui/site-header'
 import { SiteFooter } from '@wontory/ui/site-footer'
 import { Pretendard } from '@wontory/ui/font/pretendard'
