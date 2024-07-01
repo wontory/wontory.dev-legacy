@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./cn": "./cn/index.ts"
+    "./cn": "./src/cn/index.ts"
   },
   "dependencies": {
     "clsx": "^2.1.1",
