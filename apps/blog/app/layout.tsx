@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { cn } from '@wontory/utils/cn'
-import { SUIT } from '@wontory/ui/font/suit'
+import { Pretendard } from '@wontory/ui/font/pretendard'
 import '@wontory/ui/globals.css'
 
 export const metadata: Metadata = {
@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={cn(SUIT.variable, 'font-sans')}>{children}</body>
+      <body className={cn(Pretendard.variable, 'font-sans')}>{children}</body>
     </html>
   )
 }
