@@ -53,6 +53,11 @@ const config = {
         md: `calc(var(--radius) - 2px)`,
         sm: 'calc(var(--radius) - 4px)',
       },
+      boxShadow: {
+        button:
+          '0 0 0 2px hsla(var(--background) / .5), 0 0 14px 0 hsla(var(--background) / .2), inset 0 -1px .5px 0 hsla(var(--background) / .2), inset 0 1px .5px 0 hsl(var(--foreground))',
+        header: 'inset 0 1px 1px 0 hsla(var(--foreground) / .05)',
+      },
       fontFamily: {
         sans: ['var(--font-pretendard)'],
       },

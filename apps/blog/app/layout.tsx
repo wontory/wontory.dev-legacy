@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { cn } from '@wontory/utils/cn'
+import { SiteHeader } from '@wontory/ui/site-header'
 import { Pretendard } from '@wontory/ui/font/pretendard'
 import '@wontory/ui/globals.css'
 
@@ -15,7 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={cn(Pretendard.variable, 'font-sans')}>{children}</body>
+      <body className={cn(Pretendard.variable, 'dark font-sans')}>
+        <SiteHeader />
+        {children}
+      </body>
     </html>
   )
 }
