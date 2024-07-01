@@ -18,9 +18,13 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={cn(Pretendard.variable, 'dark font-sans')}>
-        <SiteHeader />
-        {children}
-        <SiteFooter />
+        <div className="relative flex min-h-screen flex-col">
+          <SiteHeader />
+          <main className="container mt-24 max-w-screen-lg flex-1 px-6">
+            {children}
+          </main>
+          <SiteFooter />
+        </div>
       </body>
     </html>
   )
