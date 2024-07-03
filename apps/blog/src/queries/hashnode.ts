@@ -1,12 +1,7 @@
+import type { Query } from '~/types/query'
 import type { Post } from '~/types/post'
 
-interface Query {
-  query: string
-  variables?: object
-  tags?: Array<string>
-}
-
-export const query = async ({ query, variables, tags }: Query) => {
+export const queryInstance = async ({ query, variables, tags }: Query) => {
   const data = await fetch('https://gql.hashnode.com/', {
     method: 'POST',
     headers: {
@@ -27,7 +22,7 @@ export const query = async ({ query, variables, tags }: Query) => {
 const getAllPosts = async (): Promise<Post[]> => {
   const {
     data: { publication },
-  } = await query({
+  } = await queryInstance({
     query: `
       query($host: String!) {
         publication(host: $host) {
