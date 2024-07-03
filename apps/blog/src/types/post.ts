@@ -1,6 +1,6 @@
 interface Post {
   author: {
-    name: string
+    username: string
     profilePicture: string
     socialMediaLinks: {
       github: string

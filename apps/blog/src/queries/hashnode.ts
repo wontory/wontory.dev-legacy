@@ -31,7 +31,7 @@ const getAllPosts = async (): Promise<Post[]> => {
             edges {
               node {
                 author {
-                  name
+                  username
                   profilePicture
                 }
                 coverImage {
@@ -65,7 +65,7 @@ const getPost = async (slug: string): Promise<Post> => {
         publication(host: $host) {
           post(slug: $slug) {
             author {
-              name
+              username
               profilePicture
               socialMediaLinks {
                 github
