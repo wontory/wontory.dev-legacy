@@ -1,10 +1,22 @@
 interface Post {
-  title: string
-  brief: string
-  slug: string
-  id: string
+  author: {
+    name: string
+    profilePicture: string
+    socialMediaLinks: {
+      github: string
+      linkedin: string
+      website: string
+    }
+  }
+  content: {
+    html: string
+  }
   coverImage: { url: string }
+  id: string
   publishedAt: string
+  slug: string
+  subtitle: string
+  title: string
 }
 
 export type { Post }

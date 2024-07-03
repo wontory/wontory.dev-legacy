@@ -7,6 +7,7 @@ export const queryInstance = async ({ query, variables, tags }: Query) => {
     headers: {
       'Content-Type': 'application/json',
     },
+    cache: 'no-cache',
     body: JSON.stringify({
       query,
       variables,
@@ -29,14 +30,14 @@ const getAllPosts = async (): Promise<Post[]> => {
           posts(first: 10) {
             edges {
               node {
-                title
-                brief
-                slug
-                id
                 coverImage {
                   url
                 }
+                id
                 publishedAt
+                slug
+                subtitle
+                title
               }
             }
           }
@@ -51,4 +52,44 @@ const getAllPosts = async (): Promise<Post[]> => {
   return publication.posts.edges.map(({ node }: { node: Post }) => node)
 }
 
-export { getAllPosts }
+const getPost = async (slug: string): Promise<Post> => {
+  const {
+    data: { publication },
+  } = await queryInstance({
+    query: `
+      query($host: String!, $slug: String!) {
+        publication(host: $host) {
+          post(slug: $slug) {
+            author {
+              name
+              profilePicture
+              socialMediaLinks {
+                github
+                linkedin
+                website
+              }
+            }
+            content {
+              html
+            }
+            coverImage {
+              url
+            }
+            id
+            publishedAt
+            subtitle
+            title
+          }
+        }
+      }
+    `,
+    variables: {
+      host: 'wontory.hashnode.dev',
+      slug,
+    },
+  })
+
+  return publication.post
+}
+
+export { getAllPosts, getPost }

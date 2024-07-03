@@ -17,7 +17,7 @@ function PostCard({ post }: { post: Post }) {
       </div>
       <div className="flex flex-col gap-4 p-8">
         <h2 className="text-lg font-semibold">{post.title}</h2>
-        <p className="text-muted-foreground line-clamp-2">{post.brief}</p>
+        <p className="text-muted-foreground line-clamp-2">{post.subtitle}</p>
         <div className="mt-4 grid grid-cols-2">
           <div className="flex flex-col gap-1.5">
             <span className="text-muted-foreground/70 text-sm">Written by</span>
@@ -27,7 +27,7 @@ function PostCard({ post }: { post: Post }) {
             <span className="text-muted-foreground/70 text-sm">
               Published on
             </span>
-            <div>{format(post.publishedAt, 'PPP')}</div>
+            <div>{format(post.publishedAt, 'MMMM d, yyyy')}</div>
           </div>
         </div>
       </div>
