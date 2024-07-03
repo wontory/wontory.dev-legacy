@@ -20,7 +20,7 @@ export default function RootLayout({
       <body className={cn(Pretendard.variable, 'dark font-sans')}>
         <div className="relative flex min-h-screen flex-col">
           <SiteHeader />
-          <main className="container mt-24 max-w-screen-lg flex-1 px-6">
+          <main className="container max-w-screen-lg flex-1 px-6 pb-32 pt-52">
             {children}
           </main>
           <SiteFooter />
