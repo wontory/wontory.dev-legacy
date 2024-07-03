@@ -30,6 +30,10 @@ const getAllPosts = async (): Promise<Post[]> => {
           posts(first: 10) {
             edges {
               node {
+                author {
+                  name
+                  profilePicture
+                }
                 coverImage {
                   url
                 }

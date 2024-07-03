@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import { format } from 'date-fns'
 
+import { PostInfo } from '~/components/post-info'
 import type { Post } from '~/types/post'
 
 function PostCard({ post }: { post: Post }) {
@@ -15,22 +15,7 @@ function PostCard({ post }: { post: Post }) {
           fill
         />
       </div>
-      <div className="flex flex-col gap-4 p-8">
-        <h2 className="text-lg font-semibold">{post.title}</h2>
-        <p className="text-muted-foreground line-clamp-2">{post.subtitle}</p>
-        <div className="mt-4 grid grid-cols-2">
-          <div className="flex flex-col gap-1.5">
-            <span className="text-muted-foreground/70 text-sm">Written by</span>
-            <div>wontory</div>
-          </div>
-          <div className="flex flex-col gap-1.5">
-            <span className="text-muted-foreground/70 text-sm">
-              Published on
-            </span>
-            <div>{format(post.publishedAt, 'MMMM d, yyyy')}</div>
-          </div>
-        </div>
-      </div>
+      <PostInfo post={post} mode="card" className="p-8" />
     </div>
   )
 }

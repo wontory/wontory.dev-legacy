@@ -1,12 +1,28 @@
 import { format } from 'date-fns'
 import Image from 'next/image'
+import { cn } from '@wontory/util/cn'
 
 import type { Post } from '~/types/post'
 
-function PostHeader({ post }: { post: Post }) {
+function PostInfo({
+  post,
+  mode,
+  className,
+}: {
+  post: Post
+  mode: 'card' | 'header'
+  className?: string
+}) {
   return (
-    <div className="flex w-full flex-col gap-4">
-      <h1 className="text-5xl font-semibold">{post.title}</h1>
+    <div className={cn('flex w-full flex-col gap-4', className)}>
+      <h1
+        className={cn(
+          mode === 'header' ? 'text-5xl' : 'text-lg',
+          'font-semibold',
+        )}
+      >
+        {post.title}
+      </h1>
       <p className="text-muted-foreground line-clamp-2">{post.subtitle}</p>
       <div className="mt-4 grid grid-cols-2">
         <div className="flex flex-col gap-1.5">
@@ -31,4 +47,4 @@ function PostHeader({ post }: { post: Post }) {
   )
 }
 
-export { PostHeader }
+export { PostInfo }
