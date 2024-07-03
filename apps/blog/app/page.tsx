@@ -1,47 +1,14 @@
 import Image from 'next/image'
 import { format } from 'date-fns'
 
-import { query } from '~/queries/hashnode'
-import type { Post } from '~/types/post'
+import { getAllPosts } from '~/queries/hashnode'
 
 export default async function Blog() {
-  const {
-    data: { publication },
-  } = await query({
-    query: `
-      query($host: String!) {
-        publication(host: $host) {
-          posts(first:10) {
-            edges {
-              node {
-                title
-                brief
-                slug
-                id
-                coverImage {
-                  url
-                }
-                publishedAt
-              }
-            }
-          }
-        }
-      }
-    `,
-    variables: {
-      host: 'wontory.hashnode.dev',
-    },
-  })
-
-  const posts: Post[] = publication.posts.edges.map(
-    ({ node }: { node: Post }) => node,
-  )
+  const posts = await getAllPosts()
 
   return (
-    <div className="flex flex-col items-center gap-8">
-      <div className="mt-16 w-full">
-        <h1 className="text-5xl font-semibold">Blog</h1>
-      </div>
+    <div className="flex flex-col gap-8">
+      <h1 className="text-5xl font-semibold">Blog</h1>
       <div className="grid w-full gap-8 md:grid-cols-2">
         {posts.map((post) => (
           <div
