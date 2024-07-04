@@ -1,1 +1,8 @@
-export { default } from '@wontory/tailwindcss-config/postcss.config'
+/** @type {import('postcss-load-config').Config} */
+const config = {
+  plugins: {
+    tailwindcss: {},
+  },
+}
+
+export default config

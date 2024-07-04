@@ -1,1 +1,1 @@
-export { default } from '@wontory/tailwindcss-config/postcss.config.mjs'
+export { default } from '@wontory/ui/postcss.config.mjs'

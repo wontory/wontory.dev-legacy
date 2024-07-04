@@ -1,8 +1,12 @@
 import type { Config } from 'tailwindcss'
-import base from '@wontory/tailwindcss-config/tailwind.config'
 
 const config = {
-  ...base,
+  content: [
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    '../../packages/ui/src/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
   darkMode: ['class'],
   theme: {
     container: {
