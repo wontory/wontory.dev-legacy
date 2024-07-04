@@ -7,7 +7,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
   return (
     <div className="flex flex-col items-center gap-12">
       <PostInfo post={post} mode="header" className="max-w-screen-md" />
-      <hr className="my-3 w-full" />
+      <hr className="my-6 w-full" />
       <div
         dangerouslySetInnerHTML={{
           __html: post.content.html,
