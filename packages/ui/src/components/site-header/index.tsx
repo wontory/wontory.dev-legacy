@@ -13,7 +13,7 @@ export function SiteHeader() {
             <Link href="https://blog.wontory.dev">Blog</Link>
           </div>
           <div className="inline-flex w-1/2 justify-end">
-            <button className="shadow-button text-background hidden rounded-sm bg-neutral-700 px-3 py-2 text-sm font-medium transition-colors duration-200 hover:bg-neutral-900 md:block dark:bg-neutral-200 dark:hover:bg-white">
+            <button className="shadow-button text-background hidden rounded-sm bg-neutral-200 px-3 py-2 text-sm font-medium transition-colors duration-200 hover:bg-white md:block">
               Welcome!
             </button>
           </div>
