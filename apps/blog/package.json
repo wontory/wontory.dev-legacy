@@ -2,6 +2,7 @@
   "name": "blog",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbo --port 3001",
     "build": "next build",
@@ -9,24 +10,23 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@wontory/ui": "*",
+    "@wontory/ui": "workspace:*",
     "date-fns": "^3.6.0",
-    "next": "14.2.4",
-    "react": "^18",
-    "react-dom": "^18"
+    "next": "^14.2.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@wontory/eslint-config": "*",
-    "@wontory/tailwindcss-config": "*",
-    "@wontory/typescript-config": "*",
-    "@wontory/util": "*",
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
+    "@wontory/eslint-config": "workspace:*",
+    "@wontory/typescript-config": "workspace:*",
+    "@wontory/util": "workspace:^",
     "eslint": "^8",
-    "eslint-config-next": "14.2.4"
+    "eslint-config-next": "^14.2.4",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5"
   }
 }
