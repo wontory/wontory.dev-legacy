@@ -26,7 +26,7 @@ function PostInfo({
       <p className="text-muted-foreground line-clamp-2">{post.subtitle}</p>
       <div className="mt-4 grid grid-cols-2 text-sm font-light">
         <div className="flex flex-col gap-1.5">
-          <span className="text-muted-foreground/70">Written by</span>
+          <span className="text-muted-foreground/80">Written by</span>
           <div className="flex gap-4">
             <Image
               src={post.author.profilePicture}
@@ -39,7 +39,7 @@ function PostInfo({
           </div>
         </div>
         <div className="flex flex-col gap-1.5">
-          <span className="text-muted-foreground/70">Published on</span>
+          <span className="text-muted-foreground/80">Published on</span>
           <div>{format(post.publishedAt, 'MMMM d, yyyy')}</div>
         </div>
       </div>
