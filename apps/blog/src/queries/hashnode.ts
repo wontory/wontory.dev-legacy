@@ -7,7 +7,6 @@ export const queryInstance = async ({ query, variables, tags }: Query) => {
     headers: {
       'Content-Type': 'application/json',
     },
-    cache: 'no-cache',
     body: JSON.stringify({
       query,
       variables,
