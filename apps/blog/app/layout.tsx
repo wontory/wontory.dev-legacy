@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { cn } from '@wontory/util/cn'
+import { ReactLenis } from '@wontory/ui/lenis'
 import { SiteHeader } from '@wontory/ui/site-header'
 import { SiteFooter } from '@wontory/ui/site-footer'
 import { Pretendard } from '@wontory/ui/font/pretendard'
@@ -16,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ko" suppressHydrationWarning>
+    <html lang="ko">
       <body className={cn(Pretendard.variable, 'font-sans')}>
         <div className="relative flex min-h-screen flex-col">
           <SiteHeader />
@@ -25,6 +26,7 @@ export default function RootLayout({
           </main>
           <SiteFooter />
         </div>
+        <ReactLenis root />
       </body>
     </html>
   )
