@@ -31,7 +31,7 @@ To build all apps and packages, run the following command:
 
 ```
 cd wontory.dev
-bun run build
+pnpm build
 ```
 
 ### Develop
@@ -40,5 +40,5 @@ To develop all apps and packages, run the following command:
 
 ```
 cd wontory.dev
-bun run dev
+pnpm dev
 ```
