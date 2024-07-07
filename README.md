@@ -1,4 +1,4 @@
-![wontory.dev](https://tech-orbit.wontory.dev/api?title=wontory.dev&tech=Turborepo,PNPM,TypeScript,Next.js,Tailwind%20CSS,MDX&size=900&duration=30)
+![wontory.dev](https://tech-orbit.wontory.dev/api?title=wontory.dev&tech=Turborepo,PNPM,TypeScript,Next.js,Tailwind%20CSS,Hashnode&size=900&duration=30)
 
 ## What's inside?
 
