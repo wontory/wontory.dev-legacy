@@ -12,7 +12,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
         dangerouslySetInnerHTML={{
           __html: post.content.html,
         }}
-        className="prose text-foreground/70 selection:text-muted max-w-screen-md text-xl font-light leading-relaxed selection:bg-white"
+        className="prose text-foreground/70 max-w-screen-md break-all text-xl font-light leading-relaxed"
       />
     </div>
   )
