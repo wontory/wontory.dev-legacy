@@ -9,8 +9,9 @@ function PostCard({ post }: { post: Post }) {
       <div className="relative aspect-video">
         <Image
           src={post.coverImage.url}
-          alt="test"
-          draggable="false"
+          alt={post.title}
+          draggable={false}
+          priority={true}
           className="object-cover"
           fill
         />
