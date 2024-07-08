@@ -28,7 +28,8 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@wontory/lib": "workspace:^",
+    "@wontory/lib": "workspace:*",
+    "next": "^14.2.4",
     "react": "^18.3.1"
   }
 }
