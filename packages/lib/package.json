@@ -4,9 +4,10 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./lenis": "./src/lenis/index.tsx"
+    "./*": "./src/*/index.tsx"
   },
   "dependencies": {
-    "lenis": "^1.1.6"
+    "lenis": "^1.1.6",
+    "next-view-transitions": "^0.2.0"
   }
 }

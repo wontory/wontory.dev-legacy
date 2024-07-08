@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@wontory/lib/next-view-transitions'
 
 import { getAllPosts } from '~/queries/hashnode'
 import { PostCard } from '~/components/post-card'

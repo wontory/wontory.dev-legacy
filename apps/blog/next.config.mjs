@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ['@wontory/ui'],
+  transpilePackages: ['@wontory/lib', '@wontory/ui'],
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
