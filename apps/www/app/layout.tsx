@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
+import { ReactLenis } from '@wontory/lib/lenis'
 import { cn } from '@wontory/util/cn'
-import { ReactLenis } from '@wontory/ui/lenis'
 import { SiteHeader } from '@wontory/ui/site-header'
 import { SiteFooter } from '@wontory/ui/site-footer'
 import { Pretendard } from '@wontory/ui/font/pretendard'

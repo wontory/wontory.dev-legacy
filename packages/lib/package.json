@@ -1,0 +1,12 @@
+{
+  "name": "@wontory/lib",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./lenis": "./src/lenis/index.tsx"
+  },
+  "dependencies": {
+    "lenis": "^1.1.6"
+  }
+}
