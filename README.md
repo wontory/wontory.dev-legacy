@@ -13,6 +13,7 @@ This Turborepo includes the following packages/apps:
 - `@wontory/typescript-config`: `tsconfig.json`s used throughout the monorepo
 - `@wontory/tailwindcss-config`: `tailwind-css` configurations
 - `@wontory/util`: utility functions collection used throughout the monorepo (includes `cn`)
+- `@wontory/lib`: libraries used throughout the monorepo (includes `lenis`, `next-view-transitions`)
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
