@@ -16,7 +16,7 @@ function PostCard({ post }: { post: Post }) {
           fill
         />
       </div>
-      <PostInfo post={post} mode="card" className="p-8" />
+      <PostInfo post={post} className="p-8" />
     </div>
   )
 }

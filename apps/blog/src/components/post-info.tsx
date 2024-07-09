@@ -1,28 +1,30 @@
 import { format } from 'date-fns'
 import Image from 'next/image'
 import { cn } from '@wontory/util/cn'
+import { cva, type VariantProps } from '@wontory/util/cva'
 
 import type { Post } from '~/types/post'
 
+const infoVariants = cva('font-semibold', {
+  variants: {
+    variant: {
+      card: 'text-lg',
+      header: 'text-5xl',
+    },
+  },
+  defaultVariants: {
+    variant: 'card',
+  },
+})
+
 function PostInfo({
   post,
-  mode,
+  variant,
   className,
-}: {
-  post: Post
-  mode: 'card' | 'header'
-  className?: string
-}) {
+}: { post: Post; className?: string } & VariantProps<typeof infoVariants>) {
   return (
     <div className={cn('flex w-full flex-col gap-4', className)}>
-      <h1
-        className={cn(
-          mode === 'header' ? 'text-5xl' : 'text-lg',
-          'font-semibold',
-        )}
-      >
-        {post.title}
-      </h1>
+      <h1 className={cn(infoVariants({ variant }))}>{post.title}</h1>
       <p className="text-muted-foreground line-clamp-2">{post.subtitle}</p>
       <div className="mt-4 grid grid-cols-2 text-sm font-light">
         <div className="flex flex-col gap-1.5">
@@ -47,4 +49,4 @@ function PostInfo({
   )
 }
 
-export { PostInfo }
+export { PostInfo, infoVariants }
