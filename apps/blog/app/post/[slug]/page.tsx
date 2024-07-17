@@ -1,8 +1,12 @@
+import { notFound } from 'next/navigation'
+
 import { getPost } from '~/queries/hashnode'
 import { PostInfo } from '~/components/post-info'
 
 export default async function Post({ params }: { params: { slug: string } }) {
   const post = await getPost(params.slug)
+
+  if (!post) notFound()
 
   return (
     <div className="flex flex-col items-center gap-12">
