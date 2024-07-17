@@ -53,8 +53,6 @@ const getAllPosts = async (): Promise<Post[]> => {
     },
   })
 
-  console.log(publication.posts.edges.map(({ node }: { node: Post }) => node))
-
   return publication.posts.edges.map(({ node }: { node: Post }) => node)
 }
 
