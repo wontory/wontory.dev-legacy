@@ -9,7 +9,7 @@ interface Post {
     }
   }
   content: {
-    html: string
+    markdown: string
   }
   coverImage: { url: string }
   id: string

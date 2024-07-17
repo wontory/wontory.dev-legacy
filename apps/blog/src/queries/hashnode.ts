@@ -74,7 +74,7 @@ const getPost = async (slug: string): Promise<Post> => {
               }
             }
             content {
-              html
+              markdown
             }
             coverImage {
               url
