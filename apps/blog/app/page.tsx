@@ -6,8 +6,6 @@ import { PostCard } from '~/components/post-card'
 export default async function Blog() {
   const posts = await getAllPosts()
 
-  console.log(posts)
-
   return (
     <div className="flex flex-col gap-12">
       <h1 className="text-5xl font-semibold">Blog</h1>
