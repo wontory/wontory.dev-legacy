@@ -83,6 +83,13 @@ const getPost = async (slug: string): Promise<Post> => {
             publishedAt
             subtitle
             title
+            seo {
+              title
+              description
+            }
+            ogMetaData {
+              image
+            }
           }
         }
       }

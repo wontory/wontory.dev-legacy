@@ -17,6 +17,13 @@ interface Post {
   slug: string
   subtitle: string
   title: string
+  seo: {
+    title: string
+    description: string
+  }
+  ogMetaData: {
+    image: string
+  }
 }
 
 export type { Post }

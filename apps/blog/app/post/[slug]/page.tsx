@@ -1,7 +1,26 @@
+import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { getPost } from '~/queries/hashnode'
 import { PostInfo } from '~/components/post-info'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}): Promise<Metadata> {
+  const post = await getPost(params.slug)
+
+  return {
+    title: post.seo.title,
+    description: post.seo.description,
+    openGraph: {
+      title: post.seo.title,
+      description: post.seo.description,
+      images: [post.ogMetaData.image],
+    },
+  }
+}
 
 export default async function Post({ params }: { params: { slug: string } }) {
   const post = await getPost(params.slug)
