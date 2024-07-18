@@ -8,7 +8,7 @@ export function SiteFooter() {
     <div className="border-border/60 flex flex-col items-center gap-24 border-t pb-32 pt-24">
       <div className="container flex w-full max-w-screen-lg flex-col items-center gap-8 text-center md:flex-row md:justify-between">
         <p className="text-muted-foreground">
-          Copyright 2024 Wontory. All rights reserved.
+          Copyright {new Date().getFullYear()} Wontory. All rights reserved.
         </p>
         <div className="flex gap-4">
           <Link href="https://github.com/wontory">
