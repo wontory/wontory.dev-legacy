@@ -4,12 +4,18 @@ import { notFound } from 'next/navigation'
 import { getPost } from '~/queries/hashnode'
 import { PostInfo } from '~/components/post-info'
 
+const fetchPost = async (slug: string) => {
+  const post = await getPost(slug)
+  if (!post) notFound()
+  return post
+}
+
 export async function generateMetadata({
   params,
 }: {
   params: { slug: string }
 }): Promise<Metadata> {
-  const post = await getPost(params.slug)
+  const post = await fetchPost(params.slug)
 
   return {
     title: post.seo.title,
@@ -23,9 +29,7 @@ export async function generateMetadata({
 }
 
 export default async function Post({ params }: { params: { slug: string } }) {
-  const post = await getPost(params.slug)
-
-  if (!post) notFound()
+  const post = await fetchPost(params.slug)
 
   return (
     <div className="flex flex-col items-center gap-12">
