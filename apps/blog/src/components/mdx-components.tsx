@@ -1,3 +1,4 @@
+import { Code } from 'bright'
 import type { MDXComponents } from 'mdx/types'
 
 export const components: MDXComponents = {
@@ -62,13 +63,32 @@ export const components: MDXComponents = {
       {...props}
     />
   ),
+  pre: (props) => (
+    <Code
+      theme={{
+        dark: 'min-dark',
+        light: 'min-light',
+        lightSelector: 'html.light',
+      }}
+      className="rounded"
+      {...props}
+    />
+  ),
   code: (props) => (
     <code
-      className="bg-primary/20 text-primary relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold"
+      className="bg-primary/20 text-primary relative rounded px-[0.3rem] py-[0.2rem] font-sans text-sm font-semibold"
       {...props}
     />
   ),
   small: (props) => (
     <small className="text-sm font-medium leading-none" {...props} />
+  ),
+  img: ({ src, alt }) => (
+    <img
+      className="mx-auto my-6 rounded border shadow-md md:shadow-xl"
+      src={src}
+      alt={alt}
+      draggable={false}
+    />
   ),
 }
