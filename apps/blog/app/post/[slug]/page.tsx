@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import remarkGfm from 'remark-gfm'
 
 import { getPost } from '~/queries/hashnode'
 import { PostInfo } from '~/components/post-info'
@@ -38,7 +39,15 @@ export default async function Post({ params }: { params: { slug: string } }) {
       <PostInfo post={post} variant="header" className="max-w-screen-md" />
       <hr className="my-6 w-full" />
       <div className="max-w-screen-md">
-        <MDXRemote source={post.content.markdown} components={components} />
+        <MDXRemote
+          source={post.content.markdown}
+          components={components}
+          options={{
+            mdxOptions: {
+              remarkPlugins: [remarkGfm],
+            },
+          }}
+        />
       </div>
     </div>
   )
