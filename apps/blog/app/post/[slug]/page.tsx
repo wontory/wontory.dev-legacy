@@ -17,7 +17,7 @@ export async function generateMetadata({
     openGraph: {
       title: post.seo.title,
       description: post.seo.description,
-      images: [post.ogMetaData.image],
+      images: [post.ogMetaData.image ?? post.coverImage],
     },
   }
 }
