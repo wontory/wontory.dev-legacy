@@ -1,4 +1,5 @@
 import { Link } from '@wontory/lib/next-view-transitions'
+import { ModeToggle } from '../mode-toggle'
 
 export function SiteHeader() {
   return (
@@ -18,9 +19,10 @@ export function SiteHeader() {
             <Link href={process.env.NEXT_PUBLIC_BLOG_URL as string}>Blog</Link>
           </div>
           <div className="inline-flex w-1/2 justify-end">
-            <button className="shadow-button text-background rounded-xs hidden bg-neutral-200 px-3 py-2 text-sm font-medium transition-colors duration-200 hover:bg-white md:block">
+            <ModeToggle />
+            {/* <button className="shadow-button text-background rounded-xs hidden bg-neutral-200 px-3 py-2 text-sm font-medium transition-colors duration-200 hover:bg-white md:block">
               Welcome!
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
