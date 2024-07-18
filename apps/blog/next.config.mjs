@@ -1,14 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ['@wontory/lib', '@wontory/ui'],
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-    ],
-  },
-}
+	transpilePackages: ["@wontory/lib", "@wontory/ui", "next-mdx-remote"],
+	images: {
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "**",
+			},
+		],
+	},
+};
 
-export default nextConfig
+export default nextConfig;
