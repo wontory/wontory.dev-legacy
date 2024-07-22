@@ -4,25 +4,25 @@ import type { MDXComponents } from 'mdx/types'
 export const components: MDXComponents = {
   h1: (props) => (
     <h1
-      className="mt-12 scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl"
+      className="text-foreground mt-12 scroll-m-20 text-4xl font-semibold tracking-tight lg:text-5xl"
       {...props}
     />
   ),
   h2: (props) => (
     <h2
-      className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0"
+      className="text-foreground mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0"
       {...props}
     />
   ),
   h3: (props) => (
     <h3
-      className="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight"
+      className="text-foreground mt-8 scroll-m-20 text-2xl font-semibold tracking-tight"
       {...props}
     />
   ),
   h4: (props) => (
     <h4
-      className="mt-6 scroll-m-20 text-xl font-semibold tracking-tight"
+      className="text-foreground mt-6 scroll-m-20 text-xl font-semibold tracking-tight"
       {...props}
     />
   ),
