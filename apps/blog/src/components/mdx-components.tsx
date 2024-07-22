@@ -26,12 +26,7 @@ export const components: MDXComponents = {
       {...props}
     />
   ),
-  p: (props) => (
-    <p
-      className="text-foreground/70 break-all text-xl font-light leading-relaxed [&:not(:first-child)]:mt-6"
-      {...props}
-    />
-  ),
+  p: (props) => <p className="[&:not(:first-child)]:mt-6" {...props} />,
   blockquote: (props) => (
     <blockquote className="mt-6 border-l-2 pl-6 italic" {...props} />
   ),
@@ -53,10 +48,9 @@ export const components: MDXComponents = {
       {...props}
     />
   ),
-  ul: (props) => <ul className="my-6 ml-6 list-disc [&>li]:mt-2" {...props} />,
-  ol: (props) => (
-    <ol className="my-6 ml-6 list-decimal [&>li]:mt-2" {...props} />
-  ),
+  ul: (props) => <ul className="my-6 ml-6 list-disc" {...props} />,
+  ol: (props) => <ol className="my-6 ml-6 list-decimal" {...props} />,
+  li: (props) => <li className="mt-2 [&>ol]:my-0 [&>ul]:my-0" {...props} />,
   a: (props) => (
     <a
       className="text-primary hover:text-foreground transition-colors duration-500"
