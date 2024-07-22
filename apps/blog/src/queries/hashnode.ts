@@ -20,29 +20,27 @@ export const queryInstance = async ({ query, variables, tags }: Query) => {
   return data
 }
 
-const getAllPosts = async (): Promise<Post[]> => {
+const getAllPosts = async (page: number): Promise<Post[]> => {
   const {
     data: { publication },
   } = await queryInstance({
     query: `
-      query($host: String!) {
+      query ($host: String!, $page: Int!) {
         publication(host: $host) {
-          posts(first: 10) {
-            edges {
-              node {
-                author {
-                  username
-                  profilePicture
-                }
-                coverImage {
-                  url
-                }
-                id
-                publishedAt
-                slug
-                subtitle
-                title
+          postsViaPage(pageSize: 10, page: $page) {
+            nodes {
+              author {
+                username
+                profilePicture
               }
+              coverImage {
+                url
+              }
+              id
+              publishedAt
+              slug
+              subtitle
+              title
             }
           }
         }
@@ -50,10 +48,11 @@ const getAllPosts = async (): Promise<Post[]> => {
     `,
     variables: {
       host: 'wontory.hashnode.dev',
+      page,
     },
   })
 
-  return publication.posts.edges.map(({ node }: { node: Post }) => node)
+  return publication.postsViaPage.nodes.map((node: Post) => node)
 }
 
 const getPost = async (slug: string): Promise<Post> => {

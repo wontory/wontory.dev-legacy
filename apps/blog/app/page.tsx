@@ -4,7 +4,7 @@ import { getAllPosts } from '~/queries/hashnode'
 import { PostCard } from '~/components/post-card'
 
 export default async function Blog() {
-  const posts = await getAllPosts()
+  const posts = await getAllPosts(1)
 
   return (
     <div className="flex flex-col gap-12">
