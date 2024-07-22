@@ -27,7 +27,7 @@ const getAllPosts = async (page: number): Promise<Post[]> => {
     query: `
       query ($host: String!, $page: Int!) {
         publication(host: $host) {
-          postsViaPage(pageSize: 10, page: $page) {
+          postsViaPage(pageSize: 20, page: $page) {
             nodes {
               author {
                 username
