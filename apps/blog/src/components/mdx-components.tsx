@@ -79,7 +79,7 @@ export const components: MDXComponents = {
   ),
   img: ({ src, alt }) => (
     <img
-      className="mx-auto my-6 rounded border shadow-md md:shadow-xl"
+      className="mx-auto my-12 rounded border shadow-md md:shadow-xl"
       src={src}
       alt={alt}
       draggable={false}
