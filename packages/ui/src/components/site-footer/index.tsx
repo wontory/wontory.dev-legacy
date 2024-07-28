@@ -12,13 +12,13 @@ export function SiteFooter() {
         </p>
         <div className="flex gap-4">
           <Link href="https://github.com/wontory">
-            <GitHubIcon className="text-muted-foreground transition-colors duration-200 hover:text-white" />
+            <GitHubIcon className="text-muted-foreground hover:text-foreground transition-colors duration-200" />
           </Link>
           <Link href="https://www.linkedin.com/in/wontory">
-            <LinkedInIcon className="text-muted-foreground transition-colors duration-200 hover:text-white" />
+            <LinkedInIcon className="text-muted-foreground hover:text-foreground transition-colors duration-200" />
           </Link>
           <Link href="mailto:devwontory@gmail.com">
-            <GmailIcon className="text-muted-foreground transition-colors duration-200 hover:text-white" />
+            <GmailIcon className="text-muted-foreground hover:text-foreground transition-colors duration-200" />
           </Link>
         </div>
       </div>
