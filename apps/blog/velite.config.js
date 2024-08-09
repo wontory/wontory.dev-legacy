@@ -1,7 +1,7 @@
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import { defineCollection, defineConfig, s } from 'velite'
-import rehypeSlug from 'rehype-slug'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 
 // const computedFields = <T extends { slug: string }>(data: T) => ({
 //   ...data,

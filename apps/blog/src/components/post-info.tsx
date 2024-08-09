@@ -1,8 +1,8 @@
-import { Fragment } from 'react'
+import { cn } from '@wontory/util/cn'
+import { type VariantProps, cva } from '@wontory/util/cva'
 import { format } from 'date-fns'
 import Image from 'next/image'
-import { cn } from '@wontory/util/cn'
-import { cva, type VariantProps } from '@wontory/util/cva'
+import { Fragment } from 'react'
 
 import type { Post } from '#site/content'
 import { authors as allAuthors } from '#site/content'
@@ -31,8 +31,8 @@ function PostInfo({
   return (
     <div className={cn('flex w-full flex-col gap-4', className)}>
       <h1 className={cn(infoVariants({ variant }))}>{post.title}</h1>
-      <p className="text-muted-foreground line-clamp-2">{post.description}</p>
-      <div className="mt-4 grid grid-cols-2 text-sm font-light">
+      <p className="line-clamp-2 text-muted-foreground">{post.description}</p>
+      <div className="mt-4 grid grid-cols-2 font-light text-sm">
         <div className="flex flex-col gap-1.5">
           <span className="text-muted-foreground/80">Written by</span>
           <div className="flex gap-4">

@@ -1,5 +1,5 @@
-import type { Config } from 'tailwindcss'
 import base from '@wontory/ui/tailwind.config.ts'
+import type { Config } from 'tailwindcss'
 
 const config = {
   ...base,

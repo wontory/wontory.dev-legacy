@@ -4,31 +4,31 @@ import type { MDXComponents } from 'mdx/types'
 export const components: MDXComponents = {
   h1: (props) => (
     <h1
-      className="text-foreground mt-12 scroll-m-20 text-4xl font-semibold tracking-tight lg:text-5xl"
+      className="mt-12 scroll-m-20 font-semibold text-4xl text-foreground tracking-tight lg:text-5xl"
       {...props}
     />
   ),
   h2: (props) => (
     <h2
-      className="text-foreground mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0"
+      className="mt-10 scroll-m-20 border-b pb-2 font-semibold text-3xl text-foreground tracking-tight first:mt-0"
       {...props}
     />
   ),
   h3: (props) => (
     <h3
-      className="text-foreground mt-8 scroll-m-20 text-2xl font-semibold tracking-tight"
+      className="mt-8 scroll-m-20 font-semibold text-2xl text-foreground tracking-tight"
       {...props}
     />
   ),
   h4: (props) => (
     <h4
-      className="text-foreground mt-6 scroll-m-20 text-xl font-semibold tracking-tight"
+      className="mt-6 scroll-m-20 font-semibold text-foreground text-xl tracking-tight"
       {...props}
     />
   ),
   p: (props) => <p className="[&:not(:first-child)]:mt-6" {...props} />,
   strong: (props) => (
-    <strong className="text-foreground font-medium" {...props} />
+    <strong className="font-medium text-foreground" {...props} />
   ),
   blockquote: (props) => (
     <blockquote className="mt-6 border-l-2 pl-6 italic" {...props} />
@@ -38,7 +38,7 @@ export const components: MDXComponents = {
       <table className="w-full" {...props} />
     </div>
   ),
-  tr: (props) => <tr className="even:bg-muted m-0 border-t p-0" {...props} />,
+  tr: (props) => <tr className="m-0 border-t p-0 even:bg-muted" {...props} />,
   th: (props) => (
     <th
       className="border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right"
@@ -56,7 +56,7 @@ export const components: MDXComponents = {
   li: (props) => <li className="mt-2 [&>ol]:my-0 [&>ul]:my-0" {...props} />,
   a: (props) => (
     <a
-      className="text-primary hover:text-foreground transition-colors duration-500"
+      className="text-primary transition-colors duration-500 hover:text-foreground"
       {...props}
     />
   ),
@@ -73,12 +73,12 @@ export const components: MDXComponents = {
   ),
   code: (props) => (
     <code
-      className="bg-primary/20 text-primary relative rounded px-[0.3rem] py-[0.2rem] font-sans text-sm font-semibold"
+      className="relative rounded bg-primary/20 px-[0.3rem] py-[0.2rem] font-sans font-semibold text-primary text-sm"
       {...props}
     />
   ),
   small: (props) => (
-    <small className="text-sm font-medium leading-none" {...props} />
+    <small className="font-medium text-sm leading-none" {...props} />
   ),
   img: ({ src, alt }) => (
     <img

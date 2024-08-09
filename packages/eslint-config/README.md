@@ -1,1 +1,0 @@
-# `@wontory/eslint-config`
