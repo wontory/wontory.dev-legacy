@@ -2,7 +2,8 @@
   "extends": "@wontory/typescript-config/nextjs.json",
   "compilerOptions": {
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "#site/content": ["./.velite"]
     },
     "plugins": [
       {

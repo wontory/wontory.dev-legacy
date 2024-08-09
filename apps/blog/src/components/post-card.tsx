@@ -1,14 +1,14 @@
 import Image from 'next/image'
 
+import type { Post } from '#site/content'
 import { PostInfo } from '~/components/post-info'
-import type { Post } from '~/types/post'
 
 function PostCard({ post }: { post: Post }) {
   return (
     <div className="bg-background hover:bg-foreground/5 hover:border-border border-border/80 flex flex-col overflow-hidden rounded-md border transition-colors duration-200">
       <div className="relative aspect-video">
         <Image
-          src={post.coverImage.url}
+          src={post.image}
           alt={post.title}
           draggable={false}
           priority={true}
