@@ -1,6 +1,6 @@
 'use client'
 
-import { SunIcon, MoonIcon } from 'lucide-react'
+import { MoonIcon, SunIcon } from 'lucide-react'
 
 import { useTheme } from '@wontory/lib/next-themes'
 
@@ -14,10 +14,10 @@ export function ModeToggle() {
   return (
     <button
       type="button"
-      className="shadow-button text-background rounded-xs hidden bg-neutral-700 px-3 py-2 text-sm font-medium transition-colors duration-200 hover:bg-neutral-900 md:flex md:items-center md:justify-center dark:bg-neutral-200 dark:hover:bg-white"
+      className="hidden rounded-xs bg-neutral-700 px-3 py-2 font-medium text-background text-sm shadow-button transition-colors duration-200 hover:bg-neutral-900 md:flex md:items-center md:justify-center dark:bg-neutral-200 dark:hover:bg-white"
       onClick={handleModeToggle}
     >
-      <SunIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+      <SunIcon className="dark:-rotate-90 h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:scale-0" />
       <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
     </button>
   )

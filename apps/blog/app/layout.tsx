@@ -1,11 +1,11 @@
-import type { Metadata } from 'next'
-import { ViewTransitions } from '@wontory/lib/next-view-transitions'
 import { ReactLenis } from '@wontory/lib/lenis'
-import { cn } from '@wontory/util/cn'
-import { ThemeProvider } from '@wontory/ui/theme-provider'
-import { SiteHeader } from '@wontory/ui/site-header'
-import { SiteFooter } from '@wontory/ui/site-footer'
+import { ViewTransitions } from '@wontory/lib/next-view-transitions'
 import { Pretendard } from '@wontory/ui/font/pretendard'
+import { SiteFooter } from '@wontory/ui/site-footer'
+import { SiteHeader } from '@wontory/ui/site-header'
+import { ThemeProvider } from '@wontory/ui/theme-provider'
+import { cn } from '@wontory/util/cn'
+import type { Metadata } from 'next'
 import '@wontory/ui/globals.css'
 
 export const metadata: Metadata = {

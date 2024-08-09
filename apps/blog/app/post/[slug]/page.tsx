@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
-import * as runtime from 'react/jsx-runtime'
 import { notFound } from 'next/navigation'
+import * as runtime from 'react/jsx-runtime'
 
-import { PostInfo } from '~/components/post-info'
 import { components } from '~/components/mdx-components'
+import { PostInfo } from '~/components/post-info'
 import { posts as allPosts } from '#site/content'
 
 async function getPostFromParams(params: { slug: string }) {
@@ -51,7 +51,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
     <div className="flex flex-col items-center gap-12">
       <PostInfo post={post} variant="header" className="max-w-screen-md" />
       <hr className="my-6 w-full" />
-      <div className="text-foreground/70 max-w-screen-md break-all text-xl leading-relaxed">
+      <div className="max-w-screen-md break-all text-foreground/70 text-xl leading-relaxed">
         <MDXContent components={components} />
       </div>
     </div>
