@@ -3,7 +3,12 @@ import { defineCollection, defineConfig, s } from 'velite'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 
-const computedFields = <T extends { slug: string }>(data: T) => ({
+// const computedFields = <T extends { slug: string }>(data: T) => ({
+//   ...data,
+//   slugAsParams: data.slug.split('/').slice(1).join('/'),
+// })
+
+const computedFields = (data) => ({
   ...data,
   slugAsParams: data.slug.split('/').slice(1).join('/'),
 })
@@ -41,7 +46,7 @@ const authors = defineCollection({
     .transform(computedFields),
 })
 
-const config = defineConfig({
+export default defineConfig({
   root: 'content',
   output: {
     data: '.velite',
@@ -67,5 +72,3 @@ const config = defineConfig({
     ],
   },
 })
-
-export default config
