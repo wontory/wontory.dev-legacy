@@ -4,6 +4,7 @@ import * as runtime from 'react/jsx-runtime'
 
 import { components } from '~/components/mdx-components'
 import { PostInfo } from '~/components/post-info'
+import { TableOfContents } from '~/components/toc'
 import { posts as allPosts } from '#site/content'
 
 async function getPostFromParams(params: { slug: string }) {
@@ -53,6 +54,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
       <hr className="my-6 w-full" />
       <div className="max-w-screen-md break-all text-foreground/70 text-xl leading-relaxed">
         <MDXContent components={components} />
+        {/* <TableOfContents toc={post.toc} /> */}
       </div>
     </div>
   )
