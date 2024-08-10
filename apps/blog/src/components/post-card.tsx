@@ -9,6 +9,7 @@ function PostCard({ post }: { post: Post }) {
       <div className="relative aspect-video">
         <Image
           src={post.image}
+          blurDataURL={post.image.blurDataURL}
           alt={post.title}
           draggable={false}
           priority={true}
