@@ -3,12 +3,7 @@ import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import { defineCollection, defineConfig, s } from 'velite'
 
-// const computedFields = <T extends { slug: string }>(data: T) => ({
-//   ...data,
-//   slugAsParams: data.slug.split('/').slice(1).join('/'),
-// })
-
-const computedFields = (data) => ({
+const computedFields = <T extends { slug: string }>(data: T) => ({
   ...data,
   slugAsParams: data.slug.split('/').slice(1).join('/'),
 })
