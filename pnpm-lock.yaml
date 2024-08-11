@@ -94,6 +94,49 @@ importers:
         specifier: ^0.1.1
         version: 0.1.1
 
+  apps/craft:
+    dependencies:
+      '@wontory/lib':
+        specifier: workspace:*
+        version: link:../../packages/lib
+      '@wontory/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      next:
+        specifier: ^14.2.4
+        version: 14.2.4(react-dom@18.3.1)(react@18.3.1)
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
+    devDependencies:
+      '@types/node':
+        specifier: ^20
+        version: 20.14.10
+      '@types/react':
+        specifier: ^18
+        version: 18.3.3
+      '@types/react-dom':
+        specifier: ^18
+        version: 18.3.0
+      '@wontory/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
+      '@wontory/util':
+        specifier: workspace:*
+        version: link:../../packages/util
+      postcss:
+        specifier: ^8.4.39
+        version: 8.4.39
+      tailwindcss:
+        specifier: ^3.4.4
+        version: 3.4.4
+      typescript:
+        specifier: ^5
+        version: 5.5.3
+
   apps/www:
     dependencies:
       '@wontory/lib':
