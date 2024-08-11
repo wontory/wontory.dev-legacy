@@ -10,6 +10,7 @@ function PostCard({ post }: { post: Post }) {
         <Image
           src={post.image}
           blurDataURL={post.image.blurDataURL}
+          placeholder="blur"
           alt={post.title}
           draggable={false}
           priority={true}
