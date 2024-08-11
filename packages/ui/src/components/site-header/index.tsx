@@ -16,10 +16,11 @@ export function SiteHeader() {
           </div>
           <div className="hidden shrink-0 gap-4 md:inline-flex [&>a:hover]:text-foreground [&>a]:px-2 [&>a]:py-3 [&>a]:font-medium [&>a]:text-muted-foreground/90 [&>a]:text-sm [&>a]:transition-colors [&>a]:duration-200">
             <Link href={process.env.NEXT_PUBLIC_WWW_URL as string}>Home</Link>
-            <Link href={process.env.NEXT_PUBLIC_BLOG_URL as string}>Blog</Link>
+            <Link href={process.env.NEXT_PUBLIC_CV_URL as string}>CV</Link>
             <Link href={process.env.NEXT_PUBLIC_CRAFT_URL as string}>
               Craft
             </Link>
+            <Link href={process.env.NEXT_PUBLIC_BLOG_URL as string}>Blog</Link>
           </div>
           <div className="inline-flex w-1/2 justify-end">
             <ModeToggle />
